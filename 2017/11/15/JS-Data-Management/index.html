@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>[JS] Data Management | Ryan Lee</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="" />
+    
+    <meta name="description" content="JSONJSON is a syntax for storing and exchanging data. JSON is text, and we can convert any JavaScript object into JSON, and send JSON to the server. If you receive data in JSON format, you can convert">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[JS] Data Management">
+<meta property="og:url" content="https://shlee1353.github.io/2017/11/15/JS-Data-Management/index.html">
+<meta property="og:site_name" content="Ryan Lee">
+<meta property="og:description" content="JSONJSON is a syntax for storing and exchanging data. JSON is text, and we can convert any JavaScript object into JSON, and send JSON to the server. If you receive data in JSON format, you can convert">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/785/0*Co9Hk-VtMLfM08KH.png">
+<meta property="og:updated_time" content="2017-11-15T05:10:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[JS] Data Management">
+<meta name="twitter:description" content="JSONJSON is a syntax for storing and exchanging data. JSON is text, and we can convert any JavaScript object into JSON, and send JSON to the server. If you receive data in JSON format, you can convert">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/785/0*Co9Hk-VtMLfM08KH.png">
+    
+
+    
+        <link rel="alternate" href="/" title="Ryan Lee" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    uncategorized
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-JS-Data-Management" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [JS] Data Management
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/11/15/JS-Data-Management/" class="article-date">
+            <time datetime="2017-11-15T05:08:41.000Z" itemprop="datePublished">2017-11-15</time>
+        </a>
+    </div>
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><p>JSON is a syntax for storing and exchanging data. JSON is text, and we can convert any JavaScript object into JSON, and send JSON to the server. If you receive data in JSON format, you can convert it into a JavaScript object:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myObj = &#123; <span class="string">"name"</span>:<span class="string">"John"</span>, <span class="string">"age"</span>:<span class="number">31</span>, <span class="string">"city"</span>:<span class="string">"New York"</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> myJSON = <span class="built_in">JSON</span>.stringify(myObj);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myJSON = <span class="string">'&#123; "name":"John", "age":31, "city":"New York" &#125;'</span>;</span><br><span class="line"><span class="keyword">var</span> myObj = <span class="built_in">JSON</span>.parse(myJSON);</span><br></pre></td></tr></table></figure></p>
+<h3 id="For-in-loop"><a href="#For-in-loop" class="headerlink" title="For..in loop"></a>For..in loop</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> charactersBooks = &#123;</span><br><span class="line">    Frodo: <span class="string">"Lord of the Rings"</span>,</span><br><span class="line">    Aslan: <span class="string">"Chronicles of Narnia"</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> characters = [ ];</span><br><span class="line"><span class="keyword">var</span> title = [ ];</span><br><span class="line"></span><br><span class="line"><span class="comment">// get key</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> charactersBooks) &#123;</span><br><span class="line">    <span class="keyword">if</span> (charactersBooks.hasOwnProperty(key)) &#123;</span><br><span class="line">        characters.push(key);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// get value</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> charactersBooks) &#123;</span><br><span class="line">    <span class="keyword">if</span> (charactersBooks.hasOwnProperty(key)) &#123;</span><br><span class="line">        title.push(charactersBooks[key]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// result</span></span><br><span class="line"><span class="built_in">console</span>.log(characters); <span class="comment">// ["Frodo", "Aslan"]</span></span><br><span class="line"><span class="built_in">console</span>.log(title); <span class="comment">// ["Lord of the Rings", "Chronicles of Narnia"]</span></span><br></pre></td></tr></table></figure>
+<p>charactersBooks 이라는 객체가 있습니다. 이 객체는 주인공과 책 제목을 프로퍼티로 가지고 있습니다. 이제 characters와 title 두 배열에 주인공과 책 제목을 추가 하도록 하겠습니다. 객체의 key와  value값을 가져오는 방법은 매우 다양합니다. 저희가 사용할 방법은 <strong>for..in</strong> 반복문 입니다. 반복문과 함께 <strong>hasOwnProperty</strong>도 사용하도록 하겠습니다. 이 메소드는 객체가 특정 프로퍼티를 자기만의 직접적인 프로퍼티로서 소유하고 있는지를 판단하는데 사용됩니다.  <strong>in</strong> 연산과는 다르게, 이 메소드는 객체의 프로토타입 체인을 확인하지 않습니다. (<a href="http://adripofjavascript.com/blog/drips/the-uses-of-in-vs-hasownproperty.html" target="_blank" rel="external">in과 hasOwnProperty 사용법</a>)</p>
+<h3 id="Merge-two-arrays"><a href="#Merge-two-arrays" class="headerlink" title="Merge two arrays"></a>Merge two arrays</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> characters = [<span class="string">"Frodo"</span>, <span class="string">"Aslan"</span>];</span><br><span class="line"><span class="keyword">var</span> title =  [<span class="string">"Lord of the Rings"</span>, <span class="string">"Chronicles of Narnia"</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.push.apply(characters, title);</span><br><span class="line"><span class="built_in">console</span>.log(characters); </span><br><span class="line"><span class="comment">// ["Frodo", "Aslan", "Lord of the Rings", "Chronicles of Narnia"]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> characterList = characters.concat(title);</span><br><span class="line"><span class="built_in">console</span>.log(characterList); </span><br><span class="line"><span class="comment">// ["Frodo", "Aslan", "Lord of the Rings", "Chronicles of Narnia"]</span></span><br></pre></td></tr></table></figure>
+<p>두 배열을 하나의 배열로 만드는 방법 중 하나는 기존에 있던 배열에 새로운 배열을 추가하는 방법이 있습니다. 다른 하나는 두 배열을 합쳐 새로운 배열을 만드는 방법이 있습니다. 기존 배열에 추가를 할 때는Array.prototype.push.apply(thisArg, [argsArray])를 사용합니다. apply() 메소드는 주어진 this값과 arguments로 함수를 호출합니다. arguments에는 배열 또는 유사배열객체가 올 수 있으며 함수를 호출할때 입력된 이자가 담겨져 있습니다. 함수에 전달될 여러 개의 인자를 받는 call()구문과 유사합니다. <a href="http://devbox.tistory.com/entry/JavaScript-arguments%EC%9C%A0%EC%82%AC-%EB%B0%B0%EC%97%B4-%EA%B0%9D%EC%B2%B4" target="_blank" rel="external">arguments</a>가 유사배열이기 때문에 push()를 사용할 수가 없어서 Array.prototype에 있는 push()를 불러와야 합니다.</p>
+<p>만약, 배열 안에 있는 문자열을 합치려면 +=, join(), concat()을 사용하시면 됩니다. <a href="https://www.codeschool.com/discuss/t/string-concatenation-join-v-v-concat/5307" target="_blank" rel="external">브라우저 속도 차이</a>가 있기 때문에 필요에 맞게 사용하시면 됩니다. 일반적으로는 += 를 사용하는 것이 성능상 좋다고 합니다.</p>
+<p><a href="https://www.zerocho.com/category/Javascript/post/57433645a48729787807c3fd" target="_blank" rel="external">https://www.zerocho.com/category/Javascript/post/57433645a48729787807c3fd</a></p>
+<h3 id="Converting-a-JS-object-to-an-array"><a href="#Converting-a-JS-object-to-an-array" class="headerlink" title="Converting a JS object to an array"></a>Converting a JS object to an array</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> charactersBooks = &#123;</span><br><span class="line">    Frodo: <span class="string">"Lord of the Rings"</span>,</span><br><span class="line">    Aslan: <span class="string">"Chronicles of Narnia"</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arrayCharacters = <span class="built_in">Object</span>.keys(charactersBooks).map(<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;[key]: charactersBooks[key]&#125;;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arrayCharacters); <span class="comment">// [Object, Object]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> length = <span class="built_in">Object</span>.keys(arrayCharacters).length;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(length);</span><br></pre></td></tr></table></figure>
+<p>지금까지 객체의 key값과 value값을 가져와 각각의 빈 배열에 추가하는 방법을 알아봤습니다. 이제는 객체 전체를 배열로 한번에 전환하는 방법을 알아 보도록 하겠습니다. Object.keys().map()을 사용하시면 됩니다. Object.keys() 메소드는 객체의 열거할 수 있는 속성값이 담긴 배열을 리턴합니다. 리턴된 배열은 map()을 통해 조건에 부합하는 새로운 배열을 생성합니다. 이렇게 생선된 배열은 arrayCharacters로 정의된 변수에 저장됩니다. 아래는 map()을 사용해서 객체에 담긴 firstname과 lastname을 가져와 join()을 사용해서 fullname으로 출력하는 방법입니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> persons = [</span><br><span class="line">    &#123;<span class="attr">firstname</span> : <span class="string">"Malcom"</span>, <span class="attr">lastname</span>: <span class="string">"Reynolds"</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">firstname</span> : <span class="string">"Kaylee"</span>, <span class="attr">lastname</span>: <span class="string">"Frye"</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">firstname</span> : <span class="string">"Jayne"</span>, <span class="attr">lastname</span>: <span class="string">"Cobb"</span>&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFullName</span>(<span class="params">item, index</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// join() method joins the elements of an array into a string, and returns the string.</span></span><br><span class="line">    <span class="keyword">var</span> fullname = [item.firstname,item.lastname].join(<span class="string">" "</span>);</span><br><span class="line">    <span class="keyword">return</span> fullname;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML = persons.map(getFullName);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Creating-an-array-of-objects"><a href="#Creating-an-array-of-objects" class="headerlink" title="Creating an array of objects"></a>Creating an array of objects</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> journal = [];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEntry</span>(<span class="params">events, didITurnIntoASquirrel</span>) </span>&#123;</span><br><span class="line">	journal.push(&#123;</span><br><span class="line">		events: events,</span><br><span class="line">		squirrel: didITurnIntoASquirrel</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addEntry([<span class="string">"work"</span>, <span class="string">"touched tree"</span>, <span class="string">"pizza"</span>, <span class="string">"running"</span>, <span class="string">"television"</span>], <span class="literal">false</span>);</span><br><span class="line">addEntry([<span class="string">"work"</span>, <span class="string">"touched tree"</span>, <span class="string">"pizza"</span>, <span class="string">"running"</span>, <span class="string">"television"</span>], <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="call-apply-bind"><a href="#call-apply-bind" class="headerlink" title="call, apply, bind"></a>call, apply, bind</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> example = <span class="function"><span class="keyword">function</span> (<span class="params">a, b, c</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b + c;</span><br><span class="line">&#125;;</span><br><span class="line">example(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">example.call(<span class="literal">null</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">example.apply(<span class="literal">null</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// call()</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  string: <span class="string">'zero'</span>,</span><br><span class="line">  yell: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.string);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">  string: <span class="string">'what?'</span></span><br><span class="line">&#125;;</span><br><span class="line">obj.yell(); <span class="comment">// 'zero';</span></span><br><span class="line">obj.yell.call(obj2); <span class="comment">// 'what?'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// bind()</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  string: <span class="string">'zero'</span>,</span><br><span class="line">  yell: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.string);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">  string: <span class="string">'what?'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> yell2 = obj.yell.bind(obj2);</span><br><span class="line">yell2(); <span class="comment">// 'what?'</span></span><br></pre></td></tr></table></figure>
+<p>참고</p>
+<ul>
+<li><a href="http://blog.kazikai.net/?p=16" target="_blank" rel="external">http://blog.kazikai.net/?p=16</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://shlee1353.github.io/2017/11/15/JS-Data-Management/" data-id="cja0ltl3k0001w0dycns6r37y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/11/15/Node-Express-Server/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [Node] Express Server
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/11/15/JS-Inheritance-in-JavaScript/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[JS] Inheritance in JavaScript</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/15/Angular-Lifecycle-Hooks/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.jamesqquick.com/wp-content/uploads/2017/07/angular-js.jpg)" alt="[Angular] Lifecycle Hooks" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/15/Angular-Lifecycle-Hooks/" class="title">[Angular] Lifecycle Hooks</a></p>
+                            <p class="item-date"><time datetime="2017-11-15T05:15:26.000Z" itemprop="datePublished">2017-11-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/15/Node-Express-Server/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/nodejs-frameworks.png)" alt="[Node] Express Server" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/15/Node-Express-Server/" class="title">[Node] Express Server</a></p>
+                            <p class="item-date"><time datetime="2017-11-15T05:12:33.000Z" itemprop="datePublished">2017-11-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/15/JS-Data-Management/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://cdn-images-1.medium.com/max/785/0*Co9Hk-VtMLfM08KH.png)" alt="[JS] Data Management" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/15/JS-Data-Management/" class="title">[JS] Data Management</a></p>
+                            <p class="item-date"><time datetime="2017-11-15T05:08:41.000Z" itemprop="datePublished">2017-11-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/15/JS-Inheritance-in-JavaScript/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://cdn-images-1.medium.com/max/785/0*Co9Hk-VtMLfM08KH.png)" alt="[JS] Inheritance in JavaScript" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/15/JS-Inheritance-in-JavaScript/" class="title">[JS] Inheritance in JavaScript</a></p>
+                            <p class="item-date"><time datetime="2017-11-15T01:43:45.000Z" itemprop="datePublished">2017-11-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/15/React-Redux-Core-Concept/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://reactjs.org/logo-og.png)" alt="[React] Redux Core Concept" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/15/React-Redux-Core-Concept/" class="title">[React] Redux Core Concept</a></p>
+                            <p class="item-date"><time datetime="2017-11-15T01:38:31.000Z" itemprop="datePublished">2017-11-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2017 Ryan Lee</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://shlee1353.github.io/2017/11/15/JS-Data-Management/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
