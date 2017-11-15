@@ -7,6 +7,30 @@
     </url>
 
     <url>
+        <loc>https://shlee1353.github.io/2017/11/15/React-Redux-Core-Concept/</loc>
+        <lastmod>2017-11-15T07:35:32.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2017/11/15/Node-Express-Server/</loc>
+        <lastmod>2017-11-15T07:35:26.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2017/11/15/JS-Inheritance-in-JavaScript/</loc>
+        <lastmod>2017-11-15T07:35:20.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://shlee1353.github.io/2017/11/15/Angular-Lifecycle-Hooks/</loc>
         <lastmod>2017-11-15T07:29:42.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -15,32 +39,8 @@
     </url>
 
     <url>
-        <loc>https://shlee1353.github.io/2017/11/15/Node-Express-Server/</loc>
-        <lastmod>2017-11-15T05:13:34.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://shlee1353.github.io/2017/11/15/JS-Data-Management/</loc>
         <lastmod>2017-11-15T05:10:07.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2017/11/15/JS-Inheritance-in-JavaScript/</loc>
-        <lastmod>2017-11-15T01:46:31.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2017/11/15/React-Redux-Core-Concept/</loc>
-        <lastmod>2017-11-15T01:40:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
