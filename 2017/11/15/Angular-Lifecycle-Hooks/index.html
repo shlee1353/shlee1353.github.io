@@ -202,7 +202,7 @@ ga('send', 'pageview');
 <ul>
 <li>ngDoCheck() 메서드가 호출되고 나서 ngAfterViewChecked() 가 호출되기까지 콘텐츠와 뷰에 대한 상태 점검이 진행되는 때를 말합니다. </li>
 <li><p><strong>콘텐츠</strong> : 컴포넌트가 선언될 때 내부 엘리먼트에 선언한 엘리먼트의 속성값을 말합니다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent [prop]=<span class="string">".."</span>&gt;</span><br><span class="line">    &lt;child name=<span class="string">""</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">child</span>&gt;</span></span> <span class="comment">// 콘텐츠</span></span><br><span class="line">&lt;<span class="regexp">/parent&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent [prop]=<span class="string">".."</span>&gt;</span><br><span class="line">    &lt;child name=<span class="string">""</span>&gt;&lt;/child&gt; <span class="comment">// 콘텐츠</span></span><br><span class="line">&lt;<span class="regexp">/parent&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>Content projection(transclusion)</strong> : 컴포넌트 외부에서 HTML을 가져와 컴포넌트 내부에 원하는 위치에 추가함. Content projection을 의도하지 않았다면 콘텐츠를 컴포넌트 사이에 절대 넣지 마세요.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// AfterContentParentComponent</span></span><br><span class="line"><span class="string">`&lt;after-content&gt;</span></span><br><span class="line"><span class="string">   &lt;my-child&gt;&lt;/my-child&gt;</span></span><br><span class="line"><span class="string"> &lt;/after-content&gt;`</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// AfterContentComponent</span></span><br><span class="line">template: <span class="string">`</span></span><br><span class="line"><span class="string">  &lt;div&gt;-- projected content begins --&lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;ng-content&gt;&lt;/ng-content&gt;</span></span><br><span class="line"><span class="string">  &lt;div&gt;-- projected content ends --&lt;/div&gt;`</span></span><br></pre></td></tr></table></figure>
@@ -317,7 +317,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://shlee1353.github.io/2017/11/15/Angular-Lifecycle-Hooks/" data-id="cja0ruxsu00040pdyijnqqgwa" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://shlee1353.github.io/2017/11/15/Angular-Lifecycle-Hooks/" data-id="cja0wfpz900011xdy6hs1btli" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -486,6 +486,26 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2017/11/15/JS-Understanding-the-this-Keyword/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://shlee1353.github.io/img/javascript.png)" alt="[JS] Understanding the &#39;this&#39; Keyword" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/15/JS-Understanding-the-this-Keyword/" class="title">[JS] Understanding the &#39;this&#39; Keyword</a></p>
+                            <p class="item-date"><time datetime="2017-11-15T10:21:29.000Z" itemprop="datePublished">2017-11-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2017/11/15/Vue-Quick-Start/" class="thumbnail">
     
     
@@ -563,26 +583,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/11/15/JS-Inheritance-in-JavaScript/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://shlee1353.github.io/img/javascript.png)" alt="[JS] Inheritance in JavaScript" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/11/15/JS-Inheritance-in-JavaScript/" class="title">[JS] Inheritance in JavaScript</a></p>
-                            <p class="item-date"><time datetime="2017-11-15T01:43:45.000Z" itemprop="datePublished">2017-11-15</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -595,7 +595,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">6</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">7</span></li></ul>
         </div>
     </div>
 
