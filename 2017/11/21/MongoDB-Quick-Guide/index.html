@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Ryan Lee">
 <meta property="og:description" content="소개 MongoDB는 관계형 DB가 아니므로, RDMS(관계형 데이터베이스 관리 시스템)처럼 고정된 스키마 및 JOIN이 존재하지 않습니다. JOIN이란 둘 이상의 테이블을 연결하여 데이터를 검색하는 방법입니다. 보통 공통된 값 primary Key 및 Foreign Key 값을 사용합니다. Document Oriented 데이터베이스 이기 때문에 key-">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-21T06:34:55.000Z">
+<meta property="og:updated_time" content="2017-11-21T09:34:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[MongoDB] Quick Guide">
 <meta name="twitter:description" content="소개 MongoDB는 관계형 DB가 아니므로, RDMS(관계형 데이터베이스 관리 시스템)처럼 고정된 스키마 및 JOIN이 존재하지 않습니다. JOIN이란 둘 이상의 테이블을 연결하여 데이터를 검색하는 방법입니다. 보통 공통된 값 primary Key 및 Foreign Key 값을 사용합니다. Document Oriented 데이터베이스 이기 때문에 key-">
@@ -187,6 +187,7 @@ ga('send', 'pageview');
 <ul>
 <li>몽고DB구조: SERVER &gt; DATABASE &gt; COLLECTION &gt; DOCUMENT</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">use mongodb_tutorial // 데이터베이스 생성</span><br><span class="line">db // 현재 사용중인 데이터베이스 확인</span><br><span class="line">show dbs // 생성된 데이터베이스 리스트들 확인. 최소 한개의 document 필요</span><br><span class="line">db.dropDatabase(); // 데이터베이스 제거</span><br><span class="line">db.monster.insert(&#123;&quot;animal&quot;: &quot;lion&quot;&#125;) // documnet를 추가하면 컬렉션 자동 생성</span><br><span class="line">show collections // 리스트 확인</span><br><span class="line">db.monster.drop(); // 컬렉션 제거</span><br></pre></td></tr></table></figure>
 <p><strong>참고</strong></p>
 <ul>
 <li><a href="https://velopert.com" target="_blank" rel="external">https://velopert.com</a></li>
