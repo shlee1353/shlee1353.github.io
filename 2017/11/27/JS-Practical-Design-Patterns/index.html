@@ -3,25 +3,27 @@
 <head>
     <meta charset="utf-8">
     <meta name="naver-site-verification" content="9b8cccba15d55ed0fa17613723c0a01107faa6a4"/>
-    <link rel="canonical" href="https://shlee1353.github.io/2017/11/21/MongoDB-Quick-Guide/"/>
+    <link rel="canonical" href="https://shlee1353.github.io/2017/11/27/JS-Practical-Design-Patterns/"/>
     
-    <title>[MongoDB] Quick Guide | Ryan Lee</title>
+    <title>[JS] Practical Design Patterns | Ryan Lee</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="" />
     
-    <meta name="description" content="소개 MongoDB는 관계형 DB가 아니므로, RDMS(관계형 데이터베이스 관리 시스템)처럼 고정된 스키마 및 JOIN이 존재하지 않습니다. JOIN이란 둘 이상의 테이블을 연결하여 데이터를 검색하는 방법입니다. 보통 공통된 값 primary Key 및 Foreign Key 값을 사용합니다. Document Oriented 데이터베이스 이기 때문에 key-">
+    <meta name="description" content="자바스크립트 모듈 작성시 코드 순서  변수선언 유틸리티 메소드 작성 DOM조작 메소드 작성 이벤트 핸들러 작성 Public 메소드 작성  12345678910111213141516171819202122232425262728293031323334// SPA 모듈 작성 순서 예시var app = (function() &amp;#123;    // 1. 모듈 스코프 내">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[MongoDB] Quick Guide">
-<meta property="og:url" content="https://shlee1353.github.io/2017/11/21/MongoDB-Quick-Guide/index.html">
+<meta property="og:title" content="[JS] Practical Design Patterns">
+<meta property="og:url" content="https://shlee1353.github.io/2017/11/27/JS-Practical-Design-Patterns/index.html">
 <meta property="og:site_name" content="Ryan Lee">
-<meta property="og:description" content="소개 MongoDB는 관계형 DB가 아니므로, RDMS(관계형 데이터베이스 관리 시스템)처럼 고정된 스키마 및 JOIN이 존재하지 않습니다. JOIN이란 둘 이상의 테이블을 연결하여 데이터를 검색하는 방법입니다. 보통 공통된 값 primary Key 및 Foreign Key 값을 사용합니다. Document Oriented 데이터베이스 이기 때문에 key-">
+<meta property="og:description" content="자바스크립트 모듈 작성시 코드 순서  변수선언 유틸리티 메소드 작성 DOM조작 메소드 작성 이벤트 핸들러 작성 Public 메소드 작성  12345678910111213141516171819202122232425262728293031323334// SPA 모듈 작성 순서 예시var app = (function() &amp;#123;    // 1. 모듈 스코프 내">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-21T09:34:21.000Z">
+<meta property="og:image" content="https://shlee1353.github.io/img/javascript.png">
+<meta property="og:updated_time" content="2017-11-27T08:45:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[MongoDB] Quick Guide">
-<meta name="twitter:description" content="소개 MongoDB는 관계형 DB가 아니므로, RDMS(관계형 데이터베이스 관리 시스템)처럼 고정된 스키마 및 JOIN이 존재하지 않습니다. JOIN이란 둘 이상의 테이블을 연결하여 데이터를 검색하는 방법입니다. 보통 공통된 값 primary Key 및 Foreign Key 값을 사용합니다. Document Oriented 데이터베이스 이기 때문에 key-">
+<meta name="twitter:title" content="[JS] Practical Design Patterns">
+<meta name="twitter:description" content="자바스크립트 모듈 작성시 코드 순서  변수선언 유틸리티 메소드 작성 DOM조작 메소드 작성 이벤트 핸들러 작성 Public 메소드 작성  12345678910111213141516171819202122232425262728293031323334// SPA 모듈 작성 순서 예시var app = (function() &amp;#123;    // 1. 모듈 스코프 내">
+<meta name="twitter:image" content="https://shlee1353.github.io/img/javascript.png">
     
 
     
@@ -145,14 +147,14 @@ ga('send', 'pageview');
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-MongoDB-Quick-Guide" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-JS-Practical-Design-Patterns" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        [MongoDB] Quick Guide
+        [JS] Practical Design Patterns
         </h1>
     
 
@@ -162,8 +164,8 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2017/11/21/MongoDB-Quick-Guide/" class="article-date">
-            <time datetime="2017-11-21T05:35:17.000Z" itemprop="datePublished">2017-11-21</time>
+        <a href="/2017/11/27/JS-Practical-Design-Patterns/" class="article-date">
+            <time datetime="2017-11-27T08:22:29.000Z" itemprop="datePublished">2017-11-27</time>
         </a>
     </div>
 
@@ -172,34 +174,24 @@ ga('send', 'pageview');
         
         
         <div class="article-entry" itemprop="articleBody">
-            <h2 id="소개"><a href="#소개" class="headerlink" title="소개"></a>소개</h2><ul>
-<li>MongoDB는 관계형 DB가 아니므로, RDMS(관계형 데이터베이스 관리 시스템)처럼 고정된 스키마 및 JOIN이 존재하지 않습니다.</li>
-<li>JOIN이란 둘 이상의 테이블을 연결하여 데이터를 검색하는 방법입니다.</li>
-<li>보통 공통된 값 primary Key 및 Foreign Key 값을 사용합니다.</li>
-<li>Document Oriented 데이터베이스 이기 때문에 key-value pair로 이루어져 있습니다.</li>
-<li>Collection은 RDMS의 table과 비슷한 개념으로 document들을 포함하고 있습니다.</li>
-</ul>
-<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><ul>
-<li>HomeBrew를 이용해서 설치하도록 하겠습니다.</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br><span class="line">brew install mongodb</span><br><span class="line">mkdir -p /data/db</span><br><span class="line">sudo chmod 777 /data/db</span><br><span class="line"></span><br><span class="line">mongod</span><br><span class="line">// 다른 터미널 커맨드</span><br><span class="line">mongo</span><br></pre></td></tr></table></figure>
-<h2 id="데이터-모델링"><a href="#데이터-모델링" class="headerlink" title="데이터 모델링"></a>데이터 모델링</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> _id: POST_ID,</span><br><span class="line"> title: POST_TITLE,</span><br><span class="line"> content: POST_CONTENT,</span><br><span class="line"> username: POST_WRITER,</span><br><span class="line"> tags: [ TAG1, TAG2, TAG3 ],</span><br><span class="line"> time: POST_TIME</span><br><span class="line"> comments: [</span><br><span class="line"> &#123; </span><br><span class="line"> username: COMMENT_WRITER,</span><br><span class="line"> mesage: COMMENT_MESSAGE,</span><br><span class="line"> time: COMMENT_TIME</span><br><span class="line"> &#125;,</span><br><span class="line"> &#123; </span><br><span class="line"> username: COMMENT_WRITER,</span><br><span class="line"> mesage: COMMENT_MESSAGE,</span><br><span class="line"> time: COMMENT_TIME</span><br><span class="line"> &#125;</span><br><span class="line"> ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p><strong>자바스크립트 모듈 작성시 코드 순서</strong></p>
 <ul>
-<li>몽고DB구조: SERVER &gt; DATABASE &gt; COLLECTION &gt; DOCUMENT</li>
+<li>변수선언</li>
+<li>유틸리티 메소드 작성</li>
+<li>DOM조작 메소드 작성</li>
+<li>이벤트 핸들러 작성</li>
+<li>Public 메소드 작성</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">use mongodb_tutorial // 데이터베이스 생성</span><br><span class="line">db // 현재 사용중인 데이터베이스 확인</span><br><span class="line">show dbs // 생성된 데이터베이스 리스트들 확인. 최소 한개의 document 필요</span><br><span class="line">db.dropDatabase(); // 데이터베이스 제거</span><br><span class="line">db.monster.insert(&#123;&quot;animal&quot;: &quot;lion&quot;&#125;) // documnet를 추가하면 컬렉션 자동 생성</span><br><span class="line">show collections // 리스트 확인</span><br><span class="line">db.monster.drop(); // 컬렉션 제거</span><br></pre></td></tr></table></figure>
-<p><strong>참고</strong></p>
-<ul>
-<li><a href="https://velopert.com" target="_blank" rel="external">https://velopert.com</a></li>
-</ul>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">// SPA 모듈 작성 순서 예시</span><br><span class="line">var app = (function() &#123;</span><br><span class="line"></span><br><span class="line">    // 1. 모듈 스코프 내에서 사용할 변수 작성</span><br><span class="line">    var scopeVar = &#123;&#125;;</span><br><span class="line">    var utilMethod;</span><br><span class="line">    var manipulateDom;</span><br><span class="line">    var eventHandle;</span><br><span class="line">    var initModule;</span><br><span class="line"></span><br><span class="line">    // 2. 유틸리티 메소드 작성</span><br><span class="line">    utilMethod = function() &#123;</span><br><span class="line">        // 실행코드</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    // 3. DOM 조작 메소드 작성</span><br><span class="line">    manipulateDom = function() &#123;</span><br><span class="line">        // 실행코드</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    // 4. 이벤트 핸들러 작성</span><br><span class="line">    eventHandle = function() &#123;</span><br><span class="line">        // 실행코드</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    // Public 메소드 작성</span><br><span class="line">    initModule = function() &#123;</span><br><span class="line">        // 실행코드</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">        init : initModule</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+<p><strong>MVC 패턴</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var todoModel = (function($)&#123;</span><br><span class="line"></span><br><span class="line">&#125;)(jQuery);</span><br><span class="line"></span><br><span class="line">var todoView = (function($)&#123;</span><br><span class="line"></span><br><span class="line">&#125;)(jQuery);</span><br><span class="line"></span><br><span class="line">var todoController = (function($, model, view)&#123;</span><br><span class="line"></span><br><span class="line">&#125;)(jQuery, todoModel, todoView).init();</span><br></pre></td></tr></table></figure>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://shlee1353.github.io/2017/11/21/MongoDB-Quick-Guide/" data-id="cjahyo39q0006a4dyq5h1i3q0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://shlee1353.github.io/2017/11/27/JS-Practical-Design-Patterns/" data-id="cjahyo39j0003a4dy1fxffbyu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -336,20 +328,10 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2017/11/27/JS-Practical-Design-Patterns/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            [JS] Practical Design Patterns
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2017/11/15/JS-Understanding-the-this-Keyword/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/11/21/MongoDB-Quick-Guide/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[JS] Understanding the &#39;this&#39; Keyword</p>
+        <p class="article-nav-title">[MongoDB] Quick Guide</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -531,7 +513,7 @@ ga('send', 'pageview');
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://shlee1353.github.io/2017/11/21/MongoDB-Quick-Guide/';
+    var disqus_url = 'https://shlee1353.github.io/2017/11/27/JS-Practical-Design-Patterns/';
     
     (function() {
     var dsq = document.createElement('script');
