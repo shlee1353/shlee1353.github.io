@@ -5,7 +5,7 @@
     <meta name="naver-site-verification" content="9b8cccba15d55ed0fa17613723c0a01107faa6a4"/>
     <link rel="canonical" href="https://shlee1353.github.io/2017/11/15/Angular-Lifecycle-Hooks/"/>
     
-    <title>[앵귤러] Lifecycle Hooks | Ryan Lee</title>
+    <title>[앵귤러] 라이프사이클 이애하기 | Ryan Lee</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -13,15 +13,15 @@
     
     <meta name="description" content="생명주기(life cycle)컴포넌트와 지시자는 생명주기(life cycle) 를 가집니다. 생명주기란, 컴포넌트나 지시자가 생성되고 파괴될 때까지의 일련의 과정을 말합니다. 생명주기 안에서는 특정 시점에 훅 메서드(hook method)를 호출할 수 있습니다. 예를들어, 컴포넌트와 지시자가 초기화되면 ngOnInit() 훅 메서드가 호출됩니다. 만약 이">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[앵귤러] Lifecycle Hooks">
+<meta property="og:title" content="[앵귤러] 라이프사이클 이애하기">
 <meta property="og:url" content="https://shlee1353.github.io/2017/11/15/Angular-Lifecycle-Hooks/index.html">
 <meta property="og:site_name" content="Ryan Lee">
 <meta property="og:description" content="생명주기(life cycle)컴포넌트와 지시자는 생명주기(life cycle) 를 가집니다. 생명주기란, 컴포넌트나 지시자가 생성되고 파괴될 때까지의 일련의 과정을 말합니다. 생명주기 안에서는 특정 시점에 훅 메서드(hook method)를 호출할 수 있습니다. 예를들어, 컴포넌트와 지시자가 초기화되면 ngOnInit() 훅 메서드가 호출됩니다. 만약 이">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://shlee1353.github.io/img/angular.png">
-<meta property="og:updated_time" content="2017-11-29T02:52:30.000Z">
+<meta property="og:updated_time" content="2017-11-29T06:54:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[앵귤러] Lifecycle Hooks">
+<meta name="twitter:title" content="[앵귤러] 라이프사이클 이애하기">
 <meta name="twitter:description" content="생명주기(life cycle)컴포넌트와 지시자는 생명주기(life cycle) 를 가집니다. 생명주기란, 컴포넌트나 지시자가 생성되고 파괴될 때까지의 일련의 과정을 말합니다. 생명주기 안에서는 특정 시점에 훅 메서드(hook method)를 호출할 수 있습니다. 예를들어, 컴포넌트와 지시자가 초기화되면 ngOnInit() 훅 메서드가 호출됩니다. 만약 이">
 <meta name="twitter:image" content="https://shlee1353.github.io/img/angular.png">
     
@@ -154,7 +154,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-        [앵귤러] Lifecycle Hooks
+        [앵귤러] 라이프사이클 이애하기
         </h1>
     
 
@@ -202,7 +202,7 @@ ga('send', 'pageview');
 <ul>
 <li>ngDoCheck() 메서드가 호출되고 나서 ngAfterViewChecked() 가 호출되기까지 콘텐츠와 뷰에 대한 상태 점검이 진행되는 때를 말합니다. </li>
 <li><p><strong>콘텐츠</strong> : 컴포넌트가 선언될 때 내부 엘리먼트에 선언한 엘리먼트의 속성값을 말합니다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent [prop]=<span class="string">".."</span>&gt;</span><br><span class="line">    &lt;child name=<span class="string">""</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">child</span>&gt;</span></span> <span class="comment">// 콘텐츠</span></span><br><span class="line">&lt;<span class="regexp">/parent&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent [prop]=<span class="string">".."</span>&gt;</span><br><span class="line">    &lt;child name=<span class="string">""</span>&gt;&lt;/child&gt; <span class="comment">// 콘텐츠</span></span><br><span class="line">&lt;<span class="regexp">/parent&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>Content projection(transclusion)</strong> : 컴포넌트 외부에서 HTML을 가져와 컴포넌트 내부에 원하는 위치에 추가함. Content projection을 의도하지 않았다면 콘텐츠를 컴포넌트 사이에 절대 넣지 마세요.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// AfterContentParentComponent</span></span><br><span class="line"><span class="string">`&lt;after-content&gt;</span></span><br><span class="line"><span class="string">   &lt;my-child&gt;&lt;/my-child&gt;</span></span><br><span class="line"><span class="string"> &lt;/after-content&gt;`</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// AfterContentComponent</span></span><br><span class="line">template: <span class="string">`</span></span><br><span class="line"><span class="string">  &lt;div&gt;-- projected content begins --&lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;ng-content&gt;&lt;/ng-content&gt;</span></span><br><span class="line"><span class="string">  &lt;div&gt;-- projected content ends --&lt;/div&gt;`</span></span><br></pre></td></tr></table></figure>
@@ -458,7 +458,7 @@ ga('send', 'pageview');
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            [Vue] Quick Start
+            [Vue] 빠르게 훑어보기
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
@@ -489,7 +489,7 @@ ga('send', 'pageview');
                             <a href="/2017/11/27/JS-Practical-Design-Patterns/" class="thumbnail">
     
     
-        <span style="background-image:url(https://shlee1353.github.io/img/javascript.png)" alt="[JS] Practical Design Patterns" class="thumbnail-image"></span>
+        <span style="background-image:url(https://shlee1353.github.io/img/javascript.png)" alt="[자바스크립트] 실무 디자인 패턴 익히기" class="thumbnail-image"></span>
     
     
 </a>
@@ -498,7 +498,7 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/11/27/JS-Practical-Design-Patterns/" class="title">[JS] Practical Design Patterns</a></p>
+                            <p class="item-title"><a href="/2017/11/27/JS-Practical-Design-Patterns/" class="title">[자바스크립트] 실무 디자인 패턴 익히기</a></p>
                             <p class="item-date"><time datetime="2017-11-27T08:22:29.000Z" itemprop="datePublished">2017-11-27</time></p>
                         </div>
                     </li>
@@ -509,7 +509,7 @@ ga('send', 'pageview');
                             <a href="/2017/11/21/MongoDB-Quick-Guide/" class="thumbnail">
     
     
-        <span style="background-image:url(https://sophosnews.files.wordpress.com/2017/01/mongodb.png?w=780&h=408&crop=1)" alt="[몽고DB] Quick Guide" class="thumbnail-image"></span>
+        <span style="background-image:url(https://sophosnews.files.wordpress.com/2017/01/mongodb.png?w=780&h=408&crop=1)" alt="[몽고DB] 간략 사용 설명서" class="thumbnail-image"></span>
     
     
 </a>
@@ -518,7 +518,7 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/11/21/MongoDB-Quick-Guide/" class="title">[몽고DB] Quick Guide</a></p>
+                            <p class="item-title"><a href="/2017/11/21/MongoDB-Quick-Guide/" class="title">[몽고DB] 간략 사용 설명서</a></p>
                             <p class="item-date"><time datetime="2017-11-21T05:35:17.000Z" itemprop="datePublished">2017-11-21</time></p>
                         </div>
                     </li>
@@ -549,7 +549,7 @@ ga('send', 'pageview');
                             <a href="/2017/11/15/Vue-Quick-Start/" class="thumbnail">
     
     
-        <span style="background-image:url(https://return-true.com/wp-content/uploads/2016/02/starting-out-with-vuejs.jpg)" alt="[Vue] Quick Start" class="thumbnail-image"></span>
+        <span style="background-image:url(https://return-true.com/wp-content/uploads/2016/02/starting-out-with-vuejs.jpg)" alt="[Vue] 빠르게 훑어보기" class="thumbnail-image"></span>
     
     
 </a>
@@ -558,7 +558,7 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/11/15/Vue-Quick-Start/" class="title">[Vue] Quick Start</a></p>
+                            <p class="item-title"><a href="/2017/11/15/Vue-Quick-Start/" class="title">[Vue] 빠르게 훑어보기</a></p>
                             <p class="item-date"><time datetime="2017-11-15T07:46:59.000Z" itemprop="datePublished">2017-11-15</time></p>
                         </div>
                     </li>
@@ -569,7 +569,7 @@ ga('send', 'pageview');
                             <a href="/2017/11/15/Angular-Lifecycle-Hooks/" class="thumbnail">
     
     
-        <span style="background-image:url(https://shlee1353.github.io/img/angular.png)" alt="[앵귤러] Lifecycle Hooks" class="thumbnail-image"></span>
+        <span style="background-image:url(https://shlee1353.github.io/img/angular.png)" alt="[앵귤러] 라이프사이클 이애하기" class="thumbnail-image"></span>
     
     
 </a>
@@ -578,7 +578,7 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/11/15/Angular-Lifecycle-Hooks/" class="title">[앵귤러] Lifecycle Hooks</a></p>
+                            <p class="item-title"><a href="/2017/11/15/Angular-Lifecycle-Hooks/" class="title">[앵귤러] 라이프사이클 이애하기</a></p>
                             <p class="item-date"><time datetime="2017-11-15T05:15:26.000Z" itemprop="datePublished">2017-11-15</time></p>
                         </div>
                     </li>

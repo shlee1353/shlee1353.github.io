@@ -7,8 +7,32 @@
     </url>
 
     <url>
+        <loc>https://shlee1353.github.io/2017/11/27/JS-Practical-Design-Patterns/</loc>
+        <lastmod>2017-11-29T06:57:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2017/11/21/MongoDB-Quick-Guide/</loc>
+        <lastmod>2017-11-29T06:57:04.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2017/11/15/Vue-Quick-Start/</loc>
+        <lastmod>2017-11-29T06:56:36.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://shlee1353.github.io/2017/11/15/Angular-Lifecycle-Hooks/</loc>
-        <lastmod>2017-11-29T02:52:30.000Z</lastmod>
+        <lastmod>2017-11-29T06:54:50.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -39,14 +63,6 @@
     </url>
 
     <url>
-        <loc>https://shlee1353.github.io/2017/11/21/MongoDB-Quick-Guide/</loc>
-        <lastmod>2017-11-29T02:48:31.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://shlee1353.github.io/2017/11/15/JS-Understanding-the-this-Keyword/</loc>
         <lastmod>2017-11-29T02:47:58.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -57,22 +73,6 @@
     <url>
         <loc>https://shlee1353.github.io/2017/11/15/React-Redux-Core-Concept/</loc>
         <lastmod>2017-11-29T01:57:04.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2017/11/27/JS-Practical-Design-Patterns/</loc>
-        <lastmod>2017-11-27T08:45:30.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2017/11/15/Vue-Quick-Start/</loc>
-        <lastmod>2017-11-15T08:23:27.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
