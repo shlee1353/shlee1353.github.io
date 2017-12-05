@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="naver-site-verification" content="9b8cccba15d55ed0fa17613723c0a01107faa6a4"/>
+    <link rel="canonical" href="https://shlee1353.github.io/2017/12/05/JS-Basic-Guide/"/>
+    
+    <title>[자바스크립트] 기본 가이드 (JavaScript Guide) | Ryan Lee</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="" />
+    
+    <meta name="description" content="Data structures and typesData types  Boolean null undefined Number String Symbol Object  Object를 제외하고 나머지 6개의 데이터 타입은 원시형(primitives) 으로 객체와 메소드가 없으며 immutable 속성을 가지고 있습니다. undefined은 변수가 정의되어 있지만 아무">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[자바스크립트] 기본 가이드 (JavaScript Guide)">
+<meta property="og:url" content="https://shlee1353.github.io/2017/12/05/JS-Basic-Guide/index.html">
+<meta property="og:site_name" content="Ryan Lee">
+<meta property="og:description" content="Data structures and typesData types  Boolean null undefined Number String Symbol Object  Object를 제외하고 나머지 6개의 데이터 타입은 원시형(primitives) 으로 객체와 메소드가 없으며 immutable 속성을 가지고 있습니다. undefined은 변수가 정의되어 있지만 아무">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://shlee1353.github.io/img/javascript.png">
+<meta property="og:updated_time" content="2017-12-05T09:39:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[자바스크립트] 기본 가이드 (JavaScript Guide)">
+<meta name="twitter:description" content="Data structures and typesData types  Boolean null undefined Number String Symbol Object  Object를 제외하고 나머지 6개의 데이터 타입은 원시형(primitives) 으로 객체와 메소드가 없으며 immutable 속성을 가지고 있습니다. undefined은 변수가 정의되어 있지만 아무">
+<meta name="twitter:image" content="https://shlee1353.github.io/img/javascript.png">
+    
+
+    
+        <link rel="alternate" href="/" title="Ryan Lee" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-109666025-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    uncategorized
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-JS-Basic-Guide" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [자바스크립트] 기본 가이드 (JavaScript Guide)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/12/05/JS-Basic-Guide/" class="article-date">
+            <time datetime="2017-12-05T09:38:45.000Z" itemprop="datePublished">2017-12-05</time>
+        </a>
+    </div>
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="Data-structures-and-types"><a href="#Data-structures-and-types" class="headerlink" title="Data structures and types"></a>Data structures and types</h1><p><strong>Data types</strong></p>
+<ul>
+<li>Boolean</li>
+<li>null</li>
+<li>undefined</li>
+<li>Number</li>
+<li>String</li>
+<li>Symbol</li>
+<li>Object</li>
+</ul>
+<p>Object를 제외하고 나머지 6개의 데이터 타입은 원시형(primitives) 으로 객체와 메소드가 없으며 immutable 속성을 가지고 있습니다. undefined은 변수가 정의되어 있지만 아무 값도 할당 받지 않은 상태이며, null은 null값을 할당받은 것을 말합니다. 또 다른 차이점은 null은 객체타입, undefined은 undefined이 출력됩니다.</p>
+<p><strong>Primitive wrapper objects</strong><br>원시타입형에서 properties에 값을 할당은 안되지만, 오류는 아닙니다. 이는 null과 undefined를 제외한, 나머지 원시값은 그 값들을 감싸는 primitive wrapper objects 때문입니다. 객체의 원시값을 가져올때는 valueOf() 사용가능합니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fred = <span class="string">"Fred Flintstone"</span>;</span><br><span class="line">fred.favoriteFood = <span class="string">"Brontosaurus Steak"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Outputs: undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(fred.favoriteFood);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 문자열 표현</span></span><br><span class="line"><span class="keyword">let</span> str1 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'str1'</span>)</span><br><span class="line"><span class="keyword">let</span> str2 = <span class="string">'str2'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> str1 <span class="comment">// 'object'</span></span><br><span class="line"><span class="keyword">typeof</span> str2 <span class="comment">// 'string'</span></span><br><span class="line"></span><br><span class="line">str1 <span class="keyword">instanceof</span> <span class="built_in">String</span> <span class="comment">// true</span></span><br><span class="line">str2 <span class="keyword">instanceof</span> <span class="built_in">String</span> <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">str1 <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true</span></span><br><span class="line">str2 <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>NaN</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span> === <span class="string">'number'</span> <span class="comment">// true </span></span><br><span class="line"></span><br><span class="line"><span class="literal">NaN</span> === <span class="literal">NaN</span>    <span class="comment">// false </span></span><br><span class="line"><span class="literal">NaN</span> !== <span class="literal">NaN</span>    <span class="comment">// true </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="literal">NaN</span>)       <span class="comment">// true </span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="number">0</span>)         <span class="comment">// false </span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="string">'oops'</span>)    <span class="comment">// true </span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="string">'0'</span>)       <span class="comment">// false </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 숫자 구별방법</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNumber</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> value === <span class="string">'number'</span> &amp;&amp; <span class="built_in">isFinite</span>(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Literals</strong><br>Array, Boolean, Floating-point, Integers, Object, RegExp, String</p>
+<ul>
+<li>Array literals<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> coffees = [<span class="string">'French Roast'</span>, <span class="string">'Colombian'</span>, <span class="string">'Kona'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cats = [];</span><br><span class="line">cats[<span class="number">30</span>] = [<span class="string">'Dusty'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(cats.length); <span class="comment">// 31</span></span><br><span class="line"><span class="built_in">console</span>.log(cats[<span class="string">'length'</span>]); <span class="comment">// 31</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>배열의 length를 이용하여 값을 제거할 수 있습니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cats = [<span class="string">'Dusty'</span>, <span class="string">'Misty'</span>, <span class="string">'Twiggy'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(cats.length); <span class="comment">// 3</span></span><br><span class="line">cats.length = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(cats);</span><br></pre></td></tr></table></figure></p>
+<p>for 문과 forEach()를 사용해서 배열을 순환할 수 있습니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors = [<span class="string">'red'</span>, <span class="string">'green'</span>, <span class="string">'blue'</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; colors.length; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(colors[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> colors = [<span class="string">'red'</span>, <span class="string">'green'</span>, <span class="string">'blue'</span>];</span><br><span class="line">colors.forEach(<span class="function"><span class="params">color</span> =&gt;</span> <span class="built_in">console</span>.log(color));</span><br></pre></td></tr></table></figure></p>
+<p>Array methods<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">concat()-<span class="keyword">new</span>, join(), push(), pop(), shift(), unshift(), slice()-<span class="keyword">new</span>, splice(), sort(), indexOf(), lastIndexOf(), forEach(), map()-<span class="keyword">new</span>, filter()-<span class="keyword">new</span>, every()-<span class="literal">true</span>/<span class="literal">false</span>, some()-<span class="literal">true</span>/<span class="literal">false</span>, reduce(), reduceRight()</span><br></pre></td></tr></table></figure></p>
+<p>배열은 정규표현식과 match의 결과값이기도 합니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">RegExp</span>.exec(), <span class="built_in">String</span>.match(), and <span class="built_in">String</span>.split().</span><br></pre></td></tr></table></figure></p>
+<p>유사배열 객체 (array-like objects)<br>document.querySelectorAll(), document.getElementsByTagName()의 리턴값인 NodeList 또는 arguments는 배열처럼 생겼지만 모든 메소드를 사용할 수는 없습니다. 예를들어, arguments 객체는 length 속성을 제공하지만 forEach()를 사용할 수 없습니다. NodeList는 live collection 또는 static collection 입니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getElementsByClassName() : HTMLCollection &amp; live</span><br><span class="line">getElementsByTagName() : HTMLCollection &amp; live</span><br><span class="line">getElementsByName() : NodeList &amp; live</span><br><span class="line">querySelectorAll() : NodeList &amp; not live</span><br></pre></td></tr></table></figure></p>
+<p><strong>Iterators</strong><br>iterable 프로토콜은 반복문을 가능케합니다. String, Array, TypedArray, Map, Set은 iterable이 내재되어 있습니다. @@iterator 메소드가 반드시 필요합니다. 객체에 iterator을 주입시키는 방법은 아래와 같습니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myIterable = &#123;&#125;;</span><br><span class="line">myIterable[<span class="built_in">Symbol</span>.iterator] = <span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">&#125;;</span><br><span class="line">[...myIterable]; <span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>for…of / for…in</strong><br>for…in 은 객체의 enumerable 속성을 반복하며, for…of는 iterable 객체를 반복합니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.objCustom = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;; </span><br><span class="line"><span class="built_in">Array</span>.prototype.arrCustom = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> iterable = [<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>];</span><br><span class="line">iterable.foo = <span class="string">'hello'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> iterable) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i); <span class="comment">// logs 0, 1, 2, "foo", "arrCustom", "objCustom"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> iterable) &#123;</span><br><span class="line">  <span class="keyword">if</span> (iterable.hasOwnProperty(i)) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i); <span class="comment">// logs 0, 1, 2, "foo"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> iterable) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i); <span class="comment">// logs 3, 5, 7</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>enumerable은 간단히 말해 for…in 또는 Object.keys로 접근시 노출되는 것을 의미합니다. 아래 코드 실행시 enumerable의 값이 true로 나와 있습니다. 새로운 프로퍼티 생성시 이 값은 기본적으로 true로 설정되어 있기 때문입니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    purposeOfLife: <span class="number">42</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, <span class="string">'purposeOfLife'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// result</span></span><br><span class="line">&#123;</span><br><span class="line">    value: <span class="number">42</span>,</span><br><span class="line">    writable: <span class="literal">true</span>,</span><br><span class="line">    enumerable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>defineProperty를 사용할 때 주의 할점은 기본값이 false입니다. non-enumerable properties를 생성하려면 Object.definedProperty()를 사용하시면 됩니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123; <span class="attr">age</span>: <span class="number">18</span> &#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">'name'</span>, &#123; <span class="attr">value</span>: <span class="string">'Joshua'</span>, <span class="attr">enumerable</span>: <span class="literal">false</span> &#125;);</span><br><span class="line"></span><br><span class="line">person.name; <span class="comment">// 'Joshua'</span></span><br><span class="line"><span class="built_in">Object</span>.keys(person); <span class="comment">// ['age']</span></span><br></pre></td></tr></table></figure></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://shlee1353.github.io/2017/12/05/JS-Basic-Guide/" data-id="cjatfp4sp00012ydyq05atc9a" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://shlee1353.github.io/" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/11/27/JS-Practical-Design-Patterns/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[자바스크립트] 실무 디자인 패턴 익히기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/12/05/JS-Basic-Guide/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://shlee1353.github.io/img/javascript.png)" alt="[자바스크립트] 기본 가이드 (JavaScript Guide)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/12/05/JS-Basic-Guide/" class="title">[자바스크립트] 기본 가이드 (JavaScript Guide)</a></p>
+                            <p class="item-date"><time datetime="2017-12-05T09:38:45.000Z" itemprop="datePublished">2017-12-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/27/JS-Practical-Design-Patterns/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://shlee1353.github.io/img/javascript.png)" alt="[자바스크립트] 실무 디자인 패턴 익히기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/27/JS-Practical-Design-Patterns/" class="title">[자바스크립트] 실무 디자인 패턴 익히기</a></p>
+                            <p class="item-date"><time datetime="2017-11-27T08:22:29.000Z" itemprop="datePublished">2017-11-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/21/MongoDB-Quick-Guide/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://sophosnews.files.wordpress.com/2017/01/mongodb.png?w=780&h=408&crop=1)" alt="[몽고DB] 간략 사용 설명서" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/21/MongoDB-Quick-Guide/" class="title">[몽고DB] 간략 사용 설명서</a></p>
+                            <p class="item-date"><time datetime="2017-11-21T05:35:17.000Z" itemprop="datePublished">2017-11-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/15/JS-Understanding-the-this-Keyword/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://shlee1353.github.io/img/javascript.png)" alt="[자바스크립트] &#39;this&#39; 키워드 이해하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/15/JS-Understanding-the-this-Keyword/" class="title">[자바스크립트] &#39;this&#39; 키워드 이해하기</a></p>
+                            <p class="item-date"><time datetime="2017-11-15T10:21:29.000Z" itemprop="datePublished">2017-11-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/15/Vue-Quick-Start/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://return-true.com/wp-content/uploads/2016/02/starting-out-with-vuejs.jpg)" alt="[Vue] 빠르게 훑어보기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/15/Vue-Quick-Start/" class="title">[Vue] 빠르게 훑어보기</a></p>
+                            <p class="item-date"><time datetime="2017-11-15T07:46:59.000Z" itemprop="datePublished">2017-11-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2017 Ryan Lee</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://shlee1353.github.io/2017/12/05/JS-Basic-Guide/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

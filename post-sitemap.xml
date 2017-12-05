@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>https://shlee1353.github.io/2017/12/05/JS-Basic-Guide/</loc>
+        <lastmod>2017-12-05T09:39:53.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2017/11/15/Vue-Quick-Start/</loc>
+        <lastmod>2017-12-05T09:37:07.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://shlee1353.github.io/2017/11/15/JS-Data-Management/</loc>
         <lastmod>2017-11-29T07:42:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -15,24 +31,16 @@
     </url>
 
     <url>
+        <loc>https://shlee1353.github.io/2017/11/21/MongoDB-Quick-Guide/</loc>
+        <lastmod>2017-11-29T07:06:41.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://shlee1353.github.io/2017/11/27/JS-Practical-Design-Patterns/</loc>
         <lastmod>2017-11-29T06:57:45.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2017/11/21/MongoDB-Quick-Guide/</loc>
-        <lastmod>2017-11-29T06:57:04.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2017/11/15/Vue-Quick-Start/</loc>
-        <lastmod>2017-11-29T06:56:36.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
