@@ -19,7 +19,7 @@
 <meta property="og:description" content="설치12sudo npm install -g vue-clivue init simple hellovuejs // 애플리케이션 생성  애플리케이션을 생성하고 index.html 파일을  아래처럼 수정하도록 하겠습니다. 리액트나 앵귤러와 달리 초기 환경설정이 매우 간편하다는 장점이 있습니다.  1234567891011121314151617181920212223&amp;l">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://return-true.com/wp-content/uploads/2016/02/starting-out-with-vuejs.jpg">
-<meta property="og:updated_time" content="2017-12-06T10:00:32.000Z">
+<meta property="og:updated_time" content="2017-12-18T08:38:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Vue] 빠르게 훑어보기">
 <meta name="twitter:description" content="설치12sudo npm install -g vue-clivue init simple hellovuejs // 애플리케이션 생성  애플리케이션을 생성하고 index.html 파일을  아래처럼 수정하도록 하겠습니다. 리액트나 앵귤러와 달리 초기 환경설정이 매우 간편하다는 장점이 있습니다.  1234567891011121314151617181920212223&amp;l">
@@ -294,9 +294,26 @@ ga('send', 'pageview');
 </ul>
 <p>4.TodoList.vue</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;...&lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp">&lt;template&gt;</span></span><br><span class="line"><span class="regexp">    &lt;div id="todolistapp"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div id="header" class="header"&gt;</span></span><br><span class="line"><span class="regexp">            &lt;h2&gt;Todo List App&lt;/</span>h2&gt;</span><br><span class="line">            &lt;input-todo /&gt;</span><br><span class="line">        &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        &lt;list&gt;&lt;/</span>list&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;  </span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="keyword">import</span> InputTodo <span class="keyword">from</span> <span class="string">'./InputTodo.vue'</span>;</span><br><span class="line">	<span class="keyword">import</span> List <span class="keyword">from</span> <span class="string">'./List.vue'</span>;</span><br><span class="line">	<span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">	    name : <span class="string">'todo-list'</span>,</span><br><span class="line">	    components : &#123; InputTodo, List &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>스타일 적용</strong></p>
+<p>기존에는 스타일 태그를 이용한 전역 스타일을 적용하였습니다. 만약, 다른 컴포넌트에서도 동일한 CSS 클래스명을 사용한다면 충돌이 발생합니다. 특정 컴포넌트의 스타일을 지정하려면 범위CSS와 모듈CSS 두 가지 방법이 있습니다.</p>
+<p>1.범위CSS</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">src</span><br><span class="line">	ㄴcomponents</span><br><span class="line"> 		ㄴChild1.vue</span><br><span class="line"> 		ㄴChild11.vue</span><br><span class="line"> 		ㄴChild2.vue</span><br><span class="line">	ㄴmain.js</span><br><span class="line">index.html</span><br></pre></td></tr></table></figure>
+<p>Child1.vue, Child2.vue에는 모두 main 클래스의 스타일이 적용되어 있습니다. 이럴경우, 두 스타일이 충돌되면서 마지막에 선언된 스타일이 적용됩니다. 이때, 스타일 태그에 scoped를 추가하면 이를 해결할 수 있습니다. 범위 CSS를 적용하면 data-v-xxxxx 형태의 속성이 부여됩니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style scoped&gt;</span><br><span class="line">.main&#123;border:1px solid #000;background-color:aqua&#125;</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br></pre></td></tr></table></figure>
+<p>주의점</p>
+<ul>
+<li>특성 선택자(attribute selector)를 사용하기 때문에 브라우저에서 스타일 적용 속도가 느립니다. 그렇기 대문에 속도가 빠른 ID, 클래스, 태그명 선택자로 요소를 선택해 스타일을 적용해야 합니다.</li>
+<li>부모 컴포넌트에 적용된 범위CSS는 하위 컴포넌트에도 반영이 됩니다.</li>
+</ul>
+<p>2.CSS모듈</p>
+<p>CSS모듈은 CSS를 객체처럼 다루는 것을 의미합니다. 설정하는 방법은 간단합니다. 스타일 태그에 module을 추가하면 CSS 모듈 모드가 작동되면서 그 결과로 생성된 클래스 식별 객체는 $style이름으로 컴포넌트의 계산형 속성으로 추가됩니다. 이 스타일은 Vue 인스턴스 내에서 $style 이라는 계산형 속성을 통해서 이용할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;button :<span class="class"><span class="keyword">class</span></span>=<span class="string">"$style.hand"</span>&gt; CSS Module을 적용한 버튼&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">.</span></span><br><span class="line"><span class="regexp">.</span></span><br><span class="line"><span class="regexp">&lt;style module&gt;</span></span><br><span class="line"><span class="regexp">.hand&#123;cursor:pointer;background-color:purple;color:yellow&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>style&gt;</span><br></pre></td></tr></table></figure>
+<p>적용해야 할 클래스가 여러개일 경우 배열 문법을 이용합니다.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:class"[$style.box, $style.border]"&gt;Hello World&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p><strong>참고</strong></p>
 <ul>
 <li><a href="https://hackernoon.com/observer-vs-pub-sub-pattern-50d3b27f838c" target="_blank" rel="external">https://hackernoon.com/observer-vs-pub-sub-pattern-50d3b27f838c</a></li>
+<li><a href="https://github.com/vuejs/vue-loader/blob/master/docs/en/features/css-modules.md" target="_blank" rel="external">https://github.com/vuejs/vue-loader/blob/master/docs/en/features/css-modules.md</a></li>
 </ul>
 
         </div>
