@@ -19,7 +19,7 @@
 <meta property="og:description" content="설치12sudo npm install -g vue-clivue init simple hellovuejs // 애플리케이션 생성  애플리케이션을 생성하고 index.html 파일을  아래처럼 수정하도록 하겠습니다. 리액트나 앵귤러와 달리 초기 환경설정이 매우 간편하다는 장점이 있습니다.  1234567891011121314151617181920212223&amp;l">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://return-true.com/wp-content/uploads/2016/02/starting-out-with-vuejs.jpg">
-<meta property="og:updated_time" content="2017-12-18T09:02:13.000Z">
+<meta property="og:updated_time" content="2017-12-20T07:59:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Vue] 빠르게 훑어보기">
 <meta name="twitter:description" content="설치12sudo npm install -g vue-clivue init simple hellovuejs // 애플리케이션 생성  애플리케이션을 생성하고 index.html 파일을  아래처럼 수정하도록 하겠습니다. 리액트나 앵귤러와 달리 초기 환경설정이 매우 간편하다는 장점이 있습니다.  1234567891011121314151617181920212223&amp;l">
@@ -264,7 +264,17 @@ ga('send', 'pageview');
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;&#123;&#123;sum()&#125;&#125;&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">.</span></span><br><span class="line"><span class="regexp">.</span></span><br><span class="line"><span class="regexp">methods :  &#123;</span></span><br><span class="line"><span class="regexp">	sum : function() &#123;</span></span><br><span class="line"><span class="regexp">		var n = Number(this.num);</span></span><br><span class="line"><span class="regexp">		if (Number.isNaN(n) || n &lt; 1) return 0;</span></span><br><span class="line"><span class="regexp">		return ((1+n)*n)/</span><span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>관찰속성</strong></p>
 <p>관찰속성은 긴 처리 시간이 필요한 비동기 처리에 적합하다는 특징을 가지고 있습니다.</p>
-<h2 id="컴포넌트-심화"><a href="#컴포넌트-심화" class="headerlink" title="컴포넌트 심화"></a>컴포넌트 심화</h2><p><strong>전역 수준 컴포넌트의 문제점</strong></p>
+<h2 id="컴포넌트-심화"><a href="#컴포넌트-심화" class="headerlink" title="컴포넌트 심화"></a>컴포넌트 심화</h2><p><strong>전역 컴포넌트</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML</span></span><br><span class="line">&lt;div id=<span class="string">"example"</span>&gt;</span><br><span class="line">  &lt;my-component&gt;&lt;/my-component&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line"><span class="comment">// JS</span></span><br><span class="line"><span class="comment">// 등록</span></span><br><span class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</span><br><span class="line">  template: <span class="string">'&lt;div&gt;사용자 정의 컴포넌트 입니다!&lt;/div&gt;'</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 루트 인스턴스 생성</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example'</span></span><br><span class="line">&#125;)</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line"><span class="comment">// 랜더링 결과</span></span><br><span class="line">&lt;div id=<span class="string">"example"</span>&gt;</span><br><span class="line">  &lt;div&gt;사용자 정의 컴포넌트 입니다!&lt;/div&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>단일 컴포넌트와 전역 컴포넌트의 차이점</strong></p>
+<ul>
+<li>&#60;template&#62; 에는 id 특서을 부여하지 않음</li>
+<li>&#60;script&#62; 영역에서는 Vue 컴포넌트의 template을 지정하지 않음</li>
+<li>Vue.component()로 이름과 template 속서을 지정하지 않음</li>
+<li>단일 컴포넌트는 name 속성을 지정해 반드시 객체를 export 해야함</li>
+<li>컴포넌트에서 사용할 스타일은 &#60;style&#62; 내부에 작성</li>
+</ul>
+<p><strong>전역 수준 컴포넌트의 문제점</strong></p>
 <ul>
 <li>빌드 단계가 없으므로 최신 자바스크립트 문법을 사용할 수 없습니다.</li>
 <li>CSS 스타일을 빌드하고 모듈화할 수 있는 기능을 제공하지 않습니다.</li>
