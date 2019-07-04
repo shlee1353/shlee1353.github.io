@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>리액트(React) 순수함수 (HOC 개념정리) | Ryan Lee</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Ryan&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Ryan&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div id="post-toc" class="post-toc">
+            <span class="post-toc-title">catalogue</span>
+            <div class="post-toc-content">
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#어디에-쓰이나"><span class="toc-text">어디에 쓰이나?</span></a></li></ol>
+            </div>
+        </div>
+    
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">리액트(React) 순수함수 (HOC 개념정리)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Ryan Lee</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">July 4, 2019&nbsp;&nbsp;19:45:02</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <section class="post-content">
+            <p><img src="/image/higher-order-components/1.png" alt=""></p>
+<p>Higher-Order Components HOC는 컴포넌트 로직을 재사용하기 위한 리액트의 고급기술입니다. 함수로서 컴포넌트를 인자로 받아 새로운 컴포넌트를 리턴합니다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> EnhancedComponent = higherOrderComponent(WrappedComponent);</span><br></pre></td></tr></table></figure>
+<p>기존 컴포넌트가 props를 받아 UI를 만들었다면, HOC는 컴포넌트를 다른 컴포넌트로 바꿉니다. HOC는 Redux’s connect, Realy’s createFragmentContainer에서 흔히 사용하고 있습니다. 리액트에서 컴포넌트는 코드 재사용을 위한 매우 중요한 유닛입니다.</p>
+<p><a href="https://reactjs.org/docs/higher-order-components.html" target="_blank" rel="external">https://reactjs.org/docs/higher-order-components.html</a></p>
+<p>ComponentList와 BlogPost는 동일하지 않지만, 같은 로직을 가지고 있습니다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addChangeListener() -&gt; handleChange() -&gt; removeChangeListener()</span><br></pre></td></tr></table></figure>
+<p>앱 전체적으로 봤을 때 이러한 로직은 자주 사용되는 패턴입니다. 이러한 로직을 하나의 장소에서 관리하고 여러 컴포넌트에서 사용할 수 있도록 추상화작업이 필요합니다. 이럴때 HOC가 필요합니다. DataSource를 구독하고 있는 CommentList, BlogPost 컴포넌트를 제작할 수 있는 함수를 만들어 보도록 하겠습니다. 이 함수는 인자로 데이터를 prop로 받을 수 있는 자식 컴포넌트를 받습니다. 이 함수를 withSubscription 이라고 부르도록 하겠습니다.</p>
+<p><strong>첫번째 파라미터는 wrapped 컴포넌트이며, 두 번째 파라미터로 DataSource와 현재 props값을 받습니다.</strong></p>
+<p>CommentListWithSubscription과 BlogPostWithSubscription이 랜더되면, CommentList와 BlogPost는 data prop로 전달됩니다. 이 값에는 DataSource에서 받은 현재값도 포함됩니다. HOC는 주입된 컴포넌트를 수정하지도 않으며 inheritance를 사용하지도 않습니다. wrapped 컴포넌트는 새로운 props, data는 물론 부모 container의 모든 props를 받습니다. Wrapped component는 어떻게 왜 데이터가 사용되는지, 어디서 오는지 고민할 필요가 없습니다.</p>
+<p>리액트의 HOC의 구조를 보면 고차함수가 생각납니다. 고차함수를 만족시키는 조건으로는, 첫째, 함수를 파라미터로 전달 받는 함수, 둘째, 함수를 리턴하는 함수입니다.</p>
+<h2 id="어디에-쓰이나"><a href="#어디에-쓰이나" class="headerlink" title="어디에 쓰이나?"></a>어디에 쓰이나?</h2><ol>
+<li>비즈니스 로직을 담당하는 컴포넌트와 디스플레이를 담당하는 컴포넌트를 분리하여 사용할때</li>
+<li>로딩 중 화면표시, 유저 인증 로직 처리 (컴포넌트 내에서 권한 체크나 로그인 상태를 체크인 하기 보다는 인증로직을 HOC로 분리)</li>
+</ol>
+<p>아래와 같이 Button, Label 컴포넌트가 있습니다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;Button&gt;button&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;hr/</span>&gt;</span><br><span class="line">        &lt;Label&gt;label&lt;<span class="regexp">/Label&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> Button = <span class="function">(<span class="params">props</span>) =&gt;</span> &lt;button&gt;&#123;props.children&#125;&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">class Label extends React.Component &#123;</span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    return(</span></span><br><span class="line"><span class="regexp">      &lt;label&gt;&#123;this.props.children&#125;&lt;/</span>label&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">render(&lt;App /&gt;, document.getElementById('root'));</span><br></pre></td></tr></table></figure>
+<p>HOC 컴포넌트는 컴포넌트를 인자로 받아서 새로운 컴포넌트를 리턴합니다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HOC = <span class="function">(<span class="params">InnerComponent</span>) =&gt;</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;InnerComponent /&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>완성코드</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"><span class="keyword">const</span> HOC = <span class="function">(<span class="params">InnerComponent</span>) =&gt;</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;<span class="attr">count</span>: <span class="number">0</span>&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  update()&#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;<span class="attr">count</span>: <span class="keyword">this</span>.state.count + <span class="number">1</span>&#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;InnerComponent </span><br><span class="line">        &#123;...this.props&#125;</span><br><span class="line">        &#123;...this.state&#125;</span><br><span class="line">        update=&#123;<span class="keyword">this</span>.update.bind(<span class="keyword">this</span>)&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;Button&gt;button&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;hr/</span>&gt;</span><br><span class="line">        &lt;LabelHOC&gt;label&lt;<span class="regexp">/LabelHOC&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> Button = HOC(<span class="function">(<span class="params">props</span>) =&gt;</span> </span><br><span class="line">  &lt;button onClick=&#123;props.update&#125;&gt;&#123;props.children&#125; - &#123;props.count&#125;&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">)</span></span><br><span class="line"><span class="regexp">class Label extends React.Component &#123;</span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    return(</span></span><br><span class="line"><span class="regexp">      &lt;label onMouseMove=&#123;this.props.update&#125;&gt;</span></span><br><span class="line"><span class="regexp">      &#123;this.props.children&#125; - &#123;this.props.count&#125;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>label&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> LabelHOC = HOC(Label)</span><br><span class="line">render(&lt;App /&gt;, document.getElementById('root'));</span><br></pre></td></tr></table></figure>
+<p>실무에서 storybook 컴포넌트를 정리하면서 HOC를 사용했습니다. 예를들어, true, false에 따라 열리고 닫히는 모달팝업이 여러개 있을 경우, 열고/닫기 로직을 HOC로 만들어 놓고 이를 여러개의 모달 컴포넌트에 적용하였습니다. 특별히, storybook 내부에서는 state관리가 직관적으로 되지않기 때문에 이를 해결하는 방법으로 HOC사용 및 플러그인이 있습니다.</p>
+
+        </section>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Ryan Lee</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://shlee1353.github.io/2019/07/04/higher-order-components/">https://shlee1353.github.io/2019/07/04/higher-order-components/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY<strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2019/07/04/react-component-lifecycle/">리액트(React) 라이프사이클 v16.3 간단정리</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Ryan Lee | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Sirice19/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+    </div>
+</body>
+</html>

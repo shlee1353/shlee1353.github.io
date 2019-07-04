@@ -7,8 +7,16 @@
     </url>
 
     <url>
+        <loc>https://shlee1353.github.io/2019/07/04/higher-order-components/</loc>
+        <lastmod>2019-07-04T10:52:57.270Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://shlee1353.github.io/2019/07/04/react-component-lifecycle/</loc>
-        <lastmod>2019-07-04T10:41:32.296Z</lastmod>
+        <lastmod>2019-07-04T10:47:30.185Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
