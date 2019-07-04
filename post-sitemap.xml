@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://shlee1353.github.io/2019/07/04/react-component-lifecycle/</loc>
+        <lastmod>2019-07-04T10:21:10.323Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://shlee1353.github.io/2017/11/15/Angular-Lifecycle-Hooks/</loc>
         <lastmod>2019-07-04T10:08:35.025Z</lastmod>
         <changefreq>weekly</changefreq>
