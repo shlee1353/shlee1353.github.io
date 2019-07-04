@@ -41,10 +41,6 @@
                 
                     <a class="menu-item" href="/archives">Posts</a>
                 
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
                     <a class="menu-item" href="/about">About</a>
                 
                 <input id="switch_default" type="checkbox" class="switch_default">
@@ -66,10 +62,6 @@
             <div class="menu" id="mobile-menu">
                 
                     <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
                 
                     <a class="menu-item" href="/about">About</a>
                 
@@ -98,7 +90,7 @@
         <div id="post-toc" class="post-toc">
             <span class="post-toc-title">catalogue</span>
             <div class="post-toc-content">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#리액트-라이프-사이클"><span class="toc-text">리액트 라이프 사이클</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Initializing-state"><span class="toc-text">1. Initializing state</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Fetching-external-data"><span class="toc-text">2. Fetching external data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Adding-event-listeners"><span class="toc-text">3. Adding event listeners</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Updating-state-based-on-props"><span class="toc-text">4. Updating state based on props</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Invoking-external-callbacks"><span class="toc-text">5. Invoking external callbacks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#constructor-NaN"><span class="toc-text">constructor()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#static-getDerivedStateFromProps"><span class="toc-text">static getDerivedStateFromProps()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#houldComponentUpdate"><span class="toc-text">houldComponentUpdate()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#render"><span class="toc-text">render()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#componentDidMount"><span class="toc-text">componentDidMount()</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#리액트-라이프-사이클"><span class="toc-text">리액트 라이프 사이클</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Initializing-state"><span class="toc-text">1. Initializing state</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Fetching-external-data"><span class="toc-text">2. Fetching external data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Adding-event-listeners"><span class="toc-text">3. Adding event listeners</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Updating-state-based-on-props"><span class="toc-text">4. Updating state based on props</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Invoking-external-callbacks"><span class="toc-text">5. Invoking external callbacks</span></a></li></ol></li></ol>
             </div>
         </div>
     
@@ -123,7 +115,8 @@
         </header>
 
         <section class="post-content">
-            <h1 id="리액트-라이프-사이클"><a href="#리액트-라이프-사이클" class="headerlink" title="리액트 라이프 사이클"></a>리액트 라이프 사이클</h1><p>리액트버전 16.3에서 새로운 라이프 사이클 2개가 소개되었습니다. getDerivedStateFromProps, getSnapshotBeforeUpdate 이며 기존에 사용하던componentWillMount, componentWillUpdate, componentWillReceiveProps 는 점차 지원이 중단되어 버전 17에서는 완전히 삭제될 예정이라고 합니다.</p>
+            <p><img src="/image/1.jpg" alt=""></p>
+<h1 id="리액트-라이프-사이클"><a href="#리액트-라이프-사이클" class="headerlink" title="리액트 라이프 사이클"></a>리액트 라이프 사이클</h1><p>리액트버전 16.3에서 새로운 라이프 사이클 2개가 소개되었습니다. getDerivedStateFromProps, getSnapshotBeforeUpdate 이며 기존에 사용하던componentWillMount, componentWillUpdate, componentWillReceiveProps 는 점차 지원이 중단되어 버전 17에서는 완전히 삭제될 예정이라고 합니다.</p>
 <p>컴포넌트 라이프사이클 초기 화면 로딩시:</p>
 <ul>
 <li>constructor</li>
@@ -149,11 +142,16 @@
 <h2 id="4-Updating-state-based-on-props"><a href="#4-Updating-state-based-on-props" class="headerlink" title="4. Updating state based on props"></a>4. Updating state based on props</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> getDerivedStateFromProps(props, state) &#123;</span><br><span class="line">    <span class="keyword">if</span> (props.currentRow !== state.lastRow) &#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        isScrollingDown: props.currentRow &gt; state.lastRow,</span><br><span class="line">        lastRow: props.currentRow,</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>state의 변화가 필요하면, state 객체를 반환합니다. 이는 마치, this.setState({stateName: value})와 같습니다. state 변화가 필요없을 경우는 null을 반환합니다.</p>
 <h2 id="5-Invoking-external-callbacks"><a href="#5-Invoking-external-callbacks" class="headerlink" title="5. Invoking external callbacks"></a>5. Invoking external callbacks</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">componentDidUpdate(prevProps, prevState) &#123;</span><br><span class="line">    <span class="keyword">if</span> (</span><br><span class="line">      <span class="keyword">this</span>.state.someStatefulValue !==</span><br><span class="line">      prevState.someStatefulValue</span><br><span class="line">    ) &#123;</span><br><span class="line">      <span class="keyword">this</span>.props.onChange(<span class="keyword">this</span>.state.someStatefulValue);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor()"></a>constructor()</h2><p>이 메소드는 새로운 객체가 생성될 때 마다 호출됩니다. super(props)은 부모 클래스의 생성자를 호출하며 this.props 로 접근이 가능합니다. 또한, 콜백으로 전달될 함수들을 바인딩 할 때도 사용됩니다. this.setState() 또는 Ajax 요청을 사용하시면 안됩니다. (componentDidMount()에서 사용)</p>
-<h2 id="static-getDerivedStateFromProps"><a href="#static-getDerivedStateFromProps" class="headerlink" title="static getDerivedStateFromProps()"></a>static getDerivedStateFromProps()</h2><p>이 메소드는 컴포넌트 초기화 또는 새로운 props를 받았을 때 일어납니다. 인스턴스가 아닌 클래스로 존재합니다. 그렇기 때문에 this 키워드 접근이 불가능합니다. this.setState() 사용 대신 state를 업데이트 하기 위한 객체를 리턴하며 업데이트가 필요없을 경우 null값을 리턴합니다. 오로지 변화가 생긴 state만 리턴하고 나머지는 유지됩니다. this.setState()는 이 메소드를 호출하지 못합니다.</p>
-<h2 id="houldComponentUpdate"><a href="#houldComponentUpdate" class="headerlink" title="houldComponentUpdate()"></a>houldComponentUpdate()</h2><p>새로운 렌더링 과정이 필요 없을 경우 라이프사이클을 빠져나올 수 있습니다. 리엑트는 기본적으로 깊은 비교를 하지 않습니다. 그렇기 때문에 props, state가 업데이트 될 경우 리렌더링이 필요하다고 생각합니다.</p>
-<h2 id="render"><a href="#render" class="headerlink" title="render()"></a>render()</h2><p>이 메소드가 호출되면 this.props와 this.state가 분석되며 리액트 엘리먼트를 리턴합니다. render() 메소드는 state를 변경하면 안되며 브라우저와 직접적으로 상호작용하면 안됩니다. 브라우저와 연동하려면 componentDidMount()안에서 하면 됩니다. shouldComponentUpdate()가 false를 리턴할 경우 발생하지 않습니다.</p>
-<h2 id="componentDidMount"><a href="#componentDidMount" class="headerlink" title="componentDidMount()"></a>componentDidMount()</h2><p>이 메소드는 전체 라이프사이클에서 한 번만 호출됩니다. 데이터와 관련된 로직을 실행하기에 적합합니다. componentDidupdate()는 prevProps, prevState, snapshot을 파라미터로 가질 수 있습니다. 이 외에도 componentWillUnmount(), componentDidCatch()가 있습니다.</p>
+<p><strong>constructor()</strong></p>
+<p>이 메소드는 새로운 객체가 생성될 때 마다 호출됩니다. super(props)은 부모 클래스의 생성자를 호출하며 this.props 로 접근이 가능합니다. 또한, 콜백으로 전달될 함수들을 바인딩 할 때도 사용됩니다. this.setState() 또는 Ajax 요청을 사용하시면 안됩니다. (componentDidMount()에서 사용)</p>
+<p><strong>static getDerivedStateFromProps()</strong></p>
+<p>이 메소드는 컴포넌트 초기화 또는 새로운 props를 받았을 때 일어납니다. 인스턴스가 아닌 클래스로 존재합니다. 그렇기 때문에 this 키워드 접근이 불가능합니다. this.setState() 사용 대신 state를 업데이트 하기 위한 객체를 리턴하며 업데이트가 필요없을 경우 null값을 리턴합니다. 오로지 변화가 생긴 state만 리턴하고 나머지는 유지됩니다. this.setState()는 이 메소드를 호출하지 못합니다.</p>
+<p><strong>houldComponentUpdate()</strong></p>
+<p>새로운 렌더링 과정이 필요 없을 경우 라이프사이클을 빠져나올 수 있습니다. 리엑트는 기본적으로 깊은 비교를 하지 않습니다. 그렇기 때문에 props, state가 업데이트 될 경우 리렌더링이 필요하다고 생각합니다.</p>
+<p><strong>render()</strong></p>
+<p>이 메소드가 호출되면 this.props와 this.state가 분석되며 리액트 엘리먼트를 리턴합니다. render() 메소드는 state를 변경하면 안되며 브라우저와 직접적으로 상호작용하면 안됩니다. 브라우저와 연동하려면 componentDidMount()안에서 하면 됩니다. shouldComponentUpdate()가 false를 리턴할 경우 발생하지 않습니다.</p>
+<p><strong>componentDidMount()</strong></p>
+<p>이 메소드는 전체 라이프사이클에서 한 번만 호출됩니다. 데이터와 관련된 로직을 실행하기에 적합합니다. componentDidupdate()는 prevProps, prevState, snapshot을 파라미터로 가질 수 있습니다. 이 외에도 componentWillUnmount(), componentDidCatch()가 있습니다.</p>
 
         </section>
 
