@@ -8,7 +8,7 @@
 
     <url>
         <loc>https://shlee1353.github.io/2019/07/05/typescript-basic-concepts/</loc>
-        <lastmod>2019-07-08T08:56:23.440Z</lastmod>
+        <lastmod>2019-07-10T05:06:38.511Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -16,7 +16,7 @@
 
     <url>
         <loc>https://shlee1353.github.io/2019/07/05/js-prototype-inheritance/</loc>
-        <lastmod>2019-07-05T01:53:47.086Z</lastmod>
+        <lastmod>2019-07-10T05:04:07.765Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -24,7 +24,23 @@
 
     <url>
         <loc>https://shlee1353.github.io/2019/07/04/angular-lifecycle-hooks/</loc>
-        <lastmod>2019-07-04T10:55:51.354Z</lastmod>
+        <lastmod>2019-07-10T05:01:01.424Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2019/07/04/vue-quick-start/</loc>
+        <lastmod>2019-07-10T04:57:25.252Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2019/07/04/js-this-bind/</loc>
+        <lastmod>2019-07-10T04:56:33.220Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -41,22 +57,6 @@
     <url>
         <loc>https://shlee1353.github.io/2019/07/04/react-component-lifecycle/</loc>
         <lastmod>2019-07-04T10:47:30.185Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2019/07/04/vue-quick-start/</loc>
-        <lastmod>2019-07-04T10:02:03.553Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2019/07/04/js-this-bind/</loc>
-        <lastmod>2019-07-04T08:04:48.754Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

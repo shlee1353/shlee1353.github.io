@@ -19,10 +19,12 @@
 <meta property="og:site_name" content="Ryan Lee">
 <meta property="og:description" content="생명주기(life cycle)컴포넌트와 지시자는 생명주기(life cycle) 를 가집니다. 생명주기란, 컴포넌트나 지시자가 생성되고 파괴될 때까지의 일련의 과정을 말합니다. 생명주기 안에서는 특정 시점에 훅 메서드(hook method)를 호출할 수 있습니다. 예를들어, 컴포넌트와 지시자가 초기화되면 ngOnInit() 훅 메서드가 호출됩니다. 만약 이">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-04T10:55:51.354Z">
+<meta property="og:image" content="https://shlee1353.github.io/image/angular-lifecycle-hooks/1.png">
+<meta property="og:updated_time" content="2019-07-10T05:01:01.424Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="앵귤러(Angular) 라이프사이클 기초 이해하기">
 <meta name="twitter:description" content="생명주기(life cycle)컴포넌트와 지시자는 생명주기(life cycle) 를 가집니다. 생명주기란, 컴포넌트나 지시자가 생성되고 파괴될 때까지의 일련의 과정을 말합니다. 생명주기 안에서는 특정 시점에 훅 메서드(hook method)를 호출할 수 있습니다. 예를들어, 컴포넌트와 지시자가 초기화되면 ngOnInit() 훅 메서드가 호출됩니다. 만약 이">
+<meta name="twitter:image" content="https://shlee1353.github.io/image/angular-lifecycle-hooks/1.png">
     
     <link rel="canonical" href="https://shlee1353.github.io/2019/07/04/angular-lifecycle-hooks/"/>
     
@@ -177,7 +179,8 @@ ga('send', 'pageview');
         
         
         <div class="article-entry" itemprop="articleBody">
-            <h2 id="생명주기-life-cycle"><a href="#생명주기-life-cycle" class="headerlink" title="생명주기(life cycle)"></a>생명주기(life cycle)</h2><p>컴포넌트와 지시자는 <strong>생명주기(life cycle)</strong> 를 가집니다. 생명주기란, 컴포넌트나 지시자가 생성되고 파괴될 때까지의 일련의 과정을 말합니다. 생명주기 안에서는 특정 시점에 훅 메서드(hook method)를 호출할 수 있습니다. 예를들어, 컴포넌트와 지시자가 초기화되면 ngOnInit() 훅 메서드가 호출됩니다. 만약 이 시점에 실행할 내용이 있다면 컴포넌트 클래스 내에서 ngOnInit() 훅 메서드를 선언하면 됩니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> </span>&#123;</span><br><span class="line">    ngOnInit() &#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <p><img src="/image/angular-lifecycle-hooks/1.png" alt=""></p>
+<h2 id="생명주기-life-cycle"><a href="#생명주기-life-cycle" class="headerlink" title="생명주기(life cycle)"></a>생명주기(life cycle)</h2><p>컴포넌트와 지시자는 <strong>생명주기(life cycle)</strong> 를 가집니다. 생명주기란, 컴포넌트나 지시자가 생성되고 파괴될 때까지의 일련의 과정을 말합니다. 생명주기 안에서는 특정 시점에 훅 메서드(hook method)를 호출할 수 있습니다. 예를들어, 컴포넌트와 지시자가 초기화되면 ngOnInit() 훅 메서드가 호출됩니다. 만약 이 시점에 실행할 내용이 있다면 컴포넌트 클래스 내에서 ngOnInit() 훅 메서드를 선언하면 됩니다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> </span>&#123;</span><br><span class="line">    ngOnInit() &#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="생명주기-시퀀스"><a href="#생명주기-시퀀스" class="headerlink" title="생명주기 시퀀스"></a>생명주기 시퀀스</h2><p>훅 메서드는 호출될 때 일정한 순서로 호출됩니다. 이처럼 일정한 순서로 호출되는 과정을 <strong>생명주기 시퀀스(lifecycle sequence)</strong> 라고 합니다. 아래와 같은 순서로 이루어집니다. 생명주기 시퀀스는 초기화 시점, 상태 체크 시점, 이벤트 시점으로 다시 나뉩니다.</p>
 <ol>
 <li>ngOnChanges</li>
@@ -391,15 +394,16 @@ ga('send', 'pageview');
             "name": "Ryan Lee"
         },
         "headline": "앵귤러(Angular) 라이프사이클 기초 이해하기",
-        "image": "https://shlee1353.github.io",
+        "image": "https://shlee1353.github.io/image/angular-lifecycle-hooks/1.png",
         "keywords": "",
         "genre": "",
         "datePublished": "2019-07-04",
         "dateCreated": "2019-07-04",
-        "dateModified": "2019-07-04",
+        "dateModified": "2019-07-10",
         "url": "https://shlee1353.github.io/2019/07/04/angular-lifecycle-hooks/",
-        "description": "생명주기(life cycle)컴포넌트와 지시자는 생명주기(life cycle) 를 가집니다. 생명주기란, 컴포넌트나 지시자가 생성되고 파괴될 때까지의 일련의 과정을 말합니다. 생명주기 안에서는 특정 시점에 훅 메서드(hook method)를 호출할 수 있습니다. 예를들어, 컴포넌트와 지시자가 초기화되면 ngOnInit() 훅 메서드가 호출됩니다. 만약 이 "
-        "wordCount": 2064
+        "description": "
+생명주기(life cycle)컴포넌트와 지시자는 생명주기(life cycle) 를 가집니다. 생명주기란, 컴포넌트나 지시자가 생성되고 파괴될 때까지의 일련의 과정을 말합니다. 생명주기 안에서는 특정 시점에 훅 메서드(hook method)를 호출할 수 있습니다. 예를들어, 컴포넌트와 지시자가 초기화되면 ngOnInit() 훅 메서드가 호출됩니다. 만약 이"
+        "wordCount": 2066
     }
 </script>
 
@@ -517,7 +521,7 @@ ga('send', 'pageview');
                             <a href="/2019/07/05/typescript-basic-concepts/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/image/typescript-basic-concepts/1.png)" alt="타입스크립트(TypeScript) 기본개념 및 사용방법 정리" class="thumbnail-image"></span>
     
     
 </a>
@@ -537,7 +541,7 @@ ga('send', 'pageview');
                             <a href="/2019/07/05/js-prototype-inheritance/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/image/js-prototype-inheritance/1.png)" alt="자바스크립트(JavaScript) 상속과 프로토타입 개념정리" class="thumbnail-image"></span>
     
     
 </a>
@@ -557,7 +561,7 @@ ga('send', 'pageview');
                             <a href="/2019/07/04/angular-lifecycle-hooks/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/image/angular-lifecycle-hooks/1.png)" alt="앵귤러(Angular) 라이프사이클 기초 이해하기" class="thumbnail-image"></span>
     
     
 </a>
