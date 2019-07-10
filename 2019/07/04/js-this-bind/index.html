@@ -1,122 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8" />
 
-
-
-<link rel="canonical" href="https://shlee1353.github.io/2019/07/04/js-this-bind/"/>
-
-<title>자바스크립트(JavaScript) this 바인딩 기본개념 | Ryan Lee</title>
-
-
-
-    <link rel="icon" href="/favicon.ico">
-
-
-
-
-    <!-- stylesheets list from _config.yml -->
     
+
+    
+    <title>자바스크립트(JavaScript) this 바인딩 기본개념 | Ryan Lee</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="" />
+    
+    <meta name="description" content="자바스크립트에서 this 키워드는 좀 특별합니다. ES5에서는 bind 메소드를 사용해서 this 키워드를 설정 할 수 있으며, ES2015에서는 arrow functions 을 사용해서 고유의 this 키워드를바인딩 할 수 있습니다. (렉시컬 컨텍스트 안에 this를 유지) Global context함수 밖, 글로벌 실행 컨텍스트에서 this는 글로벌 객">
+<meta property="og:type" content="article">
+<meta property="og:title" content="자바스크립트(JavaScript) this 바인딩 기본개념">
+<meta property="og:url" content="https://shlee1353.github.io/2019/07/04/js-this-bind/index.html">
+<meta property="og:site_name" content="Ryan Lee">
+<meta property="og:description" content="자바스크립트에서 this 키워드는 좀 특별합니다. ES5에서는 bind 메소드를 사용해서 this 키워드를 설정 할 수 있으며, ES2015에서는 arrow functions 을 사용해서 고유의 this 키워드를바인딩 할 수 있습니다. (렉시컬 컨텍스트 안에 this를 유지) Global context함수 밖, 글로벌 실행 컨텍스트에서 this는 글로벌 객">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-07-04T08:04:48.754Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="자바스크립트(JavaScript) this 바인딩 기본개념">
+<meta name="twitter:description" content="자바스크립트에서 this 키워드는 좀 특별합니다. ES5에서는 bind 메소드를 사용해서 this 키워드를 설정 할 수 있으며, ES2015에서는 arrow functions 을 사용해서 고유의 this 키워드를바인딩 할 수 있습니다. (렉시컬 컨텍스트 안에 this를 유지) Global context함수 밖, 글로벌 실행 컨텍스트에서 this는 글로벌 객">
+    
+    <link rel="canonical" href="https://shlee1353.github.io/2019/07/04/js-this-bind/"/>
+    
+        <link rel="alternate" href="/" title="Ryan Lee" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
     <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
     
-
-
-
-    <!-- scripts list from _config.yml -->
     
-    <script src="/js/script.js"></script>
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
     
 
 
 </head>
+
 <body>
-    <div class="wrapper">
-        <header>
-    <nav class="navbar">
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
         <div class="container">
-            <div class="navbar-header header-logo"><a href="/">Ryan&#39;s Blog</a></div>
-            <div class="menu navbar-right">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
-
-        </div>
-    </nav>
-
-    
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">Ryan&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
                 </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-            </div>
-        </div>
-    </nav>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
 
-</header>
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
 <script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        }else{
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
 </script>
-        <div class="main">
-            <div class="container">
-    
-    
-        <div id="post-toc" class="post-toc">
-            <span class="post-toc-title">catalogue</span>
-            <div class="post-toc-content">
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Global-context"><span class="toc-text">Global context</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Function-context"><span class="toc-text">Function context</span></a></li></ol>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
     
+    uncategorized
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-js-this-bind" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
     
-    <article class="post-wrap">
-        <header class="post-header">
-            <h1 class="post-title">자바스크립트(JavaScript) this 바인딩 기본개념</h1>
-            
-                <div class="post-meta">
-                    
-                        Author: <a itemprop="author" rel="author" href="/">Ryan Lee</a>
-                    
+        <h1 class="article-title" itemprop="name">
+        자바스크립트(JavaScript) this 바인딩 기본개념
+        </h1>
+    
 
-                    
-                        <span class="post-time">
-                        Date: <a href="#">July 4, 2019&nbsp;&nbsp;16:54:24</a>
-                        </span>
-                    
-                    
-                </div>
-            
-        </header>
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/07/04/js-this-bind/" class="article-date">
+            <time datetime="2019-07-04T07:54:24.000Z" itemprop="datePublished">2019-07-04</time>
+        </a>
+    </div>
 
-        <section class="post-content">
+		
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
             <p>자바스크립트에서 this 키워드는 좀 특별합니다. ES5에서는 bind 메소드를 사용해서 this 키워드를 설정 할 수 있으며, ES2015에서는 arrow functions 을 사용해서 고유의 this 키워드를바인딩 할 수 있습니다. (렉시컬 컨텍스트 안에 this를 유지)</p>
 <h2 id="Global-context"><a href="#Global-context" class="headerlink" title="Global context"></a>Global context</h2><p>함수 밖, 글로벌 실행 컨텍스트에서 this는 글로벌 객체를 가르킵니다(strict mode or not)</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span> === <span class="built_in">window</span>); <span class="comment">// true</span></span><br><span class="line">  </span><br><span class="line">a = <span class="number">37</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">// 37</span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">this</span>.b = <span class="string">"MDN"</span>; </span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.b)  <span class="comment">// "MDN" </span></span><br><span class="line"><span class="built_in">console</span>.log(b)         <span class="comment">// "MDN"</span></span><br></pre></td></tr></table></figure>
@@ -142,67 +190,407 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    firstName: <span class="string">'Jimmy'</span>,</span><br><span class="line">    lastName: <span class="string">'Smith'</span>,</span><br><span class="line">    get fullName() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName;</span><br><span class="line">    &#125;,</span><br><span class="line">    set fullName (name) &#123;</span><br><span class="line">        <span class="keyword">var</span> words = name.toString().split(<span class="string">' '</span>);</span><br><span class="line">        <span class="keyword">this</span>.firstName = words[<span class="number">0</span>] || <span class="string">''</span>;</span><br><span class="line">        <span class="keyword">this</span>.lastName = words[<span class="number">1</span>] || <span class="string">''</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">person.fullName = <span class="string">'Jack Franklin'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.firstName); <span class="comment">// Jack</span></span><br><span class="line"><span class="built_in">console</span>.log(person.lastName) <span class="comment">// Franklin</span></span><br></pre></td></tr></table></figure>
 <p>defineProperty에 의해 생성된 sum은 호출시 this가 o 객체를 향하고 있습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.a + <span class="keyword">this</span>.b + <span class="keyword">this</span>.c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span>,</span><br><span class="line">  c: <span class="number">3</span>,</span><br><span class="line">  get average() &#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">this</span>.a + <span class="keyword">this</span>.b + <span class="keyword">this</span>.c) / <span class="number">3</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o, <span class="string">'sum'</span>, &#123;</span><br><span class="line">    get: sum, <span class="attr">enumerable</span>: <span class="literal">true</span>, <span class="attr">configurable</span>: <span class="literal">true</span>&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(o.average, o.sum); <span class="comment">// 2, 6</span></span><br></pre></td></tr></table></figure>
-        </section>
-
-        
-            <section class="post-copyright">
-                
-                    <p class="copyright-item">
-                        <span>Author:</span>
-                        <span>Ryan Lee</span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>Permalink:</span>
-                        <span><a href="https://shlee1353.github.io/2019/07/04/js-this-bind/">https://shlee1353.github.io/2019/07/04/js-this-bind/</a></span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>License:</span>
-                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
-                    </p>
-                
-                
-                     <p class="copyright-item">
-                         <span>Slogan:</span>
-                         <span>Do you believe in <strong>DESTINY<strong>?</span>
-                     </p>
-                
-
-            </section>
-        
-        <section class="post-tags">
-            <div>
-                <span>Tag(s):</span>
-                <span class="tag">
-                    
-                </span>
-            </div>
-            <div>
-                <a href="javascript:window.history.back();">back</a>
-                <span>· </span>
-                <a href="/">home</a>
-            </div>
-        </section>
-        <section class="post-nav">
-            
-                <a class="prev" rel="prev" href="/2019/07/04/vue-quick-start/">뷰(Vue) 기본개념 빠르게 알아보자</a>
-            
-            
-        </section>
-
-
-    </article>
-</div>
-
         </div>
-        <footer id="footer" class="footer">
-    <div class="copyright">
-        <span>© Ryan Lee | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Sirice19/hexo-theme-Chic" target="_blank">Chic</a></span>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://shlee1353.github.io/2019/07/04/js-this-bind/" data-id="cjxwnqsr40001zwdym04h8ylb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Ryan Lee"
+        },
+        "headline": "자바스크립트(JavaScript) this 바인딩 기본개념",
+        "image": "https://shlee1353.github.io",
+        "keywords": "",
+        "genre": "",
+        "datePublished": "2019-07-04",
+        "dateCreated": "2019-07-04",
+        "dateModified": "2019-07-04",
+        "url": "https://shlee1353.github.io/2019/07/04/js-this-bind/",
+        "description": "자바스크립트에서 this 키워드는 좀 특별합니다. ES5에서는 bind 메소드를 사용해서 this 키워드를 설정 할 수 있으며, ES2015에서는 arrow functions 을 사용해서 고유의 this 키워드를바인딩 할 수 있습니다. (렉시컬 컨텍스트 안에 this를 유지)
+Global context함수 밖, 글로벌 실행 컨텍스트에서 this는 글로벌 객"
+        "wordCount": 1211
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/07/04/vue-quick-start/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            뷰(Vue) 기본개념 빠르게 알아보자
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/07/05/typescript-basic-concepts/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/07/05/typescript-basic-concepts/" class="title">타입스크립트(TypeScript) 기본개념 및 사용방법 정리</a></p>
+                            <p class="item-date"><time datetime="2019-07-05T05:32:20.000Z" itemprop="datePublished">2019-07-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/07/05/js-prototype-inheritance/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/07/05/js-prototype-inheritance/" class="title">자바스크립트(JavaScript) 상속과 프로토타입 개념정리</a></p>
+                            <p class="item-date"><time datetime="2019-07-05T01:46:04.000Z" itemprop="datePublished">2019-07-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/07/04/angular-lifecycle-hooks/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/07/04/angular-lifecycle-hooks/" class="title">앵귤러(Angular) 라이프사이클 기초 이해하기</a></p>
+                            <p class="item-date"><time datetime="2019-07-04T10:54:29.000Z" itemprop="datePublished">2019-07-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/07/04/higher-order-components/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/higher-order-components/1.png)" alt="리액트(React) 순수함수 (HOC 개념정리)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/07/04/higher-order-components/" class="title">리액트(React) 순수함수 (HOC 개념정리)</a></p>
+                            <p class="item-date"><time datetime="2019-07-04T10:45:02.000Z" itemprop="datePublished">2019-07-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/07/04/react-component-lifecycle/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/react-component-lifecycle/1.jpg)" alt="리액트(React) 라이프사이클 v16.3 간단정리" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/07/04/react-component-lifecycle/" class="title">리액트(React) 라이프사이클 v16.3 간단정리</a></p>
+                            <p class="item-date"><time datetime="2019-07-04T10:11:50.000Z" itemprop="datePublished">2019-07-04</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Ryan Lee</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
     </div>
 </footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://shlee1353.github.io/2019/07/04/js-this-bind/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
     </div>
 </body>
 </html>

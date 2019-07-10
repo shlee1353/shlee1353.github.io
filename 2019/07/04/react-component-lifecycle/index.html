@@ -1,122 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8" />
 
-
-
-<link rel="canonical" href="https://shlee1353.github.io/2019/07/04/react-component-lifecycle/"/>
-
-<title>리액트(React) 라이프사이클 v16.3 간단정리 | Ryan Lee</title>
-
-
-
-    <link rel="icon" href="/favicon.ico">
-
-
-
-
-    <!-- stylesheets list from _config.yml -->
     
+
+    
+    <title>리액트(React) 라이프사이클 v16.3 간단정리 | Ryan Lee</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="" />
+    
+    <meta name="description" content="리액트 라이프 사이클리액트버전 16.3에서 새로운 라이프 사이클 2개가 소개되었습니다. getDerivedStateFromProps, getSnapshotBeforeUpdate 이며 기존에 사용하던componentWillMount, componentWillUpdate, componentWillReceiveProps 는 점차 지원이 중단되어 버전 17에서는">
+<meta property="og:type" content="article">
+<meta property="og:title" content="리액트(React) 라이프사이클 v16.3 간단정리">
+<meta property="og:url" content="https://shlee1353.github.io/2019/07/04/react-component-lifecycle/index.html">
+<meta property="og:site_name" content="Ryan Lee">
+<meta property="og:description" content="리액트 라이프 사이클리액트버전 16.3에서 새로운 라이프 사이클 2개가 소개되었습니다. getDerivedStateFromProps, getSnapshotBeforeUpdate 이며 기존에 사용하던componentWillMount, componentWillUpdate, componentWillReceiveProps 는 점차 지원이 중단되어 버전 17에서는">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://shlee1353.github.io/image/react-component-lifecycle/1.jpg">
+<meta property="og:updated_time" content="2019-07-04T10:47:30.185Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="리액트(React) 라이프사이클 v16.3 간단정리">
+<meta name="twitter:description" content="리액트 라이프 사이클리액트버전 16.3에서 새로운 라이프 사이클 2개가 소개되었습니다. getDerivedStateFromProps, getSnapshotBeforeUpdate 이며 기존에 사용하던componentWillMount, componentWillUpdate, componentWillReceiveProps 는 점차 지원이 중단되어 버전 17에서는">
+<meta name="twitter:image" content="https://shlee1353.github.io/image/react-component-lifecycle/1.jpg">
+    
+    <link rel="canonical" href="https://shlee1353.github.io/2019/07/04/react-component-lifecycle/"/>
+    
+        <link rel="alternate" href="/" title="Ryan Lee" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
     <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
     
-
-
-
-    <!-- scripts list from _config.yml -->
     
-    <script src="/js/script.js"></script>
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
     
 
 
 </head>
+
 <body>
-    <div class="wrapper">
-        <header>
-    <nav class="navbar">
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
         <div class="container">
-            <div class="navbar-header header-logo"><a href="/">Ryan&#39;s Blog</a></div>
-            <div class="menu navbar-right">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
-
-        </div>
-    </nav>
-
-    
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">Ryan&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
                 </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-            </div>
-        </div>
-    </nav>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
 
-</header>
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
 <script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        }else{
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
 </script>
-        <div class="main">
-            <div class="container">
-    
-    
-        <div id="post-toc" class="post-toc">
-            <span class="post-toc-title">catalogue</span>
-            <div class="post-toc-content">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#리액트-라이프-사이클"><span class="toc-text">리액트 라이프 사이클</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Initializing-state"><span class="toc-text">1. Initializing state</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Fetching-external-data"><span class="toc-text">2. Fetching external data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Adding-event-listeners"><span class="toc-text">3. Adding event listeners</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Updating-state-based-on-props"><span class="toc-text">4. Updating state based on props</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Invoking-external-callbacks"><span class="toc-text">5. Invoking external callbacks</span></a></li></ol></li></ol>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
     
+    uncategorized
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-react-component-lifecycle" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
     
-    <article class="post-wrap">
-        <header class="post-header">
-            <h1 class="post-title">리액트(React) 라이프사이클 v16.3 간단정리</h1>
-            
-                <div class="post-meta">
-                    
-                        Author: <a itemprop="author" rel="author" href="/">Ryan Lee</a>
-                    
+        <h1 class="article-title" itemprop="name">
+        리액트(React) 라이프사이클 v16.3 간단정리
+        </h1>
+    
 
-                    
-                        <span class="post-time">
-                        Date: <a href="#">July 4, 2019&nbsp;&nbsp;19:11:50</a>
-                        </span>
-                    
-                    
-                </div>
-            
-        </header>
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/07/04/react-component-lifecycle/" class="article-date">
+            <time datetime="2019-07-04T10:11:50.000Z" itemprop="datePublished">2019-07-04</time>
+        </a>
+    </div>
 
-        <section class="post-content">
+		
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
             <p><img src="/image/react-component-lifecycle/1.jpg" alt=""></p>
 <h1 id="리액트-라이프-사이클"><a href="#리액트-라이프-사이클" class="headerlink" title="리액트 라이프 사이클"></a>리액트 라이프 사이클</h1><p>리액트버전 16.3에서 새로운 라이프 사이클 2개가 소개되었습니다. getDerivedStateFromProps, getSnapshotBeforeUpdate 이며 기존에 사용하던componentWillMount, componentWillUpdate, componentWillReceiveProps 는 점차 지원이 중단되어 버전 17에서는 완전히 삭제될 예정이라고 합니다.</p>
 <p>컴포넌트 라이프사이클 초기 화면 로딩시:</p>
@@ -155,69 +205,413 @@
 <p><strong>componentDidMount()</strong></p>
 <p>이 메소드는 전체 라이프사이클에서 한 번만 호출됩니다. 데이터와 관련된 로직을 실행하기에 적합합니다. componentDidupdate()는 prevProps, prevState, snapshot을 파라미터로 가질 수 있습니다. 이 외에도 componentWillUnmount(), componentDidCatch()가 있습니다.</p>
 
-        </section>
-
-        
-            <section class="post-copyright">
-                
-                    <p class="copyright-item">
-                        <span>Author:</span>
-                        <span>Ryan Lee</span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>Permalink:</span>
-                        <span><a href="https://shlee1353.github.io/2019/07/04/react-component-lifecycle/">https://shlee1353.github.io/2019/07/04/react-component-lifecycle/</a></span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>License:</span>
-                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
-                    </p>
-                
-                
-                     <p class="copyright-item">
-                         <span>Slogan:</span>
-                         <span>Do you believe in <strong>DESTINY<strong>?</span>
-                     </p>
-                
-
-            </section>
-        
-        <section class="post-tags">
-            <div>
-                <span>Tag(s):</span>
-                <span class="tag">
-                    
-                </span>
-            </div>
-            <div>
-                <a href="javascript:window.history.back();">back</a>
-                <span>· </span>
-                <a href="/">home</a>
-            </div>
-        </section>
-        <section class="post-nav">
-            
-                <a class="prev" rel="prev" href="/2019/07/04/higher-order-components/">리액트(React) 순수함수 (HOC 개념정리)</a>
-            
-            
-            <a class="next" rel="next" href="/2019/07/04/vue-quick-start/">뷰(Vue) 기본개념 빠르게 알아보자</a>
-            
-        </section>
-
-
-    </article>
-</div>
-
         </div>
-        <footer id="footer" class="footer">
-    <div class="copyright">
-        <span>© Ryan Lee | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Sirice19/hexo-theme-Chic" target="_blank">Chic</a></span>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://shlee1353.github.io/2019/07/04/react-component-lifecycle/" data-id="cjxwnqsr70003zwdygpxqmlwe" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Ryan Lee"
+        },
+        "headline": "리액트(React) 라이프사이클 v16.3 간단정리",
+        "image": "https://shlee1353.github.io/image/react-component-lifecycle/1.jpg",
+        "keywords": "",
+        "genre": "",
+        "datePublished": "2019-07-04",
+        "dateCreated": "2019-07-04",
+        "dateModified": "2019-07-04",
+        "url": "https://shlee1353.github.io/2019/07/04/react-component-lifecycle/",
+        "description": "
+리액트 라이프 사이클리액트버전 16.3에서 새로운 라이프 사이클 2개가 소개되었습니다. getDerivedStateFromProps, getSnapshotBeforeUpdate 이며 기존에 사용하던componentWillMount, componentWillUpdate, componentWillReceiveProps 는 점차 지원이 중단되어 버전 17에서는"
+        "wordCount": 723
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/07/04/higher-order-components/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            리액트(React) 순수함수 (HOC 개념정리)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/07/04/vue-quick-start/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">뷰(Vue) 기본개념 빠르게 알아보자</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/07/05/typescript-basic-concepts/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/07/05/typescript-basic-concepts/" class="title">타입스크립트(TypeScript) 기본개념 및 사용방법 정리</a></p>
+                            <p class="item-date"><time datetime="2019-07-05T05:32:20.000Z" itemprop="datePublished">2019-07-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/07/05/js-prototype-inheritance/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/07/05/js-prototype-inheritance/" class="title">자바스크립트(JavaScript) 상속과 프로토타입 개념정리</a></p>
+                            <p class="item-date"><time datetime="2019-07-05T01:46:04.000Z" itemprop="datePublished">2019-07-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/07/04/angular-lifecycle-hooks/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/07/04/angular-lifecycle-hooks/" class="title">앵귤러(Angular) 라이프사이클 기초 이해하기</a></p>
+                            <p class="item-date"><time datetime="2019-07-04T10:54:29.000Z" itemprop="datePublished">2019-07-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/07/04/higher-order-components/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/higher-order-components/1.png)" alt="리액트(React) 순수함수 (HOC 개념정리)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/07/04/higher-order-components/" class="title">리액트(React) 순수함수 (HOC 개념정리)</a></p>
+                            <p class="item-date"><time datetime="2019-07-04T10:45:02.000Z" itemprop="datePublished">2019-07-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/07/04/react-component-lifecycle/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/react-component-lifecycle/1.jpg)" alt="리액트(React) 라이프사이클 v16.3 간단정리" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/07/04/react-component-lifecycle/" class="title">리액트(React) 라이프사이클 v16.3 간단정리</a></p>
+                            <p class="item-date"><time datetime="2019-07-04T10:11:50.000Z" itemprop="datePublished">2019-07-04</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Ryan Lee</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
     </div>
 </footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://shlee1353.github.io/2019/07/04/react-component-lifecycle/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
     </div>
 </body>
 </html>
