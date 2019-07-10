@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>https://shlee1353.github.io/2019/07/04/vue-quick-start/</loc>
+        <lastmod>2019-07-10T06:02:35.389Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2019/07/04/react-component-lifecycle/</loc>
+        <lastmod>2019-07-10T05:53:28.262Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://shlee1353.github.io/2019/07/05/typescript-basic-concepts/</loc>
         <lastmod>2019-07-10T05:06:38.511Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -31,14 +47,6 @@
     </url>
 
     <url>
-        <loc>https://shlee1353.github.io/2019/07/04/vue-quick-start/</loc>
-        <lastmod>2019-07-10T04:57:25.252Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://shlee1353.github.io/2019/07/04/js-this-bind/</loc>
         <lastmod>2019-07-10T04:56:33.220Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -49,14 +57,6 @@
     <url>
         <loc>https://shlee1353.github.io/2019/07/04/higher-order-components/</loc>
         <lastmod>2019-07-04T10:52:57.270Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2019/07/04/react-component-lifecycle/</loc>
-        <lastmod>2019-07-04T10:47:30.185Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
