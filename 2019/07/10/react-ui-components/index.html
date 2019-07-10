@@ -6,27 +6,27 @@
     
 
     
-    <title>리액트(React) 순수함수 (HOC 개념정리) | Ryan Lee</title>
+    <title>리액트(React) UI 컴포넌트 설계하기 | Ryan Lee</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="" />
     
-    <meta name="description" content="Higher-Order Components HOC는 컴포넌트 로직을 재사용하기 위한 리액트의 고급기술입니다. 함수로서 컴포넌트를 인자로 받아 새로운 컴포넌트를 리턴합니다. 1const EnhancedComponent = higherOrderComponent(WrappedComponent); 기존 컴포넌트가 props를 받아 UI를 만들었다면, HOC는 컴">
+    <meta name="description" content="디자인&amp;amp;인터렉션UI개발을 하시면서 많이 접하시는 디자인이며 간단한 인터렉션과 노출조건이 들어가 있습니다. 하나는 상품을 확인할 수 있는 캐로셀 UI 컴포넌트이며, 다른 하나는 각 이미지에 설명이 들어가 있는 리스트 구조의 UI입니다. 초록색 박스로 그러져있는 설명 부분은 일정 높이에서 펼치기 버튼이 노출됩니다.  우선, 매우 간단한 구조이며, 기존">
 <meta property="og:type" content="article">
-<meta property="og:title" content="리액트(React) 순수함수 (HOC 개념정리)">
-<meta property="og:url" content="https://shlee1353.github.io/2019/07/04/higher-order-components/index.html">
+<meta property="og:title" content="리액트(React) UI 컴포넌트 설계하기">
+<meta property="og:url" content="https://shlee1353.github.io/2019/07/10/react-ui-components/index.html">
 <meta property="og:site_name" content="Ryan Lee">
-<meta property="og:description" content="Higher-Order Components HOC는 컴포넌트 로직을 재사용하기 위한 리액트의 고급기술입니다. 함수로서 컴포넌트를 인자로 받아 새로운 컴포넌트를 리턴합니다. 1const EnhancedComponent = higherOrderComponent(WrappedComponent); 기존 컴포넌트가 props를 받아 UI를 만들었다면, HOC는 컴">
+<meta property="og:description" content="디자인&amp;amp;인터렉션UI개발을 하시면서 많이 접하시는 디자인이며 간단한 인터렉션과 노출조건이 들어가 있습니다. 하나는 상품을 확인할 수 있는 캐로셀 UI 컴포넌트이며, 다른 하나는 각 이미지에 설명이 들어가 있는 리스트 구조의 UI입니다. 초록색 박스로 그러져있는 설명 부분은 일정 높이에서 펼치기 버튼이 노출됩니다.  우선, 매우 간단한 구조이며, 기존">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://shlee1353.github.io/image/higher-order-components/1.png">
-<meta property="og:updated_time" content="2019-07-04T10:52:57.270Z">
+<meta property="og:image" content="https://shlee1353.github.io/image/react-ui-components/1.png">
+<meta property="og:updated_time" content="2019-07-10T06:29:11.146Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="리액트(React) 순수함수 (HOC 개념정리)">
-<meta name="twitter:description" content="Higher-Order Components HOC는 컴포넌트 로직을 재사용하기 위한 리액트의 고급기술입니다. 함수로서 컴포넌트를 인자로 받아 새로운 컴포넌트를 리턴합니다. 1const EnhancedComponent = higherOrderComponent(WrappedComponent); 기존 컴포넌트가 props를 받아 UI를 만들었다면, HOC는 컴">
-<meta name="twitter:image" content="https://shlee1353.github.io/image/higher-order-components/1.png">
+<meta name="twitter:title" content="리액트(React) UI 컴포넌트 설계하기">
+<meta name="twitter:description" content="디자인&amp;amp;인터렉션UI개발을 하시면서 많이 접하시는 디자인이며 간단한 인터렉션과 노출조건이 들어가 있습니다. 하나는 상품을 확인할 수 있는 캐로셀 UI 컴포넌트이며, 다른 하나는 각 이미지에 설명이 들어가 있는 리스트 구조의 UI입니다. 초록색 박스로 그러져있는 설명 부분은 일정 높이에서 펼치기 버튼이 노출됩니다.  우선, 매우 간단한 구조이며, 기존">
+<meta name="twitter:image" content="https://shlee1353.github.io/image/react-ui-components/1.png">
     
-    <link rel="canonical" href="https://shlee1353.github.io/2019/07/04/higher-order-components/"/>
+    <link rel="canonical" href="https://shlee1353.github.io/2019/07/10/react-ui-components/"/>
     
         <link rel="alternate" href="/" title="Ryan Lee" type="application/atom+xml" />
     
@@ -150,14 +150,14 @@ ga('send', 'pageview');
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-higher-order-components" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-react-ui-components" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        리액트(React) 순수함수 (HOC 개념정리)
+        리액트(React) UI 컴포넌트 설계하기
         </h1>
     
 
@@ -167,8 +167,8 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/07/04/higher-order-components/" class="article-date">
-            <time datetime="2019-07-04T10:45:02.000Z" itemprop="datePublished">2019-07-04</time>
+        <a href="/2019/07/10/react-ui-components/" class="article-date">
+            <time datetime="2019-07-10T06:19:24.000Z" itemprop="datePublished">2019-07-10</time>
         </a>
     </div>
 
@@ -179,28 +179,46 @@ ga('send', 'pageview');
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><img src="/image/higher-order-components/1.png" alt=""></p>
-<p>Higher-Order Components HOC는 컴포넌트 로직을 재사용하기 위한 리액트의 고급기술입니다. 함수로서 컴포넌트를 인자로 받아 새로운 컴포넌트를 리턴합니다.</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> EnhancedComponent = higherOrderComponent(WrappedComponent);</span><br></pre></td></tr></table></figure>
-<p>기존 컴포넌트가 props를 받아 UI를 만들었다면, HOC는 컴포넌트를 다른 컴포넌트로 바꿉니다. HOC는 Redux’s connect, Realy’s createFragmentContainer에서 흔히 사용하고 있습니다. 리액트에서 컴포넌트는 코드 재사용을 위한 매우 중요한 유닛입니다.</p>
-<p><a href="https://reactjs.org/docs/higher-order-components.html" target="_blank" rel="external">https://reactjs.org/docs/higher-order-components.html</a></p>
-<p>ComponentList와 BlogPost는 동일하지 않지만, 같은 로직을 가지고 있습니다.</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addChangeListener() -&gt; handleChange() -&gt; removeChangeListener()</span><br></pre></td></tr></table></figure>
-<p>앱 전체적으로 봤을 때 이러한 로직은 자주 사용되는 패턴입니다. 이러한 로직을 하나의 장소에서 관리하고 여러 컴포넌트에서 사용할 수 있도록 추상화작업이 필요합니다. 이럴때 HOC가 필요합니다. DataSource를 구독하고 있는 CommentList, BlogPost 컴포넌트를 제작할 수 있는 함수를 만들어 보도록 하겠습니다. 이 함수는 인자로 데이터를 prop로 받을 수 있는 자식 컴포넌트를 받습니다. 이 함수를 withSubscription 이라고 부르도록 하겠습니다.</p>
-<p><strong>첫번째 파라미터는 wrapped 컴포넌트이며, 두 번째 파라미터로 DataSource와 현재 props값을 받습니다.</strong></p>
-<p>CommentListWithSubscription과 BlogPostWithSubscription이 랜더되면, CommentList와 BlogPost는 data prop로 전달됩니다. 이 값에는 DataSource에서 받은 현재값도 포함됩니다. HOC는 주입된 컴포넌트를 수정하지도 않으며 inheritance를 사용하지도 않습니다. wrapped 컴포넌트는 새로운 props, data는 물론 부모 container의 모든 props를 받습니다. Wrapped component는 어떻게 왜 데이터가 사용되는지, 어디서 오는지 고민할 필요가 없습니다.</p>
-<p>리액트의 HOC의 구조를 보면 고차함수가 생각납니다. 고차함수를 만족시키는 조건으로는, 첫째, 함수를 파라미터로 전달 받는 함수, 둘째, 함수를 리턴하는 함수입니다.</p>
-<h2 id="어디에-쓰이나"><a href="#어디에-쓰이나" class="headerlink" title="어디에 쓰이나?"></a>어디에 쓰이나?</h2><ol>
-<li>비즈니스 로직을 담당하는 컴포넌트와 디스플레이를 담당하는 컴포넌트를 분리하여 사용할때</li>
-<li>로딩 중 화면표시, 유저 인증 로직 처리 (컴포넌트 내에서 권한 체크나 로그인 상태를 체크인 하기 보다는 인증로직을 HOC로 분리)</li>
+            <p><img src="/image/react-ui-components/1.png" alt=""></p>
+<h1 id="디자인-amp-인터렉션"><a href="#디자인-amp-인터렉션" class="headerlink" title="디자인&amp;인터렉션"></a>디자인&amp;인터렉션</h1><p>UI개발을 하시면서 많이 접하시는 디자인이며 간단한 인터렉션과 노출조건이 들어가 있습니다. 하나는 상품을 확인할 수 있는 캐로셀 UI 컴포넌트이며, 다른 하나는 각 이미지에 설명이 들어가 있는 리스트 구조의 UI입니다. 초록색 박스로 그러져있는 설명 부분은 일정 높이에서 펼치기 버튼이 노출됩니다.</p>
+<p><img src="/image/react-ui-components/2.png" alt=""></p>
+<p>우선, 매우 간단한 구조이며, 기존에 리액트로 업무를 하시면서 setState 메소드와 간단한 반복문(map)을 사용하셨다면 쉽게 구현이 가능합니다. 저는 다음과 같은 프로세스로 작업을 진행하였습니다.</p>
+<h2 id="캐로셀"><a href="#캐로셀" class="headerlink" title="캐로셀"></a>캐로셀</h2><ul>
+<li>map을 사용하기 위해 필요한 데이터는 무엇이 있는가? 기본적으로 썸네일에 사용되는 상품 이미지가 있습니다.</li>
+<li>다음으로, 상품 이미지 경로가 들어가 있는 초기값을 선언해 놓습니다. 더미 데이터를 만드는 방법은 여러가지가 있지만, 우선 간단 예로 3개 정도만 만들어 보도록 하겠습니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> initialState = [</span><br><span class="line">    &#123;</span><br><span class="line">        id: <span class="number">1</span></span><br><span class="line">        imgUrl: <span class="string">'이미지주소'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        id: <span class="number">2</span></span><br><span class="line">        imgUrl: <span class="string">'이미지주소'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        id: <span class="number">3</span></span><br><span class="line">        imgUrl: <span class="string">'이미지주소'</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>초기값을 담고 있는 initialState 배열을 실제로 사용해야할 변수에 담아줘야 합니다. 기존에는 이 단계에서 setState 메소드를 사용하였지만, 지금은 useState 를 사용합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [products, setProducts] = useState(initialState)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>useState 메소드 인자로 initialState를 넘겨주며 이 값은 products에 담기게 됩니다.</li>
+<li>이제 기존처럼 map을 사용하여 캐로셀에 들어가는 상품 이미지가 담긴 UI를 생성할 수 있습니다. 생각보다 쉽게 적용이 가능합니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Product = <span class="function">(<span class="params">&#123; imgUrl &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">return</span> (</span><br><span class="line">        &lt;li className=<span class="string">"item"</span>&gt;</span><br><span class="line">            &lt;a href=<span class="string">"#"</span> className=<span class="string">"product"</span>&gt;</span><br><span class="line">                &lt;img src=&#123;imgUrl&#125; className=<span class="string">"img"</span> width=<span class="string">"100"</span> height=<span class="string">"100"</span> alt=<span class="string">"이미지"</span> /&gt;</span><br><span class="line">            &lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>li&gt;	</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line">&lt;ul className=<span class="string">"product_list"</span>&gt;</span><br><span class="line">    &#123;products.map(<span class="function"><span class="params">product</span> =&gt;</span> (</span><br><span class="line">        &lt;Product</span><br><span class="line">            key=&#123;product.id&#125;</span><br><span class="line">            imgUrl=&#123;product.imgUrl&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">    ))&#125;</span><br><span class="line">&lt;<span class="regexp">/ul&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="리스트"><a href="#리스트" class="headerlink" title="리스트"></a>리스트</h2><p>사실, 리스트와 캐로셀을 작업하는데 큰 차이는 없습니다. 다만, 조건식이 더해졌을 때, UI개발에서 어느정도 수준의 인터렉션 개발이 가능한지 보여드리려고 합니다. 복잡한 인터렉션이 아니라면 간단한 것은 직접 개발을 하면 좋을 것 같습니다. 물론, 실제 개발을 진행하면서 수정/삭제 될 수는 있지만, 리액트와 같은 자바스크립트 프레임워크/라이브러리를 이해하는데 큰 도움이 됩니다.</p>
+<ul>
+<li>초록색 박스 설명의 내용이 두 줄 이상일 경우 height:40px 펼치기 버튼이 노출된다.</li>
+<li>펼치기 버튼을 누르면 해당 초록색 박스의 높이값이 auto가 되면서 펼쳐진다.</li>
+</ul>
+<p><img src="/image/react-ui-components/3.png" alt=""><br>예로, 이미지 리스트를 만들기 위해 아래와 같은 인터렉션 조건이 있습니다.</p>
+<p>위와같은 인터렉션 조건을 코드로 어떻게 풀어나갈 수 있을까요? 다음과 같은 순서로 생각할 수 있습니다.</p>
+<ol>
+<li>펼치기 버튼은 첫 랜더링시 결정되어 사용자에게 보여줘야합니다.</li>
+<li>그러기 위해서는, 초록색 설명 박스의 높이값을 알고 있어야합니다.</li>
+<li>이때 사용할 수 있는 것이 <code>useRef</code> 이며, 이는 jQuery의 선택자와 같은 기능을 합니다.</li>
+<li>useRef로 초록색 설명 박스를 선택하고, 기존에 사용하였던 <code>componentDidMount</code> 대신에 <code>userEffect</code>를 사용하여 각각의 설명박스 높이값을 저장합니다.</li>
+<li>저장된 높이값을 기준으로 height:40px 이상일 경우 펼침 버튼을 노출하는 조건문을 추가합니다.</li>
+<li>펼침 버튼을 눌렀을 시 height값을 auto로 바꿔주는 것은 useRef로 선택한 엘리먼트에 기존처럼 open 클래스를 추가하면 됩니다. 지금까지 설명한 내용을 코드로 살펴보도록 하겠습니다.</li>
 </ol>
-<p>아래와 같이 Button, Label 컴포넌트가 있습니다.</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;Button&gt;button&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;hr/</span>&gt;</span><br><span class="line">        &lt;Label&gt;label&lt;<span class="regexp">/Label&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> Button = <span class="function">(<span class="params">props</span>) =&gt;</span> &lt;button&gt;&#123;props.children&#125;&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">class Label extends React.Component &#123;</span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    return(</span></span><br><span class="line"><span class="regexp">      &lt;label&gt;&#123;this.props.children&#125;&lt;/</span>label&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">render(&lt;App /&gt;, document.getElementById('root'));</span><br></pre></td></tr></table></figure>
-<p>HOC 컴포넌트는 컴포넌트를 인자로 받아서 새로운 컴포넌트를 리턴합니다.</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HOC = <span class="function">(<span class="params">InnerComponent</span>) =&gt;</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;InnerComponent /&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>완성코드</strong></p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"><span class="keyword">const</span> HOC = <span class="function">(<span class="params">InnerComponent</span>) =&gt;</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;<span class="attr">count</span>: <span class="number">0</span>&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  update()&#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;<span class="attr">count</span>: <span class="keyword">this</span>.state.count + <span class="number">1</span>&#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;InnerComponent </span><br><span class="line">        &#123;...this.props&#125;</span><br><span class="line">        &#123;...this.state&#125;</span><br><span class="line">        update=&#123;<span class="keyword">this</span>.update.bind(<span class="keyword">this</span>)&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;Button&gt;button&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;hr/</span>&gt;</span><br><span class="line">        &lt;LabelHOC&gt;label&lt;<span class="regexp">/LabelHOC&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> Button = HOC(<span class="function">(<span class="params">props</span>) =&gt;</span> </span><br><span class="line">  &lt;button onClick=&#123;props.update&#125;&gt;&#123;props.children&#125; - &#123;props.count&#125;&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">)</span></span><br><span class="line"><span class="regexp">class Label extends React.Component &#123;</span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    return(</span></span><br><span class="line"><span class="regexp">      &lt;label onMouseMove=&#123;this.props.update&#125;&gt;</span></span><br><span class="line"><span class="regexp">      &#123;this.props.children&#125; - &#123;this.props.count&#125;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>label&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> LabelHOC = HOC(Label)</span><br><span class="line">render(&lt;App /&gt;, document.getElementById('root'));</span><br></pre></td></tr></table></figure>
-<p>실무에서 storybook 컴포넌트를 정리하면서 HOC를 사용했습니다. 예를들어, true, false에 따라 열리고 닫히는 모달팝업이 여러개 있을 경우, 열고/닫기 로직을 HOC로 만들어 놓고 이를 여러개의 모달 컴포넌트에 적용하였습니다. 특별히, storybook 내부에서는 state관리가 직관적으로 되지않기 때문에 이를 해결하는 방법으로 HOC사용 및 플러그인이 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [infoHeight, setInfoHeight] = useState([])</span><br><span class="line"><span class="keyword">const</span> elRef = useRef([])</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleClick</span>(<span class="params">e, i</span>) </span>&#123;</span><br><span class="line">    e.preventDefault()</span><br><span class="line">    elRef.current[i].classList.add(<span class="string">'open'</span>)</span><br><span class="line">&#125;</span><br><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    setInfoHeight(elRef.current.map(<span class="function"><span class="params">item</span> =&gt;</span> item.clientHeight))</span><br><span class="line">&#125;, [])</span><br><span class="line"><span class="keyword">const</span> Image = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">return</span> (</span><br><span class="line">        &lt;li className=<span class="string">"item"</span>&gt;</span><br><span class="line">            &lt;div className=<span class="string">"image_box"</span>&gt;이미지&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;div className="info_box" ref=&#123;el =&gt; elRef.current[i] = el&#125;&gt;설명&lt;/</span>div&gt;</span><br><span class="line">            &#123;infoHeight[i] &gt;= <span class="number">40</span> &amp;&amp;</span><br><span class="line">                &lt;a href=<span class="string">"#"</span> className=<span class="string">"btn"</span> roel=<span class="string">"button"</span> onClick=&#123;e =&gt; handleClick(e, i)&#125;&gt;펼침버튼&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">            &#125;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>li&gt;	</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line">&lt;div className=<span class="string">"image_area"</span>&gt;</span><br><span class="line">    &lt;ul className=<span class="string">"image_list"</span>&gt;</span><br><span class="line">        &#123;images.map(<span class="function">(<span class="params">image, index</span>) =&gt;</span> &#123;</span><br><span class="line">            &lt;Image</span><br><span class="line">                key=&#123;index&#125;</span><br><span class="line">            /&gt;</span><br><span class="line">        &#125;&#125;</span><br><span class="line">    &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
+<p>갑자기 코드량이 많아졌네요! 코드를 한 줄씩 살펴보도록 하겠습니다.</p>
+<ol>
+<li><code>div.info_box</code>에 <code>ref={el =&gt; elRef.current[i] = el}</code>를 추가합니다. 여기서 중요한 것은 useRef 메소드를 통해서 <code>elRef</code> 객체를 생성하면 current 값이 자동으로 생성되며 여기에 선택된 엘리먼트를 순서대로 추가하는 코드입니다.</li>
+<li>그런다음 <code>useEffect</code>를 통하여 저장된 초록박스 설명의 높이값을 가져와서, 상단에 이미 선언해 놓은 infoHeight 배열에 추가합니다.</li>
+<li>이제 배열 안에는 초록박스의 높이값이 전부 담겨 있으며 <code>infoHeight[i] &gt;= 40</code> 조건문을 통하여 펼침버튼 노출/미노출을 결정하게됩니다.</li>
+<li>펼침 버튼에는 <code>onClick={e =&gt; handleClick(e, i)}</code>를 추가하여 클릭시 해당 초록박스에 open 클래스를 추가하여 높이값을 auto로 만들어줍니다. 이부분은 css에 미리 선언해 두셔야합니다.</li>
+</ol>
+<p>처음 리액트로 서비스를 시작하시는 분들에게는 다소 복잡한 내용일 수 있지만, 컴포넌트 구조화 및 기본적인 인터렉션만 잘 구현해도 FE협업시 큰 시너지 효과가 있다고 생각합니다.</p>
 
         </div>
         <footer class="article-footer">
@@ -208,7 +226,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://shlee1353.github.io/2019/07/04/higher-order-components/" data-id="cjxwv67eq0000ycdyqnwiqiof" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://shlee1353.github.io/2019/07/10/react-ui-components/" data-id="cjxwv67ew0002ycdycwftc86o" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -278,19 +296,19 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Ryan Lee"
         },
-        "headline": "리액트(React) 순수함수 (HOC 개념정리)",
-        "image": "https://shlee1353.github.io/image/higher-order-components/1.png",
+        "headline": "리액트(React) UI 컴포넌트 설계하기",
+        "image": "https://shlee1353.github.io/image/react-ui-components/1.png",
         "keywords": "",
         "genre": "",
-        "datePublished": "2019-07-04",
-        "dateCreated": "2019-07-04",
-        "dateModified": "2019-07-04",
-        "url": "https://shlee1353.github.io/2019/07/04/higher-order-components/",
+        "datePublished": "2019-07-10",
+        "dateCreated": "2019-07-10",
+        "dateModified": "2019-07-10",
+        "url": "https://shlee1353.github.io/2019/07/10/react-ui-components/",
         "description": "
-Higher-Order Components HOC는 컴포넌트 로직을 재사용하기 위한 리액트의 고급기술입니다. 함수로서 컴포넌트를 인자로 받아 새로운 컴포넌트를 리턴합니다.
-1const EnhancedComponent = higherOrderComponent(WrappedComponent);
-기존 컴포넌트가 props를 받아 UI를 만들었다면, HOC는 컴"
-        "wordCount": 838
+디자인&amp;인터렉션UI개발을 하시면서 많이 접하시는 디자인이며 간단한 인터렉션과 노출조건이 들어가 있습니다. 하나는 상품을 확인할 수 있는 캐로셀 UI 컴포넌트이며, 다른 하나는 각 이미지에 설명이 들어가 있는 리스트 구조의 UI입니다. 초록색 박스로 그러져있는 설명 부분은 일정 높이에서 펼치기 버튼이 노출됩니다.
+
+우선, 매우 간단한 구조이며, 기존"
+        "wordCount": 1039
     }
 </script>
 
@@ -370,20 +388,10 @@ Higher-Order Components HOC는 컴포넌트 로직을 재사용하기 위한 리
         
 <nav id="article-nav">
     
-        <a href="/2019/07/04/angular-lifecycle-hooks/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            앵귤러(Angular) 라이프사이클 기초 이해하기
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2019/07/04/react-component-lifecycle/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/07/05/typescript-basic-concepts/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">리액트(React) 라이프사이클 v16.3 간단정리</p>
+        <p class="article-nav-title">타입스크립트(TypeScript) 기본개념 및 사용방법 정리</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -576,7 +584,7 @@ Higher-Order Components HOC는 컴포넌트 로직을 재사용하기 위한 리
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://shlee1353.github.io/2019/07/04/higher-order-components/';
+    var disqus_url = 'https://shlee1353.github.io/2019/07/10/react-ui-components/';
     
     (function() {
     var dsq = document.createElement('script');
