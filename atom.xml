@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shlee1353.github.io/"/>
-  <updated>2019-07-10T08:10:06.356Z</updated>
+  <updated>2019-07-11T04:31:40.497Z</updated>
   <id>https://shlee1353.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PhantomJS 웹 스크린 캡쳐기능 사용</title>
+    <link href="https://shlee1353.github.io/2019/07/11/phantom-web-screen/"/>
+    <id>https://shlee1353.github.io/2019/07/11/phantom-web-screen/</id>
+    <published>2019-07-11T02:47:10.000Z</published>
+    <updated>2019-07-11T04:31:40.497Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/image/phantom-web-screen/1.png" alt=""></p><p>PhamtomJS는 헤드리스 브라우저(사용자 인터페이스 미제공)이며 웹페이지 자동화에 사용됩니다. 브라우저(IE, Chrome, Safari, etc.) 화면없이 자바스크립트 API를 통해 웹을 컨트롤 할 수 있는 강력한 도구입니다. 오늘은, 팬텀JS의 다양한 기능 중 스크린 캡쳐에 대해 알아 보도록 하겠습니다. 서비스 개발 시 스크린 캡쳐는 왜 필요한가? 에 대한 답변은 아래 링크 참고 하도록 하겠습니다.</p><p><a href="https://m.search.naver.com/search.naver?query=%EC%8B%9D%EB%8B%B9&amp;where=m&amp;sm=mtp_hty" target="_blank" rel="external">스크린 캡쳐 활용 예시</a></p><p><img src="/image/phantom-web-screen/2.png" alt=""></p><p>지도영역 안에 들어간 A, B, C 마커가 표시된 지도는 png 이미지 파일입니다. 사용자가 화면 접속시 서버에서 네이버 지도와 마커를 사용해서 화면을 만들어 주고 필요한 영역만큼만 캡쳐를 해서 background-image 속성에 추가하는 과정을 거치게됩니다. 이렇게, 팬텀JS를 활용하면 브라우저 화면없이 스크린캡쳐가 가능합니다.</p><h2 id="팬텀JS-맛보기"><a href="#팬텀JS-맛보기" class="headerlink" title="팬텀JS 맛보기"></a>팬텀JS 맛보기</h2><p>팬텀JS는 강력한 기능을 가지고 있지만 사용하기가 매우 용이합니다. 다양한 설치 방법이 있지만, brew를 통해 단 한 줄로 설치할 수 있습니다.</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install phantomjs</span><br></pre></td></tr></table></figure><p>글로벌로 설치되었기 때문에 Node.js처럼 어디서든 명령어 실행이 가능합니다. 우선, 빈 폴더에 test.js 파일을 만든 뒤 아래와 같이 코드를 작성합니다.</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test.js 파일</span></span><br><span class="line"><span class="keyword">var</span> system = <span class="built_in">require</span>(<span class="string">'system'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(system.args[<span class="number">0</span>]); <span class="comment">// test.js</span></span><br><span class="line"><span class="built_in">console</span>.log(system.args[<span class="number">1</span>]); <span class="comment">// arg1</span></span><br><span class="line"><span class="built_in">console</span>.log(system.args[<span class="number">2</span>]); <span class="comment">// arg2</span></span><br><span class="line"><span class="built_in">console</span>.log(system.args[<span class="number">3</span>]); <span class="comment">// arg3</span></span><br></pre></td></tr></table></figure><p>커맨드 라인에 $ phantomjs test.js arg1 arg2 arg2를 입력한 후 터미널창을 확인하면 test.js파일이 실행된 것을 알 수 있습니다. 간단한 테스트를 마쳤으니, 스크린 캡쳐 기능을 사용하도록 하겠습니다. capture.js 파일을 생성 한 뒤 아래 코드를 복사 후 붙여넣습니다.</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// capture.js 파일</span></span><br><span class="line"><span class="keyword">var</span> page = <span class="built_in">require</span>(<span class="string">'webpage'</span>).create();</span><br><span class="line"><span class="keyword">var</span> t0 = performance.now();</span><br><span class="line"><span class="keyword">var</span> t1 = <span class="number">0</span>;</span><br><span class="line">page.viewportSize = &#123; <span class="attr">width</span>: <span class="number">1525</span>, <span class="attr">height</span>: <span class="number">1240</span> &#125;;</span><br><span class="line">page.open(<span class="string">'</span></span><br><span class="line"><span class="string">https://www.naver.com/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    page.render(<span class="string">'test.png'</span>);</span><br><span class="line">    t1 = performance.now();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Call to doSomething took "</span> + (t1 - t0) + <span class="string">" milliseconds."</span>)</span><br><span class="line">    phantom.exit();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>첫 번째 행에서 webpage 모듈을 불러와서 viewportSize, open, render 메소드를 순차적으로 사용해서 최종적으로 test.png 파일을 생성하는 과정입니다. 이 외에도, 팬텀JS를 기반으로 Jasmine, QUnit, Mocha 등을 활용한 기능 테스트 및 네트워크 성능 분석 자동화(YSlow, Jenkins)가 가능하며, SVG, Canvas등의 웹컨텐츠도 캡쳐할 수 있습니다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;/image/phantom-web-screen/1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;PhamtomJS는 헤드리스 브라우저(사용자 인터페이스 미제공)이며 웹페이지 자동화에 사용됩니다. 브라우저(IE, Chrome, Safari,
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>리액트(React) UI 컴포넌트 설계하기</title>

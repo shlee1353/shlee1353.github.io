@@ -6,27 +6,27 @@
     
 
     
-    <title>리액트(React) UI 컴포넌트 설계하기 | Ryan Lee</title>
+    <title>PhantomJS 웹 스크린 캡쳐기능 사용 | Ryan Lee</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="" />
     
-    <meta name="description" content="디자인&amp;amp;인터렉션UI개발을 하시면서 많이 접하시는 디자인이며 간단한 인터렉션과 노출조건이 들어가 있습니다. 하나는 상품을 확인할 수 있는 캐로셀 UI 컴포넌트이며, 다른 하나는 각 이미지에 설명이 들어가 있는 리스트 구조의 UI입니다. 초록색 박스로 그러져있는 설명 부분은 일정 높이에서 펼치기 버튼이 노출됩니다.  우선, 매우 간단한 구조이며, 기존">
+    <meta name="description" content="PhamtomJS는 헤드리스 브라우저(사용자 인터페이스 미제공)이며 웹페이지 자동화에 사용됩니다. 브라우저(IE, Chrome, Safari, etc.) 화면없이 자바스크립트 API를 통해 웹을 컨트롤 할 수 있는 강력한 도구입니다. 오늘은, 팬텀JS의 다양한 기능 중 스크린 캡쳐에 대해 알아 보도록 하겠습니다. 서비스 개발 시 스크린 캡쳐는 왜 필요한가">
 <meta property="og:type" content="article">
-<meta property="og:title" content="리액트(React) UI 컴포넌트 설계하기">
-<meta property="og:url" content="https://shlee1353.github.io/2019/07/10/react-ui-components/index.html">
+<meta property="og:title" content="PhantomJS 웹 스크린 캡쳐기능 사용">
+<meta property="og:url" content="https://shlee1353.github.io/2019/07/11/phantom-web-screen/index.html">
 <meta property="og:site_name" content="Ryan Lee">
-<meta property="og:description" content="디자인&amp;amp;인터렉션UI개발을 하시면서 많이 접하시는 디자인이며 간단한 인터렉션과 노출조건이 들어가 있습니다. 하나는 상품을 확인할 수 있는 캐로셀 UI 컴포넌트이며, 다른 하나는 각 이미지에 설명이 들어가 있는 리스트 구조의 UI입니다. 초록색 박스로 그러져있는 설명 부분은 일정 높이에서 펼치기 버튼이 노출됩니다.  우선, 매우 간단한 구조이며, 기존">
+<meta property="og:description" content="PhamtomJS는 헤드리스 브라우저(사용자 인터페이스 미제공)이며 웹페이지 자동화에 사용됩니다. 브라우저(IE, Chrome, Safari, etc.) 화면없이 자바스크립트 API를 통해 웹을 컨트롤 할 수 있는 강력한 도구입니다. 오늘은, 팬텀JS의 다양한 기능 중 스크린 캡쳐에 대해 알아 보도록 하겠습니다. 서비스 개발 시 스크린 캡쳐는 왜 필요한가">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://shlee1353.github.io/image/react-ui-components/1.png">
-<meta property="og:updated_time" content="2019-07-10T08:10:06.356Z">
+<meta property="og:image" content="https://shlee1353.github.io/image/phantom-web-screen/1.png">
+<meta property="og:updated_time" content="2019-07-11T04:31:40.497Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="리액트(React) UI 컴포넌트 설계하기">
-<meta name="twitter:description" content="디자인&amp;amp;인터렉션UI개발을 하시면서 많이 접하시는 디자인이며 간단한 인터렉션과 노출조건이 들어가 있습니다. 하나는 상품을 확인할 수 있는 캐로셀 UI 컴포넌트이며, 다른 하나는 각 이미지에 설명이 들어가 있는 리스트 구조의 UI입니다. 초록색 박스로 그러져있는 설명 부분은 일정 높이에서 펼치기 버튼이 노출됩니다.  우선, 매우 간단한 구조이며, 기존">
-<meta name="twitter:image" content="https://shlee1353.github.io/image/react-ui-components/1.png">
+<meta name="twitter:title" content="PhantomJS 웹 스크린 캡쳐기능 사용">
+<meta name="twitter:description" content="PhamtomJS는 헤드리스 브라우저(사용자 인터페이스 미제공)이며 웹페이지 자동화에 사용됩니다. 브라우저(IE, Chrome, Safari, etc.) 화면없이 자바스크립트 API를 통해 웹을 컨트롤 할 수 있는 강력한 도구입니다. 오늘은, 팬텀JS의 다양한 기능 중 스크린 캡쳐에 대해 알아 보도록 하겠습니다. 서비스 개발 시 스크린 캡쳐는 왜 필요한가">
+<meta name="twitter:image" content="https://shlee1353.github.io/image/phantom-web-screen/1.png">
     
-    <link rel="canonical" href="https://shlee1353.github.io/2019/07/10/react-ui-components/"/>
+    <link rel="canonical" href="https://shlee1353.github.io/2019/07/11/phantom-web-screen/"/>
     
         <link rel="alternate" href="/" title="Ryan Lee" type="application/atom+xml" />
     
@@ -150,14 +150,14 @@ ga('send', 'pageview');
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-react-ui-components" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-phantom-web-screen" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        리액트(React) UI 컴포넌트 설계하기
+        PhantomJS 웹 스크린 캡쳐기능 사용
         </h1>
     
 
@@ -167,8 +167,8 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/07/10/react-ui-components/" class="article-date">
-            <time datetime="2019-07-10T06:19:24.000Z" itemprop="datePublished">2019-07-10</time>
+        <a href="/2019/07/11/phantom-web-screen/" class="article-date">
+            <time datetime="2019-07-11T02:47:10.000Z" itemprop="datePublished">2019-07-11</time>
         </a>
     </div>
 
@@ -179,48 +179,18 @@ ga('send', 'pageview');
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><img src="/image/react-ui-components/1.png" alt=""></p>
-<h1 id="디자인-amp-인터렉션"><a href="#디자인-amp-인터렉션" class="headerlink" title="디자인&amp;인터렉션"></a>디자인&amp;인터렉션</h1><p>UI개발을 하시면서 많이 접하시는 디자인이며 간단한 인터렉션과 노출조건이 들어가 있습니다. 하나는 상품을 확인할 수 있는 캐로셀 UI 컴포넌트이며, 다른 하나는 각 이미지에 설명이 들어가 있는 리스트 구조의 UI입니다. 초록색 박스로 그러져있는 설명 부분은 일정 높이에서 펼치기 버튼이 노출됩니다.</p>
-<p><img src="/image/react-ui-components/2.png" alt=""></p>
-<p>우선, 매우 간단한 구조이며, 기존에 리액트로 업무를 하시면서 setState 메소드와 간단한 반복문(map)을 사용하셨다면 쉽게 구현이 가능합니다. 저는 다음과 같은 프로세스로 작업을 진행하였습니다.</p>
-<h2 id="캐로셀"><a href="#캐로셀" class="headerlink" title="캐로셀"></a>캐로셀</h2><ul>
-<li>map을 사용하기 위해 필요한 데이터는 무엇이 있는가? 기본적으로 썸네일에 사용되는 상품 이미지가 있습니다.</li>
-<li>다음으로, 상품 이미지 경로가 들어가 있는 초기값을 선언해 놓습니다. 더미 데이터를 만드는 방법은 여러가지가 있지만, 우선 간단 예로 3개 정도만 만들어 보도록 하겠습니다.</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> initialState = [</span><br><span class="line">    &#123;</span><br><span class="line">        id: <span class="number">1</span></span><br><span class="line">        imgUrl: <span class="string">'이미지주소'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        id: <span class="number">2</span></span><br><span class="line">        imgUrl: <span class="string">'이미지주소'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        id: <span class="number">3</span></span><br><span class="line">        imgUrl: <span class="string">'이미지주소'</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>초기값을 담고 있는 initialState 배열을 실제로 사용해야할 변수에 담아줘야 합니다. 기존에는 이 단계에서 setState 메소드를 사용하였지만, 지금은 useState 를 사용합니다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [products, setProducts] = useState(initialState)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>useState 메소드 인자로 initialState를 넘겨주며 이 값은 products에 담기게 됩니다.</li>
-<li>이제 기존처럼 map을 사용하여 캐로셀에 들어가는 상품 이미지가 담긴 UI를 생성할 수 있습니다. 생각보다 쉽게 적용이 가능합니다.</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Product = <span class="function">(<span class="params">&#123; imgUrl &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">return</span> (</span><br><span class="line">        &lt;li className=<span class="string">"item"</span>&gt;</span><br><span class="line">            &lt;a href=<span class="string">"#"</span> className=<span class="string">"product"</span>&gt;</span><br><span class="line">                &lt;img src=&#123;imgUrl&#125; className=<span class="string">"img"</span> width=<span class="string">"100"</span> height=<span class="string">"100"</span> alt=<span class="string">"이미지"</span> /&gt;</span><br><span class="line">            &lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>li&gt;	</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line">&lt;ul className=<span class="string">"product_list"</span>&gt;</span><br><span class="line">    &#123;products.map(<span class="function"><span class="params">product</span> =&gt;</span> (</span><br><span class="line">        &lt;Product</span><br><span class="line">            key=&#123;product.id&#125;</span><br><span class="line">            imgUrl=&#123;product.imgUrl&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">    ))&#125;</span><br><span class="line">&lt;<span class="regexp">/ul&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="리스트"><a href="#리스트" class="headerlink" title="리스트"></a>리스트</h2><p>사실, 리스트와 캐로셀을 작업하는데 큰 차이는 없습니다. 다만, 조건식이 더해졌을 때, UI개발에서 어느정도 수준의 인터렉션 개발이 가능한지 보여드리려고 합니다. 복잡한 인터렉션이 아니라면 간단한 것은 직접 개발을 하면 좋을 것 같습니다. 물론, 실제 개발을 진행하면서 수정/삭제 될 수는 있지만, 리액트와 같은 자바스크립트 프레임워크/라이브러리를 이해하는데 큰 도움이 됩니다.</p>
-<ul>
-<li>초록색 박스 설명의 내용이 두 줄 이상일 경우 height:40px 펼치기 버튼이 노출된다.</li>
-<li>펼치기 버튼을 누르면 해당 초록색 박스의 높이값이 auto가 되면서 펼쳐진다.</li>
-</ul>
-<p><img src="/image/react-ui-components/3.png" alt=""><br>예로, 이미지 리스트를 만들기 위해 아래와 같은 인터렉션 조건이 있습니다.</p>
-<p>위와같은 인터렉션 조건을 코드로 어떻게 풀어나갈 수 있을까요? 다음과 같은 순서로 생각할 수 있습니다.</p>
-<ol>
-<li>펼치기 버튼은 첫 랜더링시 결정되어 사용자에게 보여줘야합니다.</li>
-<li>그러기 위해서는, 초록색 설명 박스의 높이값을 알고 있어야합니다.</li>
-<li>이때 사용할 수 있는 것이 <code>useRef</code> 이며, 이는 jQuery의 선택자와 같은 기능을 합니다.</li>
-<li>useRef로 초록색 설명 박스를 선택하고, 기존에 사용하였던 <code>componentDidMount</code> 대신에 <code>userEffect</code>를 사용하여 각각의 설명박스 높이값을 저장합니다.</li>
-<li>저장된 높이값을 기준으로 height:40px 이상일 경우 펼침 버튼을 노출하는 조건문을 추가합니다.</li>
-<li>펼침 버튼을 눌렀을 시 height값을 auto로 바꿔주는 것은 useRef로 선택한 엘리먼트에 기존처럼 open 클래스를 추가하면 됩니다. 지금까지 설명한 내용을 코드로 살펴보도록 하겠습니다.</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [infoHeight, setInfoHeight] = useState([])</span><br><span class="line"><span class="keyword">const</span> elRef = useRef([])</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleClick</span>(<span class="params">e, i</span>) </span>&#123;</span><br><span class="line">    e.preventDefault()</span><br><span class="line">    elRef.current[i].classList.add(<span class="string">'open'</span>)</span><br><span class="line">&#125;</span><br><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    setInfoHeight(elRef.current.map(<span class="function"><span class="params">item</span> =&gt;</span> item.clientHeight))</span><br><span class="line">&#125;, [])</span><br><span class="line"><span class="keyword">const</span> Image = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">return</span> (</span><br><span class="line">        &lt;li className=<span class="string">"item"</span>&gt;</span><br><span class="line">            &lt;div className=<span class="string">"image_box"</span>&gt;이미지&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;div className="info_box" ref=&#123;el =&gt; elRef.current[i] = el&#125;&gt;설명&lt;/</span>div&gt;</span><br><span class="line">            &#123;infoHeight[i] &gt;= <span class="number">40</span> &amp;&amp;</span><br><span class="line">                &lt;a href=<span class="string">"#"</span> className=<span class="string">"btn"</span> roel=<span class="string">"button"</span> onClick=&#123;e =&gt; handleClick(e, i)&#125;&gt;펼침버튼&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">            &#125;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>li&gt;	</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line">&lt;div className=<span class="string">"image_area"</span>&gt;</span><br><span class="line">    &lt;ul className=<span class="string">"image_list"</span>&gt;</span><br><span class="line">        &#123;images.map(<span class="function">(<span class="params">image, index</span>) =&gt;</span> &#123;</span><br><span class="line">            &lt;Image</span><br><span class="line">                key=&#123;index&#125;</span><br><span class="line">            /&gt;</span><br><span class="line">        &#125;&#125;</span><br><span class="line">    &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
-<p>갑자기 코드량이 많아졌네요! 코드를 한 줄씩 살펴보도록 하겠습니다.</p>
-<ol>
-<li><code>div.info_box</code>에 <code>ref={el =&gt; elRef.current[i] = el}</code>를 추가합니다. 여기서 중요한 것은 useRef 메소드를 통해서 <code>elRef</code> 객체를 생성하면 current 값이 자동으로 생성되며 여기에 선택된 엘리먼트를 순서대로 추가하는 코드입니다.</li>
-<li>그런다음 <code>useEffect</code>를 통하여 저장된 초록박스 설명의 높이값을 가져와서, 상단에 이미 선언해 놓은 infoHeight 배열에 추가합니다.</li>
-<li>이제 배열 안에는 초록박스의 높이값이 전부 담겨 있으며 <code>infoHeight[i] &gt;= 40</code> 조건문을 통하여 펼침버튼 노출/미노출을 결정하게됩니다.</li>
-<li>펼침 버튼에는 <code>onClick={e =&gt; handleClick(e, i)}</code>를 추가하여 클릭시 해당 초록박스에 open 클래스를 추가하여 높이값을 auto로 만들어줍니다. 이부분은 css에 미리 선언해 두셔야합니다.</li>
-</ol>
-<p><strong>실제 서비스 적용 화면</strong></p>
-<p><img src="/image/react-ui-components/4.gif" alt=""></p>
-<p>처음 리액트로 서비스를 시작하시는 분들에게는 다소 복잡한 내용일 수 있지만, 컴포넌트 구조화 및 기본적인 인터렉션만 잘 구현해도 FE협업시 큰 시너지 효과가 있다고 생각합니다.</p>
+            <p><img src="/image/phantom-web-screen/1.png" alt=""></p>
+<p>PhamtomJS는 헤드리스 브라우저(사용자 인터페이스 미제공)이며 웹페이지 자동화에 사용됩니다. 브라우저(IE, Chrome, Safari, etc.) 화면없이 자바스크립트 API를 통해 웹을 컨트롤 할 수 있는 강력한 도구입니다. 오늘은, 팬텀JS의 다양한 기능 중 스크린 캡쳐에 대해 알아 보도록 하겠습니다. 서비스 개발 시 스크린 캡쳐는 왜 필요한가? 에 대한 답변은 아래 링크 참고 하도록 하겠습니다.</p>
+<p><a href="https://m.search.naver.com/search.naver?query=%EC%8B%9D%EB%8B%B9&amp;where=m&amp;sm=mtp_hty" target="_blank" rel="external">스크린 캡쳐 활용 예시</a></p>
+<p><img src="/image/phantom-web-screen/2.png" alt=""></p>
+<p>지도영역 안에 들어간 A, B, C 마커가 표시된 지도는 png 이미지 파일입니다. 사용자가 화면 접속시 서버에서 네이버 지도와 마커를 사용해서 화면을 만들어 주고 필요한 영역만큼만 캡쳐를 해서 background-image 속성에 추가하는 과정을 거치게됩니다. 이렇게, 팬텀JS를 활용하면 브라우저 화면없이 스크린캡쳐가 가능합니다.</p>
+<h2 id="팬텀JS-맛보기"><a href="#팬텀JS-맛보기" class="headerlink" title="팬텀JS 맛보기"></a>팬텀JS 맛보기</h2><p>팬텀JS는 강력한 기능을 가지고 있지만 사용하기가 매우 용이합니다. 다양한 설치 방법이 있지만, brew를 통해 단 한 줄로 설치할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install phantomjs</span><br></pre></td></tr></table></figure>
+<p>글로벌로 설치되었기 때문에 Node.js처럼 어디서든 명령어 실행이 가능합니다. 우선, 빈 폴더에 test.js 파일을 만든 뒤 아래와 같이 코드를 작성합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test.js 파일</span></span><br><span class="line"><span class="keyword">var</span> system = <span class="built_in">require</span>(<span class="string">'system'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(system.args[<span class="number">0</span>]); <span class="comment">// test.js</span></span><br><span class="line"><span class="built_in">console</span>.log(system.args[<span class="number">1</span>]); <span class="comment">// arg1</span></span><br><span class="line"><span class="built_in">console</span>.log(system.args[<span class="number">2</span>]); <span class="comment">// arg2</span></span><br><span class="line"><span class="built_in">console</span>.log(system.args[<span class="number">3</span>]); <span class="comment">// arg3</span></span><br></pre></td></tr></table></figure>
+<p>커맨드 라인에 $ phantomjs test.js arg1 arg2 arg2를 입력한 후 터미널창을 확인하면 test.js파일이 실행된 것을 알 수 있습니다. 간단한 테스트를 마쳤으니, 스크린 캡쳐 기능을 사용하도록 하겠습니다. capture.js 파일을 생성 한 뒤 아래 코드를 복사 후 붙여넣습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// capture.js 파일</span></span><br><span class="line"><span class="keyword">var</span> page = <span class="built_in">require</span>(<span class="string">'webpage'</span>).create();</span><br><span class="line"><span class="keyword">var</span> t0 = performance.now();</span><br><span class="line"><span class="keyword">var</span> t1 = <span class="number">0</span>;</span><br><span class="line">page.viewportSize = &#123; <span class="attr">width</span>: <span class="number">1525</span>, <span class="attr">height</span>: <span class="number">1240</span> &#125;;</span><br><span class="line">page.open(<span class="string">'</span></span><br><span class="line"><span class="string">https://www.naver.com/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    page.render(<span class="string">'test.png'</span>);</span><br><span class="line">    t1 = performance.now();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Call to doSomething took "</span> + (t1 - t0) + <span class="string">" milliseconds."</span>)</span><br><span class="line">    phantom.exit();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>첫 번째 행에서 webpage 모듈을 불러와서 viewportSize, open, render 메소드를 순차적으로 사용해서 최종적으로 test.png 파일을 생성하는 과정입니다. 이 외에도, 팬텀JS를 기반으로 Jasmine, QUnit, Mocha 등을 활용한 기능 테스트 및 네트워크 성능 분석 자동화(YSlow, Jenkins)가 가능하며, SVG, Canvas등의 웹컨텐츠도 캡쳐할 수 있습니다.</p>
 
         </div>
         <footer class="article-footer">
@@ -228,7 +198,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://shlee1353.github.io/2019/07/10/react-ui-components/" data-id="cjxy6eacc0004lbdy76b6wz9z" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://shlee1353.github.io/2019/07/11/phantom-web-screen/" data-id="cjxy6eacc0003lbdyop1fmwng" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -298,19 +268,17 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Ryan Lee"
         },
-        "headline": "리액트(React) UI 컴포넌트 설계하기",
-        "image": "https://shlee1353.github.io/image/react-ui-components/1.png",
+        "headline": "PhantomJS 웹 스크린 캡쳐기능 사용",
+        "image": "https://shlee1353.github.io/image/phantom-web-screen/1.png",
         "keywords": "",
         "genre": "",
-        "datePublished": "2019-07-10",
-        "dateCreated": "2019-07-10",
-        "dateModified": "2019-07-10",
-        "url": "https://shlee1353.github.io/2019/07/10/react-ui-components/",
+        "datePublished": "2019-07-11",
+        "dateCreated": "2019-07-11",
+        "dateModified": "2019-07-11",
+        "url": "https://shlee1353.github.io/2019/07/11/phantom-web-screen/",
         "description": "
-디자인&amp;인터렉션UI개발을 하시면서 많이 접하시는 디자인이며 간단한 인터렉션과 노출조건이 들어가 있습니다. 하나는 상품을 확인할 수 있는 캐로셀 UI 컴포넌트이며, 다른 하나는 각 이미지에 설명이 들어가 있는 리스트 구조의 UI입니다. 초록색 박스로 그러져있는 설명 부분은 일정 높이에서 펼치기 버튼이 노출됩니다.
-
-우선, 매우 간단한 구조이며, 기존"
-        "wordCount": 1044
+PhamtomJS는 헤드리스 브라우저(사용자 인터페이스 미제공)이며 웹페이지 자동화에 사용됩니다. 브라우저(IE, Chrome, Safari, etc.) 화면없이 자바스크립트 API를 통해 웹을 컨트롤 할 수 있는 강력한 도구입니다. 오늘은, 팬텀JS의 다양한 기능 중 스크린 캡쳐에 대해 알아 보도록 하겠습니다. 서비스 개발 시 스크린 캡쳐는 왜 필요한가"
+        "wordCount": 367
     }
 </script>
 
@@ -390,20 +358,10 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2019/07/11/phantom-web-screen/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            PhantomJS 웹 스크린 캡쳐기능 사용
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2019/07/05/typescript-basic-concepts/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/07/10/react-ui-components/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">타입스크립트(TypeScript) 기본개념 및 사용방법 정리</p>
+        <p class="article-nav-title">리액트(React) UI 컴포넌트 설계하기</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -596,7 +554,7 @@ ga('send', 'pageview');
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://shlee1353.github.io/2019/07/10/react-ui-components/';
+    var disqus_url = 'https://shlee1353.github.io/2019/07/11/phantom-web-screen/';
     
     (function() {
     var dsq = document.createElement('script');
