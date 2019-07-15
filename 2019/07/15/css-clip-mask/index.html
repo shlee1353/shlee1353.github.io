@@ -6,27 +6,27 @@
     
 
     
-    <title>리액트(React) UI 컴포넌트 설계하기 | Ryan Lee</title>
+    <title>CSS속성 Clipping과 Masking 차이점과 특징 | Ryan Lee</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="" />
     
-    <meta name="description" content="디자인&amp;amp;인터렉션UI개발을 하시면서 많이 접하시는 디자인이며 간단한 인터렉션과 노출조건이 들어가 있습니다. 하나는 상품을 확인할 수 있는 캐로셀 UI 컴포넌트이며, 다른 하나는 각 이미지에 설명이 들어가 있는 리스트 구조의 UI입니다. 초록색 박스로 그러져있는 설명 부분은 일정 높이에서 펼치기 버튼이 노출됩니다.  우선, 매우 간단한 구조이며, 기존">
+    <meta name="description" content="평소 clipping과 masking 속성의 차이점을 알고 계시나요? 맨 처음 CSS 속성을 공부할 때, “아, 이런게 있구나!”할 정도로, 매번 업무에 적용하기에는 특별한 속성인 것 같습니다. 우선, 결론부터 말씀드리면, 두 속성의 차이점은 clipping은 벡터 패스이고, masking은 래스터 이미지입니다.   벡터(Vector)는 점과 점 사이의 곡">
 <meta property="og:type" content="article">
-<meta property="og:title" content="리액트(React) UI 컴포넌트 설계하기">
-<meta property="og:url" content="https://shlee1353.github.io/2019/07/10/react-ui-components/index.html">
+<meta property="og:title" content="CSS속성 Clipping과 Masking 차이점과 특징">
+<meta property="og:url" content="https://shlee1353.github.io/2019/07/15/css-clip-mask/index.html">
 <meta property="og:site_name" content="Ryan Lee">
-<meta property="og:description" content="디자인&amp;amp;인터렉션UI개발을 하시면서 많이 접하시는 디자인이며 간단한 인터렉션과 노출조건이 들어가 있습니다. 하나는 상품을 확인할 수 있는 캐로셀 UI 컴포넌트이며, 다른 하나는 각 이미지에 설명이 들어가 있는 리스트 구조의 UI입니다. 초록색 박스로 그러져있는 설명 부분은 일정 높이에서 펼치기 버튼이 노출됩니다.  우선, 매우 간단한 구조이며, 기존">
+<meta property="og:description" content="평소 clipping과 masking 속성의 차이점을 알고 계시나요? 맨 처음 CSS 속성을 공부할 때, “아, 이런게 있구나!”할 정도로, 매번 업무에 적용하기에는 특별한 속성인 것 같습니다. 우선, 결론부터 말씀드리면, 두 속성의 차이점은 clipping은 벡터 패스이고, masking은 래스터 이미지입니다.   벡터(Vector)는 점과 점 사이의 곡">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://shlee1353.github.io/image/react-ui-components/1.png">
-<meta property="og:updated_time" content="2019-07-10T08:10:06.356Z">
+<meta property="og:image" content="https://shlee1353.github.io/image/css-clip-mask/1.png">
+<meta property="og:updated_time" content="2019-07-15T07:04:03.596Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="리액트(React) UI 컴포넌트 설계하기">
-<meta name="twitter:description" content="디자인&amp;amp;인터렉션UI개발을 하시면서 많이 접하시는 디자인이며 간단한 인터렉션과 노출조건이 들어가 있습니다. 하나는 상품을 확인할 수 있는 캐로셀 UI 컴포넌트이며, 다른 하나는 각 이미지에 설명이 들어가 있는 리스트 구조의 UI입니다. 초록색 박스로 그러져있는 설명 부분은 일정 높이에서 펼치기 버튼이 노출됩니다.  우선, 매우 간단한 구조이며, 기존">
-<meta name="twitter:image" content="https://shlee1353.github.io/image/react-ui-components/1.png">
+<meta name="twitter:title" content="CSS속성 Clipping과 Masking 차이점과 특징">
+<meta name="twitter:description" content="평소 clipping과 masking 속성의 차이점을 알고 계시나요? 맨 처음 CSS 속성을 공부할 때, “아, 이런게 있구나!”할 정도로, 매번 업무에 적용하기에는 특별한 속성인 것 같습니다. 우선, 결론부터 말씀드리면, 두 속성의 차이점은 clipping은 벡터 패스이고, masking은 래스터 이미지입니다.   벡터(Vector)는 점과 점 사이의 곡">
+<meta name="twitter:image" content="https://shlee1353.github.io/image/css-clip-mask/1.png">
     
-    <link rel="canonical" href="https://shlee1353.github.io/2019/07/10/react-ui-components/"/>
+    <link rel="canonical" href="https://shlee1353.github.io/2019/07/15/css-clip-mask/"/>
     
         <link rel="alternate" href="/" title="Ryan Lee" type="application/atom+xml" />
     
@@ -150,14 +150,14 @@ ga('send', 'pageview');
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-react-ui-components" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-css-clip-mask" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        리액트(React) UI 컴포넌트 설계하기
+        CSS속성 Clipping과 Masking 차이점과 특징
         </h1>
     
 
@@ -167,8 +167,8 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/07/10/react-ui-components/" class="article-date">
-            <time datetime="2019-07-10T06:19:24.000Z" itemprop="datePublished">2019-07-10</time>
+        <a href="/2019/07/15/css-clip-mask/" class="article-date">
+            <time datetime="2019-07-15T05:24:06.000Z" itemprop="datePublished">2019-07-15</time>
         </a>
     </div>
 
@@ -179,56 +179,35 @@ ga('send', 'pageview');
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><img src="/image/react-ui-components/1.png" alt=""></p>
-<h1 id="디자인-amp-인터렉션"><a href="#디자인-amp-인터렉션" class="headerlink" title="디자인&amp;인터렉션"></a>디자인&amp;인터렉션</h1><p>UI개발을 하시면서 많이 접하시는 디자인이며 간단한 인터렉션과 노출조건이 들어가 있습니다. 하나는 상품을 확인할 수 있는 캐로셀 UI 컴포넌트이며, 다른 하나는 각 이미지에 설명이 들어가 있는 리스트 구조의 UI입니다. 초록색 박스로 그러져있는 설명 부분은 일정 높이에서 펼치기 버튼이 노출됩니다.</p>
-<p><img src="/image/react-ui-components/2.png" alt=""></p>
-<p>우선, 매우 간단한 구조이며, 기존에 리액트로 업무를 하시면서 setState 메소드와 간단한 반복문(map)을 사용하셨다면 쉽게 구현이 가능합니다. 저는 다음과 같은 프로세스로 작업을 진행하였습니다.</p>
-<h2 id="캐로셀"><a href="#캐로셀" class="headerlink" title="캐로셀"></a>캐로셀</h2><ul>
-<li>map을 사용하기 위해 필요한 데이터는 무엇이 있는가? 기본적으로 썸네일에 사용되는 상품 이미지가 있습니다.</li>
-<li>다음으로, 상품 이미지 경로가 들어가 있는 초기값을 선언해 놓습니다. 더미 데이터를 만드는 방법은 여러가지가 있지만, 우선 간단 예로 3개 정도만 만들어 보도록 하겠습니다.</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> initialState = [</span><br><span class="line">    &#123;</span><br><span class="line">        id: <span class="number">1</span></span><br><span class="line">        imgUrl: <span class="string">'이미지주소'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        id: <span class="number">2</span></span><br><span class="line">        imgUrl: <span class="string">'이미지주소'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        id: <span class="number">3</span></span><br><span class="line">        imgUrl: <span class="string">'이미지주소'</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>초기값을 담고 있는 initialState 배열을 실제로 사용해야할 변수에 담아줘야 합니다. 기존에는 이 단계에서 setState 메소드를 사용하였지만, 지금은 useState 를 사용합니다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [products, setProducts] = useState(initialState)</span><br></pre></td></tr></table></figure>
+            <p>평소 <code>clipping</code>과 <code>masking</code> 속성의 차이점을 알고 계시나요? 맨 처음 CSS 속성을 공부할 때, “아, 이런게 있구나!”할 정도로, 매번 업무에 적용하기에는 특별한 속성인 것 같습니다. 우선, 결론부터 말씀드리면, 두 속성의 차이점은 <code>clipping</code>은 <strong>벡터 패스</strong>이고, <code>masking</code>은 <strong>래스터 이미지</strong>입니다.</p>
+<p><img src="/image/css-clip-mask/1.png" alt=""></p>
 <ul>
-<li>useState 메소드 인자로 initialState를 넘겨주며 이 값은 products에 담기게 됩니다.</li>
-<li>이제 기존처럼 map을 사용하여 캐로셀에 들어가는 상품 이미지가 담긴 UI를 생성할 수 있습니다. 생각보다 쉽게 적용이 가능합니다.</li>
+<li><strong>벡터(Vector)</strong>는 점과 점 사이의 곡선으로 이미지를 구현하는 방식으로, 기본적인 점의 위치 정보만 저장하기 때문에 파일의 크기가 작습니다. 또한, 이미지 축소/확대 시에도 손상을 주지 않는 장점이 있습니다.</li>
+<li><strong>래스터(Raster)</strong> 이미지는 정사각형 모양의 픽셀(Pixel) 수백개가 모여 전체 이미지를 구성하는 방식입니다. 한 공간에 사용된 모자이크 픽셀 수에 따라서 이미지의 질이 달라집니다.</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Product = <span class="function">(<span class="params">&#123; imgUrl &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">return</span> (</span><br><span class="line">        &lt;li className=<span class="string">"item"</span>&gt;</span><br><span class="line">            &lt;a href=<span class="string">"#"</span> className=<span class="string">"product"</span>&gt;</span><br><span class="line">                &lt;img src=&#123;imgUrl&#125; className=<span class="string">"img"</span> width=<span class="string">"100"</span> height=<span class="string">"100"</span> alt=<span class="string">"이미지"</span> /&gt;</span><br><span class="line">            &lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>li&gt;	</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line">&lt;ul className=<span class="string">"product_list"</span>&gt;</span><br><span class="line">    &#123;products.map(<span class="function"><span class="params">product</span> =&gt;</span> (</span><br><span class="line">        &lt;Product</span><br><span class="line">            key=&#123;product.id&#125;</span><br><span class="line">            imgUrl=&#123;product.imgUrl&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">    ))&#125;</span><br><span class="line">&lt;<span class="regexp">/ul&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="리스트"><a href="#리스트" class="headerlink" title="리스트"></a>리스트</h2><p>사실, 리스트와 캐로셀을 작업하는데 큰 차이는 없습니다. 다만, 조건식이 더해졌을 때, UI개발에서 어느정도 수준의 인터렉션 개발이 가능한지 보여드리려고 합니다. 복잡한 인터렉션이 아니라면 간단한 것은 직접 개발을 하면 좋을 것 같습니다. 물론, 실제 개발을 진행하면서 수정/삭제 될 수는 있지만, 리액트와 같은 자바스크립트 프레임워크/라이브러리를 이해하는데 큰 도움이 됩니다.</p>
+<p>예를들어, 아래와 같이 그라데이션이 추가된 정사각형을 마스크로 정의할 수 있습니다. 좌측의 검정색 부분은 투명도가 적용되며, 우측의 흰색 부분은 불투명도가 적용됩니다.</p>
+<p><img src="/image/css-clip-mask/2.png" alt=""></p>
+<p>Clips은 항상 벡터 패스로 이루어져있습니다. 패스의 바깥쪽은 투명도가 적용되며, 안쪽은 불투명 영역입니다.</p>
+<h2 id="clip-속성"><a href="#clip-속성" class="headerlink" title="clip 속성"></a>clip 속성</h2><p>우선 가장 기본적인 clip 속성에 대해 알아보도록 하겠습니다.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.element</span> &#123;</span><br><span class="line">  clip: rect(10px, 20px, 30px, 40px); // 상 우 하 좌</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>clip 속성은 현재 <code>deprecated</code> 되었으며, 새로운 속성이 추가되어 더 이상 추천하지 않습니다. 또한, clip은 쉽게 사용하기 어려운 두 가지 제약이 있습니다.</p>
 <ul>
-<li>초록색 박스 설명의 내용이 두 줄 이상일 경우 height:40px 펼치기 버튼이 노출된다.</li>
-<li>펼치기 버튼을 누르면 해당 초록색 박스의 높이값이 auto가 되면서 펼쳐진다.</li>
+<li>엘리먼트에 <code>absolute</code> 속성이 적용되어야 합니다.</li>
+<li>직사각형 형태로만 적용 가능합니다.</li>
 </ul>
-<p><img src="/image/react-ui-components/3.png" alt=""><br>예로, 이미지 리스트를 만들기 위해 아래와 같은 인터렉션 조건이 있습니다.</p>
-<p>위와같은 인터렉션 조건을 코드로 어떻게 풀어나갈 수 있을까요? 다음과 같은 순서로 생각할 수 있습니다.</p>
-<ol>
-<li>펼치기 버튼은 첫 랜더링시 결정되어 사용자에게 보여줘야합니다.</li>
-<li>그러기 위해서는, 초록색 설명 박스의 높이값을 알고 있어야합니다.</li>
-<li>이때 사용할 수 있는 것이 <code>useRef</code> 이며, 이는 jQuery의 선택자와 같은 기능을 합니다.</li>
-<li>useRef로 초록색 설명 박스를 선택하고, 기존에 사용하였던 <code>componentDidMount</code> 대신에 <code>userEffect</code>를 사용하여 각각의 설명박스 높이값을 저장합니다.</li>
-<li>저장된 높이값을 기준으로 height:40px 이상일 경우 펼침 버튼을 노출하는 조건문을 추가합니다.</li>
-<li>펼침 버튼을 눌렀을 시 height값을 auto로 바꿔주는 것은 useRef로 선택한 엘리먼트에 기존처럼 open 클래스를 추가하면 됩니다. 지금까지 설명한 내용을 코드로 살펴보도록 하겠습니다.</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [infoHeight, setInfoHeight] = useState([])</span><br><span class="line"><span class="keyword">const</span> elRef = useRef([])</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleClick</span>(<span class="params">e, i</span>) </span>&#123;</span><br><span class="line">    e.preventDefault()</span><br><span class="line">    elRef.current[i].classList.add(<span class="string">'open'</span>)</span><br><span class="line">&#125;</span><br><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    setInfoHeight(elRef.current.map(<span class="function"><span class="params">item</span> =&gt;</span> item.clientHeight))</span><br><span class="line">&#125;, [])</span><br><span class="line"><span class="keyword">const</span> Image = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">return</span> (</span><br><span class="line">        &lt;li className=<span class="string">"item"</span>&gt;</span><br><span class="line">            &lt;div className=<span class="string">"image_box"</span>&gt;이미지&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;div className="info_box" ref=&#123;el =&gt; elRef.current[i] = el&#125;&gt;설명&lt;/</span>div&gt;</span><br><span class="line">            &#123;infoHeight[i] &gt;= <span class="number">40</span> &amp;&amp;</span><br><span class="line">                &lt;a href=<span class="string">"#"</span> className=<span class="string">"btn"</span> roel=<span class="string">"button"</span> onClick=&#123;e =&gt; handleClick(e, i)&#125;&gt;펼침버튼&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">            &#125;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>li&gt;	</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line">&lt;div className=<span class="string">"image_area"</span>&gt;</span><br><span class="line">    &lt;ul className=<span class="string">"image_list"</span>&gt;</span><br><span class="line">        &#123;images.map(<span class="function">(<span class="params">image, index</span>) =&gt;</span> &#123;</span><br><span class="line">            &lt;Image</span><br><span class="line">                key=&#123;index&#125;</span><br><span class="line">            /&gt;</span><br><span class="line">        &#125;&#125;</span><br><span class="line">    &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
-<p>갑자기 코드량이 많아졌네요! 코드를 한 줄씩 살펴보도록 하겠습니다.</p>
-<ol>
-<li><code>div.info_box</code>에 <code>ref={el =&gt; elRef.current[i] = el}</code>를 추가합니다. 여기서 중요한 것은 useRef 메소드를 통해서 <code>elRef</code> 객체를 생성하면 current 값이 자동으로 생성되며 여기에 선택된 엘리먼트를 순서대로 추가하는 코드입니다.</li>
-<li>그런다음 <code>useEffect</code>를 통하여 저장된 초록박스 설명의 높이값을 가져와서, 상단에 이미 선언해 놓은 infoHeight 배열에 추가합니다.</li>
-<li>이제 배열 안에는 초록박스의 높이값이 전부 담겨 있으며 <code>infoHeight[i] &gt;= 40</code> 조건문을 통하여 펼침버튼 노출/미노출을 결정하게됩니다.</li>
-<li>펼침 버튼에는 <code>onClick={e =&gt; handleClick(e, i)}</code>를 추가하여 클릭시 해당 초록박스에 open 클래스를 추가하여 높이값을 auto로 만들어줍니다. 이부분은 css에 미리 선언해 두셔야합니다.</li>
-</ol>
-<p><strong>실제 서비스 적용 화면</strong></p>
-<p><img src="/image/react-ui-components/4.gif" alt=""></p>
-<p>처음 리액트로 서비스를 시작하시는 분들에게는 다소 복잡한 내용일 수 있지만, 컴포넌트 구조화 및 기본적인 인터렉션만 잘 구현해도 FE협업시 큰 시너지 효과가 있다고 생각합니다.</p>
-
+<h2 id="clip-path"><a href="#clip-path" class="headerlink" title="clip-path"></a>clip-path</h2><p><code>clip-path</code>는 새롭게 추가된 속성으로 여러 형태의 도형을 적용할 수 있다는 장점이 있습니다. 물론, 다양한 도형을 적용하려면 브라우저 호환성을 꼭 확인해야 합니다.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clip-circle</span> &#123;</span><br><span class="line">  <span class="attribute">clip-path</span>: <span class="built_in">circle</span>(40px at center);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clip-ellipse</span> &#123;</span><br><span class="line">  <span class="attribute">clip-path</span>: <span class="built_in">ellipse</span>(130px 140px at 10% 20%);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clip-polygon</span> &#123;</span><br><span class="line">  <span class="attribute">clip-path</span>: <span class="built_in">polygon</span>(50% 0, 100% 50%, 50% 100%, 0 50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/image/css-clip-mask/3.png" alt=""></p>
+<p><code>polygon()</code> 속성을 사용하여 원하는 모양을 만들 수 있는데요, 이것을 좀 더 쉽게 적용하려면 <a href="https://bennettfeely.com/clippy/" target="_blank" rel="external">Clippy</a>를 사용하는 것을 추천드립니다. Clippy의 도움을 받아 네이버 로고가 들어간 간단한 인터렉션을 구현해 보도록 하겠습니다.</p>
+<p><img src="/image/css-clip-mask/4.gif" alt=""></p>
+<h2 id="mask-속성"><a href="#mask-속성" class="headerlink" title="mask 속성"></a>mask 속성</h2>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://shlee1353.github.io/2019/07/10/react-ui-components/" data-id="cjy41n1q70006aadyj16uwas1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://shlee1353.github.io/2019/07/15/css-clip-mask/" data-id="cjy41n1q40002aady0w93r2uo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -298,19 +277,19 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Ryan Lee"
         },
-        "headline": "리액트(React) UI 컴포넌트 설계하기",
-        "image": "https://shlee1353.github.io/image/react-ui-components/1.png",
+        "headline": "CSS속성 Clipping과 Masking 차이점과 특징",
+        "image": "https://shlee1353.github.io/image/css-clip-mask/1.png",
         "keywords": "",
         "genre": "",
-        "datePublished": "2019-07-10",
-        "dateCreated": "2019-07-10",
-        "dateModified": "2019-07-10",
-        "url": "https://shlee1353.github.io/2019/07/10/react-ui-components/",
-        "description": "
-디자인&amp;인터렉션UI개발을 하시면서 많이 접하시는 디자인이며 간단한 인터렉션과 노출조건이 들어가 있습니다. 하나는 상품을 확인할 수 있는 캐로셀 UI 컴포넌트이며, 다른 하나는 각 이미지에 설명이 들어가 있는 리스트 구조의 UI입니다. 초록색 박스로 그러져있는 설명 부분은 일정 높이에서 펼치기 버튼이 노출됩니다.
+        "datePublished": "2019-07-15",
+        "dateCreated": "2019-07-15",
+        "dateModified": "2019-07-15",
+        "url": "https://shlee1353.github.io/2019/07/15/css-clip-mask/",
+        "description": "평소 clipping과 masking 속성의 차이점을 알고 계시나요? 맨 처음 CSS 속성을 공부할 때, “아, 이런게 있구나!”할 정도로, 매번 업무에 적용하기에는 특별한 속성인 것 같습니다. 우선, 결론부터 말씀드리면, 두 속성의 차이점은 clipping은 벡터 패스이고, masking은 래스터 이미지입니다.
 
-우선, 매우 간단한 구조이며, 기존"
-        "wordCount": 1044
+
+벡터(Vector)는 점과 점 사이의 곡"
+        "wordCount": 298
     }
 </script>
 
@@ -390,20 +369,10 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2019/07/11/phantom-web-screen/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            PhantomJS 웹 스크린 캡쳐기능 사용
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2019/07/05/typescript-basic-concepts/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/07/11/css-animation/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">타입스크립트(TypeScript) 기본개념 및 사용방법 정리</p>
+        <p class="article-nav-title">CSS 애니메이션(Animation) 실제로 어떻게 쓰나?</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -596,7 +565,7 @@ ga('send', 'pageview');
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://shlee1353.github.io/2019/07/10/react-ui-components/';
+    var disqus_url = 'https://shlee1353.github.io/2019/07/15/css-clip-mask/';
     
     (function() {
     var dsq = document.createElement('script');
