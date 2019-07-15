@@ -1,9 +1,10 @@
 ---
-title: '[앵귤러] 라이프사이클 이해하기'
-date: 2017-11-15 14:15:26
-thumbnail: https://shlee1353.github.io/img/angular.png
+title: 앵귤러(Angular) 라이프사이클 기초 이해하기
+date: 2019-07-04 19:54:29
 tags:
 ---
+
+![](/image/angular-lifecycle-hooks/1.png)
 
 ## 생명주기(life cycle)
 컴포넌트와 지시자는 **생명주기(life cycle)** 를 가집니다. 생명주기란, 컴포넌트나 지시자가 생성되고 파괴될 때까지의 일련의 과정을 말합니다. 생명주기 안에서는 특정 시점에 훅 메서드(hook method)를 호출할 수 있습니다. 예를들어, 컴포넌트와 지시자가 초기화되면 ngOnInit() 훅 메서드가 호출됩니다. 만약 이 시점에 실행할 내용이 있다면 컴포넌트 클래스 내에서 ngOnInit() 훅 메서드를 선언하면 됩니다.

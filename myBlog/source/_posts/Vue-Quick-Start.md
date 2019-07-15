@@ -1,9 +1,10 @@
 ---
-title: '[Vue] 빠르게 훑어보기'
-date: 2017-11-15 16:46:59
-thumbnail: https://return-true.com/wp-content/uploads/2016/02/starting-out-with-vuejs.jpg
+title: 뷰(Vue) 기본개념 빠르게 알아보자
+date: 2019-07-04 19:01:00
 tags:
 ---
+
+![](/image/vue-quick-start/1.png)
 
 ## 설치
 ```
