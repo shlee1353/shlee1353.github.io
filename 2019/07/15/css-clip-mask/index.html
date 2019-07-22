@@ -20,7 +20,7 @@
 <meta property="og:description" content="평소 clipping과 masking 속성의 차이점을 알고 계시나요? CSS 속성을 다시 공부할 때마다, “아, 이런게 있었구나!”할 정도로, 매번 업무에 적용하기에는 특별한 속성인 것 같습니다. 우선, 결론적으로, 두 속성의 차이점은 clipping은 벡터 패스이고, masking은 래스터 이미지입니다.   벡터(Vector)는 점과 점 사이의 곡선으로">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://shlee1353.github.io/image/css-clip-mask/0.png">
-<meta property="og:updated_time" content="2019-07-19T09:37:17.190Z">
+<meta property="og:updated_time" content="2019-07-22T10:12:05.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS속성 Clipping과 Masking 차이점과 특징">
 <meta name="twitter:description" content="평소 clipping과 masking 속성의 차이점을 알고 계시나요? CSS 속성을 다시 공부할 때마다, “아, 이런게 있었구나!”할 정도로, 매번 업무에 적용하기에는 특별한 속성인 것 같습니다. 우선, 결론적으로, 두 속성의 차이점은 clipping은 벡터 패스이고, masking은 래스터 이미지입니다.   벡터(Vector)는 점과 점 사이의 곡선으로">
@@ -186,9 +186,10 @@ ga('send', 'pageview');
 <li><strong>벡터(Vector)</strong>는 점과 점 사이의 곡선으로 이미지를 구현하는 방식으로, 기본적인 점의 위치 정보만 저장하기 때문에 파일의 크기가 작습니다. 또한, 이미지 축소/확대 시에도 손상을 주지 않는 장점이 있습니다.</li>
 <li><strong>래스터(Raster)</strong> 이미지는 정사각형 모양의 픽셀(Pixel) 수백개가 모여 전체 이미지를 구성하는 방식입니다. 한 공간에 사용된 모자이크 픽셀 수에 따라서 이미지의 해상도가 달라집니다.</li>
 </ul>
-<p>예를들어, 아래와 같이 그라데이션이 추가된 정사각형을 마스크로 정의할 수 있습니다. 좌측의 검정색 부분은 투명도가 적용되며, 우측의 흰색 부분은 불투명도가 적용됩니다.</p>
-<p><img src="/image/css-clip-mask/2.png" alt=""></p>
 <p>Clips은 항상 벡터 패스로 이루어져있습니다. 패스의 바깥쪽은 투명도가 적용되며, 안쪽은 불투명 영역입니다.</p>
+<p><img src="/image/css-clip-mask/2-1.png" alt=""></p>
+<p>mask는 아래와 같이 그라데이션이 적용된 정사각형을 생각하면 이해가 쉽습니다. 마스크 타입에 따라, 검정색과 흰색 부분에 각각 투명도/불투명도가 적용됩니다.</p>
+<p><img src="/image/css-clip-mask/2-2.png" alt=""></p>
 <h2 id="clip-속성"><a href="#clip-속성" class="headerlink" title="clip 속성"></a>clip 속성</h2><p>우선 가장 기본적인 clip 속성에 대해 알아보도록 하겠습니다.</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.element</span> &#123;</span><br><span class="line">  clip: rect(10px, 20px, 30px, 40px); // 상 우 하 좌</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>clip 속성은 현재 <code>deprecated</code> 되었으며, 새로운 속성이 추가되어 더 이상 추천하지 않습니다. 또한, clip은 쉽게 사용하기 어려운 두 가지 제약이 있습니다.</p>
@@ -211,7 +212,15 @@ ga('send', 'pageview');
 <ul>
 <li><strong>Luminance Masks</strong>는 이미지의 luminance 값을 사용한다는 것을 제외하고는 alpha mask와 유사합니다. alpha mask의 검정색 부분이 흰색으로 바뀌었다고 생각하면 됩니다.</li>
 </ul>
-<p><img src="/image/css-clip-mask/7.png" alt=""><br><img src="/image/css-clip-mask/8.png" alt=""></p>
+<p><img src="/image/css-clip-mask/7.png" alt=""></p>
+<p>예를들어, object에 luminance mask를 적용하면, 흰색 부분으로 masked object가 나타나는 것을 확인할 수 있습니다.</p>
+<p><img src="/image/css-clip-mask/8.png" alt=""></p>
+<p>png, svg파일을 이용해서 mask를 만들 수도 있지만, <code>gradient</code> 효과를 사용하여 좀 더 간편하게 mask를 적용하는 방법에 대해 알아보도록 하겠습니다.</p>
+<p><img src="/image/css-clip-mask/9.png" alt=""></p>
+<p><code>background-image</code> 속성에 <code>linear-gradient</code>를 적용하면 간단한 mask 효과를 적용할 수 있습니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://lorempixel.com/1920/480/"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">background-image</span>: <span class="built_in">-webkit-linear-gradient</span>(270deg, rgba(0, 0, 0, 0) <span class="number">50%</span>, <span class="built_in">rgba</span>(0, 0, 0, 1) <span class="number">95%</span> );</span><br><span class="line">	<span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(to bottom, rgba(0, 0, 0, 0) <span class="number">50%</span>, <span class="built_in">rgba</span>(0, 0, 0, 1) <span class="number">95%</span> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>mask효과는 clip보다 자연스러운 화면전환 효과가 가능하기 때문에 인터렉션과 비주얼이 중요시되는 웹사이트 제작에 자주 사용되고는 합니다. mask는 보다 화려한 효과를 동반하기 때문에 브라우저 호환성 체크는 필수입니다. 지금까지 간략하게 Clipping과 Masking애 대해 알아봤습니다:)</p>
 
         </div>
         <footer class="article-footer">
@@ -219,7 +228,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://shlee1353.github.io/2019/07/15/css-clip-mask/" data-id="cjy9x7q4p000175dyqrx4qq80" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://shlee1353.github.io/2019/07/15/css-clip-mask/" data-id="cjye8e70b0002jhdycq9nj9ms" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -295,14 +304,14 @@ ga('send', 'pageview');
         "genre": "",
         "datePublished": "2019-07-15",
         "dateCreated": "2019-07-15",
-        "dateModified": "2019-07-19",
+        "dateModified": "2019-07-22",
         "url": "https://shlee1353.github.io/2019/07/15/css-clip-mask/",
         "description": "
 평소 clipping과 masking 속성의 차이점을 알고 계시나요? CSS 속성을 다시 공부할 때마다, “아, 이런게 있었구나!”할 정도로, 매번 업무에 적용하기에는 특별한 속성인 것 같습니다. 우선, 결론적으로, 두 속성의 차이점은 clipping은 벡터 패스이고, masking은 래스터 이미지입니다.
 
 
 벡터(Vector)는 점과 점 사이의 곡선으로"
-        "wordCount": 421
+        "wordCount": 564
     }
 </script>
 
