@@ -74,6 +74,21 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: hueman
 
+# rss feed auto generator
+feed:
+  # feed type (atom / rss2)
+  type: rss2
+  # feed path (Default: atom.xml / rss2.xml)
+  path: rss2.xml
+  # 최신 포스트의 갯수 설정. (0 또는 false 입력시 전체 포스트)
+  limit: 20
+
+# robots.txt
+robotstxt:
+  User-agent: "*"
+  Allow: /
+  Sitemap: https://shlee1353.github.io/sitemap.xml  
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
