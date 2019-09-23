@@ -208,7 +208,7 @@ ga('send', 'pageview');
 <ul>
 <li>ngDoCheck() 메서드가 호출되고 나서 ngAfterViewChecked() 가 호출되기까지 콘텐츠와 뷰에 대한 상태 점검이 진행되는 때를 말합니다. </li>
 <li><p><strong>콘텐츠</strong> : 컴포넌트가 선언될 때 내부 엘리먼트에 선언한 엘리먼트의 속성값을 말합니다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent [prop]=<span class="string">".."</span>&gt;</span><br><span class="line">    &lt;child name=<span class="string">""</span>&gt;&lt;/child&gt; <span class="comment">// 콘텐츠</span></span><br><span class="line">&lt;<span class="regexp">/parent&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent [prop]=<span class="string">".."</span>&gt;</span><br><span class="line">    &lt;child name=<span class="string">""</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">child</span>&gt;</span></span> <span class="comment">// 콘텐츠</span></span><br><span class="line">&lt;<span class="regexp">/parent&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>Content projection(transclusion)</strong> : 컴포넌트 외부에서 HTML을 가져와 컴포넌트 내부에 원하는 위치에 추가함. Content projection을 의도하지 않았다면 콘텐츠를 컴포넌트 사이에 절대 넣지 마세요.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// AfterContentParentComponent</span></span><br><span class="line"><span class="string">`&lt;after-content&gt;</span></span><br><span class="line"><span class="string">   &lt;my-child&gt;&lt;/my-child&gt;</span></span><br><span class="line"><span class="string"> &lt;/after-content&gt;`</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// AfterContentComponent</span></span><br><span class="line">template: <span class="string">`</span></span><br><span class="line"><span class="string">  &lt;div&gt;-- projected content begins --&lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;ng-content&gt;&lt;/ng-content&gt;</span></span><br><span class="line"><span class="string">  &lt;div&gt;-- projected content ends --&lt;/div&gt;`</span></span><br></pre></td></tr></table></figure>
@@ -323,7 +323,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://shlee1353.github.io/2019/07/04/angular-lifecycle-hooks/" data-id="cjxwvlg3h00051gdyjvuruo6l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://shlee1353.github.io/2019/07/04/angular-lifecycle-hooks/" data-id="ck0w6c9h0000bhddy1k3qzobt" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -403,7 +403,7 @@ ga('send', 'pageview');
         "url": "https://shlee1353.github.io/2019/07/04/angular-lifecycle-hooks/",
         "description": "
 생명주기(life cycle)컴포넌트와 지시자는 생명주기(life cycle) 를 가집니다. 생명주기란, 컴포넌트나 지시자가 생성되고 파괴될 때까지의 일련의 과정을 말합니다. 생명주기 안에서는 특정 시점에 훅 메서드(hook method)를 호출할 수 있습니다. 예를들어, 컴포넌트와 지시자가 초기화되면 ngOnInit() 훅 메서드가 호출됩니다. 만약 이"
-        "wordCount": 2066
+        "wordCount": 2069
     }
 </script>
 
@@ -518,6 +518,46 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2019/09/23/react-lottie/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/09/23/react-lottie/" class="title">리액트(React) Lottie 애니메이션 적용</a></p>
+                            <p class="item-date"><time datetime="2019-09-23T08:52:26.000Z" itemprop="datePublished">2019-09-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/07/31/tdd-ui-test/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/07/31/tdd-ui-test/" class="title">TDD(테스트 주도 개발) 리액트 UI 컴포넌트 적용</a></p>
+                            <p class="item-date"><time datetime="2019-07-31T02:58:06.000Z" itemprop="datePublished">2019-07-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2019/07/15/css-clip-mask/" class="thumbnail">
     
     
@@ -575,46 +615,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/07/10/react-ui-components/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/image/react-ui-components/1.png)" alt="리액트(React) UI 컴포넌트 설계하기" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2019/07/10/react-ui-components/" class="title">리액트(React) UI 컴포넌트 설계하기</a></p>
-                            <p class="item-date"><time datetime="2019-07-10T06:19:24.000Z" itemprop="datePublished">2019-07-10</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/07/05/typescript-basic-concepts/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/image/typescript-basic-concepts/1.png)" alt="타입스크립트(TypeScript) 기본개념 및 사용방법 정리" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2019/07/05/typescript-basic-concepts/" class="title">타입스크립트(TypeScript) 기본개념 및 사용방법 정리</a></p>
-                            <p class="item-date"><time datetime="2019-07-05T05:32:20.000Z" itemprop="datePublished">2019-07-05</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -627,7 +627,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">11</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">12</span></li></ul>
         </div>
     </div>
 
