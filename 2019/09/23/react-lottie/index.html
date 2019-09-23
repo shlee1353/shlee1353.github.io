@@ -12,14 +12,19 @@
     
         <meta name="keywords" content="" />
     
-    <meta property="og:type" content="article">
+    <meta name="description" content="Lottie는 After Effects 애니메이션을 실시간으로 렌더링하는 iOS, Android 및 React Native 라이브러리입니다.1234567891011121314151617181920212223242526272829303132333435363738394041424344454647import React, &amp;#123; useState &amp;#125;">
+<meta property="og:type" content="article">
 <meta property="og:title" content="리액트(React) Lottie 애니메이션 적용">
 <meta property="og:url" content="https://shlee1353.github.io/2019/09/23/react-lottie/index.html">
 <meta property="og:site_name" content="Ryan Lee">
+<meta property="og:description" content="Lottie는 After Effects 애니메이션을 실시간으로 렌더링하는 iOS, Android 및 React Native 라이브러리입니다.1234567891011121314151617181920212223242526272829303132333435363738394041424344454647import React, &amp;#123; useState &amp;#125;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-23T08:53:20.490Z">
+<meta property="og:image" content="https://shlee1353.github.io/image/react-lottie/1.png">
+<meta property="og:updated_time" content="2019-09-23T09:05:14.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="리액트(React) Lottie 애니메이션 적용">
+<meta name="twitter:description" content="Lottie는 After Effects 애니메이션을 실시간으로 렌더링하는 iOS, Android 및 React Native 라이브러리입니다.1234567891011121314151617181920212223242526272829303132333435363738394041424344454647import React, &amp;#123; useState &amp;#125;">
+<meta name="twitter:image" content="https://shlee1353.github.io/image/react-lottie/1.png">
     
     <link rel="canonical" href="https://shlee1353.github.io/2019/09/23/react-lottie/"/>
     
@@ -174,7 +179,11 @@ ga('send', 'pageview');
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <p><img src="/image/react-lottie/1.png" alt=""><br>Lottie는 After Effects 애니메이션을 실시간으로 렌더링하는 iOS, Android 및 React Native 라이브러리입니다.<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> Lottie <span class="keyword">from</span> <span class="string">'react-lottie'</span>;</span><br><span class="line"><span class="keyword">import</span> ThumbsUp <span class="keyword">from</span> <span class="string">'../lottie/thumbs-up.json'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> lottieOptions = &#123;</span><br><span class="line">  animationData: ThumbsUp,   </span><br><span class="line">  loop: <span class="literal">false</span>,        </span><br><span class="line">  autoplay: <span class="literal">false</span>,   </span><br><span class="line">  rendererSettings: &#123;</span><br><span class="line">    className: <span class="string">'add-class'</span>, <span class="comment">// svg에 적용</span></span><br><span class="line">    preserveAspectRatio: <span class="string">'xMidYMid slice'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ThumbsUpComponent = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> [isStopped, SetIsStopped] = useState(<span class="literal">false</span>);</span><br><span class="line">	<span class="keyword">const</span> [isPaused, SetIsPaused] = useState(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> onStop = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">		SetIsStopped(!isStopped)</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> onPause = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">		SetIsPaused(!isPaused)</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> (</span><br><span class="line">		&lt;div className=<span class="string">"thumbs-up"</span>&gt;</span><br><span class="line">			&lt;Lottie</span><br><span class="line">				options=&#123;lottieOptions&#125;</span><br><span class="line">				isStopped=&#123;isStopped&#125;</span><br><span class="line">				isPaused=&#123;isPaused&#125;</span><br><span class="line">				isClickToPauseDisabled=&#123;<span class="literal">false</span>&#125;</span><br><span class="line">				style=&#123;&#123;<span class="attr">width</span>: <span class="string">'300px'</span>, <span class="attr">height</span>: <span class="string">'300px'</span>&#125;&#125; <span class="comment">// svg의 부모 div에 적용</span></span><br><span class="line">				eventListeners=&#123;[</span><br><span class="line">					&#123;</span><br><span class="line">						eventName: <span class="string">'complete'</span>,</span><br><span class="line">						callback: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'the animation completed'</span>),</span><br><span class="line">					&#125;,</span><br><span class="line">				]&#125;</span><br><span class="line">			/&gt;</span><br><span class="line">			&lt;button onClick=&#123;onPause&#125;&gt;Play/Pause&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">		&lt;/</span>div&gt;</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> ThumbsUpComponent;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><a href="https://www.npmjs.com/package/react-lottie" target="_blank" rel="external">https://www.npmjs.com/package/react-lottie</a></li>
+</ul>
+
         </div>
         <footer class="article-footer">
             
@@ -252,15 +261,15 @@ ga('send', 'pageview');
             "name": "Ryan Lee"
         },
         "headline": "리액트(React) Lottie 애니메이션 적용",
-        "image": "https://shlee1353.github.io",
+        "image": "https://shlee1353.github.io/image/react-lottie/1.png",
         "keywords": "",
         "genre": "",
         "datePublished": "2019-09-23",
         "dateCreated": "2019-09-23",
         "dateModified": "2019-09-23",
         "url": "https://shlee1353.github.io/2019/09/23/react-lottie/",
-        "description": ""
-        "wordCount": 1
+        "description": "Lottie는 After Effects 애니메이션을 실시간으로 렌더링하는 iOS, Android 및 React Native 라이브러리입니다.1234567891011121314151617181920212223242526272829303132333435363738394041424344454647import React, &#123; useState &#125; "
+        "wordCount": 259
     }
 </script>
 
@@ -368,7 +377,7 @@ ga('send', 'pageview');
                             <a href="/2019/09/23/react-lottie/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/image/react-lottie/1.png)" alt="리액트(React) Lottie 애니메이션 적용" class="thumbnail-image"></span>
     
     
 </a>
