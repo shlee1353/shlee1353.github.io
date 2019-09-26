@@ -20,7 +20,7 @@
 <meta property="og:description" content="일상속에서 휴대폰으로 찍은 사진은 어떤 이미지 타입으로 저장이 될까요? 이 물음에 답하기 위해서는 먼저 이미지 파일에 대한 기본적인 이해가 필요합니다. 우리가 컴퓨터 모니터 상에서 사용하는 그래픽은 크게 Raster와 Vector 두 가지 타입으로 존재합니다. 많은 이미지들이 이 두가지 형태로 생성되며 때로는 매우 비슷하거나 동일하게 보일때도 있습니다.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://shlee1353.github.io/image/css-raster-vector/1.png">
-<meta property="og:updated_time" content="2019-09-26T03:04:20.465Z">
+<meta property="og:updated_time" content="2019-09-26T07:24:06.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="래스터(Raster) 이미지와 백터(Vector) 이미지 for CSS 속성">
 <meta name="twitter:description" content="일상속에서 휴대폰으로 찍은 사진은 어떤 이미지 타입으로 저장이 될까요? 이 물음에 답하기 위해서는 먼저 이미지 파일에 대한 기본적인 이해가 필요합니다. 우리가 컴퓨터 모니터 상에서 사용하는 그래픽은 크게 Raster와 Vector 두 가지 타입으로 존재합니다. 많은 이미지들이 이 두가지 형태로 생성되며 때로는 매우 비슷하거나 동일하게 보일때도 있습니다.">
@@ -182,9 +182,12 @@ ga('send', 'pageview');
             <p><img src="/image/css-raster-vector/1.png" alt=""></p>
 <p>일상속에서 휴대폰으로 찍은 사진은 어떤 이미지 타입으로 저장이 될까요? 이 물음에 답하기 위해서는 먼저 이미지 파일에 대한 기본적인 이해가 필요합니다. 우리가 컴퓨터 모니터 상에서 사용하는 그래픽은 크게 <code>Raster</code>와 <code>Vector</code> 두 가지 타입으로 존재합니다. 많은 이미지들이 이 두가지 형태로 생성되며 때로는 매우 비슷하거나 동일하게 보일때도 있습니다. 하지만, 이 둘은 분명한 차이점이 존재하며, 용도에 맞게 사용해야할 필요가 있습니다.</p>
 <p><img src="/image/css-raster-vector/2.png" alt=""></p>
-<p><code>Raster</code>의 또 다른 명칭은 <code>bitmaps</code>이며 밝기 값, 또는 컬러값을 가진 하나의 픽셀(점)들이 모여 이미지를 만들어냅니다. 작은 픽셀들이 모여 이미지를 화면에 출력하기 때문에 생생하고 세밀한 표현이 가능합니다. 그렇기 때문에, 디지털화된 사진이나 미술 작품처럼 풍부한 컬러감과 자연스러운 그라데이션이 필요한 곳에 주로 사용되며, <code>JPG, GIF, PNG</code> 파일이 여기에 속합니다.</p>
+<p><code>Raster</code>의 또 다른 명칭은 <code>비트맵(bitmaps)</code>이며 밝기 값, 또는 컬러값을 가진 하나의 픽셀(점)들이 모여 이미지를 만들어냅니다. 작은 픽셀들이 모여 이미지를 화면에 출력하기 때문에 생생하고 세밀한 표현이 가능합니다. 그렇기 때문에, 디지털화된 사진이나 미술 작품처럼 풍부한 컬러감과 자연스러운 그라데이션이 필요한 곳에 주로 사용되며, <code>JPG, GIF, PNG</code> 파일이 여기에 속합니다.</p>
 <p><img src="/image/css-raster-vector/3.png" alt=""></p>
-<p><code>Raster</code>이미지의 해상도는 <code>PPI(Pixels-per-inch)</code>로 나타내며 이는 1인치 정사각형안에 몇 개의 픽셀을 담고 있는지를 나타냅니다. 예를들어, 1 PPI는 1x1=1개, 2 PPI는 2x2=4개, 4 PPI는 4x4=16개의 픽셀로 이루어져 있으며, 인쇄물 용도로 제작하는 이미지는 최소 300PPI를 요구합니다.</p>
+<p><code>Raster</code>이미지의 선명도는 <code>PPI(Pixels-per-inch)</code>로 나타내며 이는 1인치 정사각형안에 몇 개의 픽셀을 담고 있는지를 나타냅니다. 예를들어, 1 PPI는 1x1=1개, 2 PPI는 2x2=4개, 4 PPI는 4x4=16개의 픽셀로 이루어져 있으며, 인쇄물 용도로 제작하는 이미지는 최소 300PPI를 요구합니다. 여기서 중요한점은, 높은 PPI로 이미지를 제작했더라도 그것을 출력하는 디바이스 해상도와는 아무런 관련이 없다는 것입니다. 오히려, PPI는 이미지 혹은 사진 파일을 프린터로 출력할 때 고려해야 할 부분입니다.</p>
+<p><img src="/image/css-raster-vector/4.png" alt=""><br><a href="https://images.techhive.com/images/article/2014/10/5k-display_ppi_popular_devices_1-100528162-orig.png" target="_blank" rel="external">link</a></p>
+<p>디바이스의 해상도를 나타낼 때는 주로 <code>1280x720, 1920x1080</code>을 사용하며, 이는 가로와 세로 화면에 들어가는 총 픽셀수를 의미합니다. 화면상에서 이미지의 사이즈를 결정짓는건 단 두 가지가 있습니다. 바로, <strong>이미지의 실제 넓이와 높이</strong><code>(pixel dimensions)</code>, 그리고 <strong>디바이스의 해상도</strong>입니다. 즉, 100x100 사이즈로 제작된 이미지가 있다고 하면, 해상도가 높은 화면에서 출력할 경우 더욱더 작게 보여 선명한 상태로 인시하게 됩니다.</p>
+<p>지금까지 Raster 이미지의 특징 및 장단점에 대해 알아봤습니다.</p>
 
         </div>
         <footer class="article-footer">
@@ -272,7 +275,7 @@ ga('send', 'pageview');
         "url": "https://shlee1353.github.io/2019/09/26/css-raster-vector/",
         "description": "
 일상속에서 휴대폰으로 찍은 사진은 어떤 이미지 타입으로 저장이 될까요? 이 물음에 답하기 위해서는 먼저 이미지 파일에 대한 기본적인 이해가 필요합니다. 우리가 컴퓨터 모니터 상에서 사용하는 그래픽은 크게 Raster와 Vector 두 가지 타입으로 존재합니다. 많은 이미지들이 이 두가지 형태로 생성되며 때로는 매우 비슷하거나 동일하게 보일때도 있습니다. "
-        "wordCount": 139
+        "wordCount": 228
     }
 </script>
 
