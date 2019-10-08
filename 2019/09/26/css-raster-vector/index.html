@@ -20,7 +20,7 @@
 <meta property="og:description" content="일상속에서 휴대폰으로 찍은 사진은 어떤 이미지 타입으로 저장이 될까요? 이 물음에 답하기 위해서는 먼저 이미지 파일에 대한 기본적인 이해가 필요합니다. 우리가 컴퓨터 모니터 상에서 사용하는 그래픽은 크게 Raster와 Vector 두 가지 타입으로 존재합니다. 많은 이미지들이 이 두가지 형태로 생성되며 때로는 매우 비슷하거나 동일하게 보일때도 있습니다.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://shlee1353.github.io/image/css-raster-vector/1.png">
-<meta property="og:updated_time" content="2019-09-26T11:48:59.199Z">
+<meta property="og:updated_time" content="2019-10-08T11:38:02.657Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="래스터(Raster) 이미지와 백터(Vector) 이미지 for CSS 속성">
 <meta name="twitter:description" content="일상속에서 휴대폰으로 찍은 사진은 어떤 이미지 타입으로 저장이 될까요? 이 물음에 답하기 위해서는 먼저 이미지 파일에 대한 기본적인 이해가 필요합니다. 우리가 컴퓨터 모니터 상에서 사용하는 그래픽은 크게 Raster와 Vector 두 가지 타입으로 존재합니다. 많은 이미지들이 이 두가지 형태로 생성되며 때로는 매우 비슷하거나 동일하게 보일때도 있습니다.">
@@ -182,7 +182,7 @@ ga('send', 'pageview');
             <p><img src="/image/css-raster-vector/1.png" alt=""></p>
 <p>일상속에서 휴대폰으로 찍은 사진은 어떤 이미지 타입으로 저장이 될까요? 이 물음에 답하기 위해서는 먼저 이미지 파일에 대한 기본적인 이해가 필요합니다. 우리가 컴퓨터 모니터 상에서 사용하는 그래픽은 크게 <code>Raster</code>와 <code>Vector</code> 두 가지 타입으로 존재합니다. 많은 이미지들이 이 두가지 형태로 생성되며 때로는 매우 비슷하거나 동일하게 보일때도 있습니다. 하지만, 이 둘은 분명한 차이점이 존재하며, 용도에 맞게 사용해야할 필요가 있습니다.</p>
 <p><img src="/image/css-raster-vector/2.png" alt=""></p>
-<p><code>Raster</code>의 또 다른 명칭은 <code>비트맵(bitmaps)</code>이며 <code>RGB(red, green, blue)</code> 색상값을 가진 하나의 픽셀(점)들이 모여 이미지를 만들어냅니다. 작은 픽셀들이 모여 이미지를 화면에 출력하기 때문에 생생하고 세밀한 표현이 가능하다는 장점을 가지고 있습니다. 그렇기 때문에, 디지털화된 사진이나 미술작품처럼 풍부한 컬러감과 자연스러운 그라데이션이 필요한 곳에 주로 사용되며, <code>JPG, GIF, PNG</code> 파일이 여기에 속합니다.</p>
+<p><code>Raster</code>의 또 다른 명칭은 <code>비트맵(bitmaps)</code>이며 <code>RGB(red, green, blue)</code> 색상값을 가진 하나의 픽셀(점)들이 모여 이미지를 만들어냅니다. 작은 픽셀들이 모여 이미지를 화면에 출력하기 때문에 생생하고 세밀한 표현이 가능하다는 장점을 가지고 있습니다. 그렇기 때문에, 디지털화된 사진이나 미술작품처럼 풍부한 컬러감과 자연스러운 그라데이션이 필요한 곳에 주로 사용되며, <code>PNG, JPG, GIF</code> 파일이 여기에 속합니다. 웹상에서는 간단한 아이콘, 사진 또는 반복되는 이미지를 보여줄 때 사용합니다.</p>
 <p><img src="/image/css-raster-vector/3.png" alt=""></p>
 <p><code>Raster</code>이미지의 선명도는 <code>PPI(Pixels-per-inch)</code>로 나타내며 이는 1인치 정사각형안에 몇 개의 픽셀을 담고 있는지를 나타냅니다. 예를들어, 1 PPI는 1x1=1개, 2 PPI는 2x2=4개, 4 PPI는 4x4=16개의 픽셀로 이루어져 있으며, 인쇄물 용도로 제작하는 이미지는 최소 300PPI를 요구합니다. 여기서 중요한점은, 높은 PPI로 이미지를 제작했더라도 그것을 출력하는 디바이스 해상도와는 아무런 관련이 없다는 것입니다. 오히려, PPI는 이미지 혹은 사진 파일을 프린터로 출력할 때 고려해야 할 부분입니다.</p>
 <p><img src="/image/css-raster-vector/4.png" alt=""></p>
@@ -190,7 +190,8 @@ ga('send', 'pageview');
 <p><img src="/image/css-raster-vector/5.png" alt=""></p>
 <p>예를들어, <code>440x550</code> 사이즈로 제작된 캐릭터 이미지가 있다고 하면, 모니터의 실제 사이즈는 동일하지만, 해상도가 높은 화면에서 출력할 경우 더욱더 작게 보여 선명한 상태로 인식하게 됩니다. PPI를 아무리 높여도 보이는 결과는 달라지지 않습니다. 고해상도의 이미지를 출력할 경우 높은 PPI는 필요조건이지만 그만큼 이미지 파일의 사이즈는 커지게 됩니다. 또한, 일정 픽셀 안에 고정된 컬러값과 사이즈를 가지고 있기 때문에 이미지를 확대할 경우 깨짐 현상이 발생합니다. 이러한 단점들을 보완한 것이 바로 <code>Vector</code>기반 이미지입니다.</p>
 <p><img src="/image/css-raster-vector/6.png" alt=""></p>
-<p><code>Vector</code> 그래픽은 기본적으로 <code>꼭지점과 연결된 선(vertices and paths)</code>으로 구성되어 있으며 이를 사용하여 다각형, 사각형, 원 등과 같은 기하학적 요소들을 만들어냅니다. 기본적으로, 하나의 <code>점(point)</code>으로 시작되며 두 개의 점을 선으로 이으면 이것을 <code>path</code>라고 부릅니다. 여러 꼭지점으로 연결된 paths의 한 곳이 닫히면 기하학적 패턴 또는 도형이 완성됩니다.</p>
+<p><code>Vector</code> 그래픽은 기본적으로 <code>꼭지점과 연결된 선(vertices and paths)</code>으로 구성되어 있으며 이를 사용하여 다각형, 사각형, 원 등과 같은 기하학적 요소들을 만들어냅니다. 기본적으로, 하나의 <code>점(point)</code>으로 시작되며 두 개의 점을 선으로 이으면 이것을 <code>path</code>라고 부릅니다. 여러 꼭지점으로 연결된 paths의 한 곳이 닫히면 <code>기하학적 패턴 또는 도형</code>이 완성됩니다.</p>
+<p><img src="/image/css-raster-vector/7.gif" alt=""></p>
 
         </div>
         <footer class="article-footer">
@@ -274,11 +275,11 @@ ga('send', 'pageview');
         "genre": "",
         "datePublished": "2019-09-26",
         "dateCreated": "2019-09-26",
-        "dateModified": "2019-09-26",
+        "dateModified": "2019-10-08",
         "url": "https://shlee1353.github.io/2019/09/26/css-raster-vector/",
         "description": "
 일상속에서 휴대폰으로 찍은 사진은 어떤 이미지 타입으로 저장이 될까요? 이 물음에 답하기 위해서는 먼저 이미지 파일에 대한 기본적인 이해가 필요합니다. 우리가 컴퓨터 모니터 상에서 사용하는 그래픽은 크게 Raster와 Vector 두 가지 타입으로 존재합니다. 많은 이미지들이 이 두가지 형태로 생성되며 때로는 매우 비슷하거나 동일하게 보일때도 있습니다. "
-        "wordCount": 315
+        "wordCount": 327
     }
 </script>
 
