@@ -20,7 +20,7 @@
 <meta property="og:description" content="일상속에서 휴대폰으로 찍은 사진은 어떤 이미지 타입으로 저장이 될까요? 이 물음에 답하기 위해서는 먼저 이미지 파일에 대한 기본적인 이해가 필요합니다. 우리가 컴퓨터 모니터 상에서 사용하는 그래픽은 크게 Raster와 Vector 두 가지 타입으로 존재합니다. 많은 이미지들이 이 두가지 형태로 생성되며 때로는 매우 비슷하거나 동일하게 보일때도 있습니다.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://shlee1353.github.io/image/css-raster-vector/1.png">
-<meta property="og:updated_time" content="2019-10-10T09:12:06.059Z">
+<meta property="og:updated_time" content="2019-10-13T10:09:37.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="래스터(Raster) 이미지와 백터(Vector) 이미지 for CSS 속성">
 <meta name="twitter:description" content="일상속에서 휴대폰으로 찍은 사진은 어떤 이미지 타입으로 저장이 될까요? 이 물음에 답하기 위해서는 먼저 이미지 파일에 대한 기본적인 이해가 필요합니다. 우리가 컴퓨터 모니터 상에서 사용하는 그래픽은 크게 Raster와 Vector 두 가지 타입으로 존재합니다. 많은 이미지들이 이 두가지 형태로 생성되며 때로는 매우 비슷하거나 동일하게 보일때도 있습니다.">
@@ -196,6 +196,7 @@ ga('send', 'pageview');
 <p><img src="/image/css-raster-vector/8.png" alt=""></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 최적화 전: 36KB</span></span><br><span class="line">&lt;svg version=<span class="string">"1.1"</span> id=<span class="string">"Layer_1"</span> xmlns=<span class="string">"http://www.w3.org/2000/svg"</span> xmlns:xlink=<span class="string">"http://www.w3.org/1999/xlink"</span> x=<span class="string">"0px"</span> y=<span class="string">"0px"</span> viewBox=<span class="string">"0 0 864 864"</span> enable-background=<span class="string">"new 0 0 864 864"</span> xml:space=<span class="string">"preserve"</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 최적화 후: 20KB</span></span><br><span class="line">&lt;svg xmlns=<span class="string">"http://www.w3.org/2000/svg"</span> viewBox=<span class="string">"0 0 864 864"</span>&gt;</span><br></pre></td></tr></table></figure>
 <p>또한, 불필요한 점과 선을 제거함으로써, 이미지 최적화를 통한 저용량 파일 생성이 가능합니다. 예로, <a href="https://jakearchibald.github.io/svgomg/" target="_blank" rel="external">SVGOMG</a>를 사용하면 SVG코드 내부에 담겨 있는 불필요한 정보를 손쉽게 제거하여 파일 용량을 줄일 수 있습니다.</p>
+<p><img src="/image/css-raster-vector/9.jpg" alt=""></p>
 <p>지금부터는 <code>래스터(Raster)</code>와 <code>백터(Vector)</code> 그래픽을 기반으로 하는 CSS 속성에 대해 알아보도록 하겠습니다. 바로, <code>mask</code>와 <code>clip</code> 속성입니다. <code>mask</code>는 래스터 이미지를 활용하며, <code>clip</code>은 백터 패스로 이루어져있습니다. 이 두 속성은 특별한 경우가 아니면 다른 속성들에 비해 실무에서 많이 사용되지는 않습니다. 하지만, 각 속성에 대한 기본적인 특징과 사용방법을 잘 숙지하여 적재적소에 활용한다면 더욱더 효과적인 인터렉션 구현이 가능합니다.</p>
 
         </div>
@@ -280,11 +281,11 @@ ga('send', 'pageview');
         "genre": "",
         "datePublished": "2019-09-26",
         "dateCreated": "2019-09-26",
-        "dateModified": "2019-10-10",
+        "dateModified": "2019-10-13",
         "url": "https://shlee1353.github.io/2019/09/26/css-raster-vector/",
         "description": "
 일상속에서 휴대폰으로 찍은 사진은 어떤 이미지 타입으로 저장이 될까요? 이 물음에 답하기 위해서는 먼저 이미지 파일에 대한 기본적인 이해가 필요합니다. 우리가 컴퓨터 모니터 상에서 사용하는 그래픽은 크게 Raster와 Vector 두 가지 타입으로 존재합니다. 많은 이미지들이 이 두가지 형태로 생성되며 때로는 매우 비슷하거나 동일하게 보일때도 있습니다. "
-        "wordCount": 519
+        "wordCount": 521
     }
 </script>
 
