@@ -1,10 +1,10 @@
 ---
-title: 뷰(Vue) 기본개념 빠르게 알아보자
-date: 2019-07-04 19:01:00
+title: 뷰(Vue) 기본개념 간단히 알아보기
+date: 2019-10-14 13:58:25
 tags:
 ---
 
-![](/image/vue-quick-start/1.png)
+![](/image/vue-basic-start/1.png)
 
 ## 설치
 ```
