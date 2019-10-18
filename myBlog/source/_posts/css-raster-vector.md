@@ -46,4 +46,64 @@ tags:
 
 ![](/image/css-raster-vector/9.jpg)
 
-지금부터는 `래스터(Raster)`와 `백터(Vector)` 그래픽을 기반으로 하는 CSS 속성에 대해 알아보도록 하겠습니다. 바로, `mask`와 `clip` 속성입니다. `mask`는 래스터 이미지를 활용하며, `clip`은 백터 패스로 이루어져있습니다. 이 두 속성은 특별한 경우가 아니면 다른 속성들에 비해 실무에서 많이 사용되지는 않습니다. 하지만, 각 속성에 대한 기본적인 특징과 사용방법을 잘 숙지하여 적재적소에 활용한다면 더욱더 효과적인 인터렉션 구현이 가능합니다.
+지금부터는 CSS 속성 중에서 `래스터(Raster)`와 `벡터(Vector)` 그래픽을 기반으로 하는 `masking`과 `clipping` 에 대해 알아보도록 하겠습니다. `mask`는 래스터 그래픽을 사용하며, `clip`은 백터 패스가 적용되는 효과입니다. `Mask`는 그라데이션이 적용된 정사각형을 생각하면 이해가 쉽습니다. `마스크 타입(Alpha 또는 Luminance)`에 따라, 검정색과 흰색 부분에 각각 투명도/불투명도가 적용됩니다. `Clip`은 벡터 패스 바깥쪽은 투명도가 적용되며 안쪽은 불투명 영역을 이루고 있습니다.
+
+![](/image/css-raster-vector/10.png)
+
+이 두 속성은 특별한 경우가 아니면 다른 속성들에 비해 실무에서 많이 사용되지는 않습니다. 하지만, 각 속성에 대한 기본적인 특징과 사용방법을 잘 숙지하여 적재적소에 활용한다면 더욱더 효과적인 인터렉션 구현이 가능합니다. 두 속성에 대해 좀 더 자세히 알아보도록 하겠습니다.
+
+## Mask 속성
+
+`Masking`은 시각적으로 엘리먼트(이미지)의 일정/전체 부분을 숨기는데 사용됩니다. Mask-image속성을 기본으로 mask-mode, mask-repeat, mask-position, mask-size 등 다양한 속성값을 가지고 있습니다. mask를 사용하면 `mask layer`가 형성되며, `alpha` 또는 `luminance` 두 가지 타입 중 하나를 선택할 수 있습니다. 두 속성의 차이점은 aphla는 투명도를 만들어 내기 위해 `알파채널(alpha channel)`을 사용하며, luminance는 `밝기값(lightness values)`을 사용한다는 점입니다.
+
+- `Alpha Masks`는 알파채널을 가지고 있으며 알파값은 mask 값으로 사용됩니다. 알파채널의 가장 간단한 예로 검정과 투명 영역이 있는 png 이미지를 예로들 수 있습니다.
+
+![](/image/css-raster-vector/11.png)
+
+알파채널은 투명도 정보를 가지고 있는 픽셀데이터의 집합이며 두 픽셀값이 겹쳐져 만났을 때 픽셀의 컬러값을 결정합니다. 위 이미지경우, 검정색은 1이라는 알파값을 가지고 있으며, 투명영역은 0의 알파값을 가지고 있습니다. 알파값을 가지고 있는 이미지를 mask 속성으로 사용할 경우, 검정색 영역에 엘리먼트가 노출되고 투명영역에는 미노출 됩니다.
+
+![](/image/css-raster-vector/12.jpg)
+
+- `Luminance Masks`는 이미지의 luminance 값을 사용한다는 것을 제외하고는 alpha mask와 유사합니다. alpha mask의 검정색 부분이 흰색으로 바뀌었다고 생각하면 됩니다.
+
+![](/image/css-raster-vector/13.png)
+
+예를들어, object에 luminance mask를 적용하면, 흰색 부분으로 masked object가 나타나는 것을 확인할 수 있습니다.
+
+![](/image/css-raster-vector/14.png)
+
+## clip 속성
+
+백터(Vector) 기반인 clip 속성은 기본적으로 정사각형의 기본값을 가지고 있습니다. clip 속성은 현재 `deprecated` 되었으며, 새로운 속성이 추가되어 더 이상 추천하지 않습니다. 또한, clip은 쉽게 사용하기 어려운 두 가지 제약이 있습니다.
+
+- 엘리먼트에 `absolute` 속성이 적용되어야 합니다.
+- 직사각형 형태로만 적용 가능합니다.
+
+```css
+.element {
+  clip: rect(10px, 20px, 30px, 40px); // 상 우 하 좌
+}
+```
+
+**clip-path**
+
+`clip-path`는 새롭게 추가된 속성으로 여러 형태의 도형을 적용할 수 있다는 장점이 있습니다. 물론, 다양한 도형을 적용하려면 브라우저 호환성을 꼭 확인해야 합니다.
+
+```css
+.clip-circle {
+  clip-path: circle(40px at center);
+}
+.clip-ellipse {
+  clip-path: ellipse(130px 140px at 10% 20%);
+}
+.clip-polygon {
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+```
+
+![](/image/css-raster-vector/15.png)
+
+`polygon()` 속성을 사용하여 원하는 모양을 만들 수 있으며, 이것을 좀 더 쉽게 적용하려면 [Clippy](https://bennettfeely.com/clippy/)를 사용하는 것을 추천드립니다. Clippy을 사용하여 네이버 로고가 들어간 간단한 인터렉션을 구현해 보도록 하겠습니다.
+
+
+![](/image/css-raster-vector/16.gif)
