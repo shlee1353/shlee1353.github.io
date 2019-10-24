@@ -8,7 +8,11 @@ tags:
 
 일상속에서 휴대폰으로 찍은 사진은 어떤 이미지 타입으로 저장이 될까요? 이 물음에 답하기 위해서는 먼저 이미지 파일에 대한 기본적인 이해가 필요합니다. 우리가 컴퓨터 모니터 상에서 사용하는 그래픽은 크게 `Raster`와 `Vector` 두 가지 타입으로 존재합니다. 많은 이미지들이 이 두가지 형태로 생성되며 때로는 매우 비슷하거나 동일하게 보일때도 있습니다. 하지만, 이 둘은 분명한 차이점이 존재하며, 용도에 맞게 사용해야할 필요가 있습니다.
 
+이번 포스팅에서는 `Rster`와 `Vector` 그래픽의 특징을 알아보고, 이 두 그래픽 타입을 기반으로하는 CSS속성인 `Masking`과 `Clipping`을 설명하고자합니다.
+***
+
 ![](/image/css-raster-vector/2.png)
+
 
 `Raster`의 또 다른 명칭은 `비트맵(bitmaps)`이며 `RGB(red, green, blue)` 색상값을 가진 하나의 픽셀(점)들이 모여 이미지를 만들어냅니다. 작은 픽셀들이 모여 이미지를 화면에 출력하기 때문에 생생하고 세밀한 표현이 가능하다는 장점을 가지고 있습니다. 그렇기 때문에, 디지털화된 사진이나 미술작품처럼 풍부한 컬러감과 자연스러운 그라데이션이 필요한 곳에 주로 사용되며, `PNG, JPG, GIF` 파일이 여기에 속합니다. 웹상에서는 간단한 아이콘, 사진 또는 반복되는 이미지를 보여줄 때 주로 사용합니다.
 
@@ -72,6 +76,24 @@ tags:
 
 ![](/image/css-raster-vector/14.png)
 
+PNG, SVG 파일을 사용해서 mask를 구현할 수도 있지만, `gradient` 효과를 사용해서 CSS에서 직접 구현이 가능합니다. 더 나아가, CSS애니메이션과 mask를 적절히 사용하면 부드러운 화면 전환을 보여주는 간단한  애니메이션 구현도 가능합니다.
+
+![](/image/css-raster-vector/15.png)
+
+```html
+<div class="container">
+	<img src="https://amp.thenational.ae/image/policy:1.164632:1499296962/image/jpeg.jpg?f=16x9&w=1200&$p$f$w=dfa40e8">
+</div>
+```
+
+```css
+.container {
+  -webkit-mask-image: linear-gradient(to top, transparent 25%, black 75%);
+}
+```
+
+![](/image/css-raster-vector/16.gif)
+
 ## clip 속성
 
 백터(Vector) 기반인 clip 속성은 기본적으로 정사각형의 기본값을 가지고 있습니다. clip 속성은 현재 `deprecated` 되었으며, 새로운 속성이 추가되어 더 이상 추천하지 않습니다. 또한, clip은 쉽게 사용하기 어려운 두 가지 제약이 있습니다.
@@ -101,9 +123,10 @@ tags:
 }
 ```
 
-![](/image/css-raster-vector/15.png)
+![](/image/css-raster-vector/17.png)
 
 `polygon()` 속성을 사용하여 원하는 모양을 만들 수 있으며, 이것을 좀 더 쉽게 적용하려면 [Clippy](https://bennettfeely.com/clippy/)를 사용하는 것을 추천드립니다. Clippy을 사용하여 네이버 로고가 들어간 간단한 인터렉션을 구현해 보도록 하겠습니다.
 
+![](/image/css-raster-vector/18.gif)
 
-![](/image/css-raster-vector/16.gif)
+컴퓨터 그래픽에서 `Rster`와 `Vector`은 매우 중요한 요소 이기 때문에 기본적인 개념을 정리하여 공유하면 좋을 것 같아서 이번 포스팅을 작성하였습니다. 특히, `Masking`, `Clipping` 과 같은 CSS속성에도 사용할 수 있을 정도로 활용 범위가 넓은 만큼 앞으로 진행하는 프로젝트에서 적재적소에 사용하면 좋을 것 같습니다.
