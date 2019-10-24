@@ -20,7 +20,7 @@
 <meta property="og:description" content="일상속에서 휴대폰으로 찍은 사진은 어떤 이미지 타입으로 저장이 될까요? 이 물음에 답하기 위해서는 먼저 이미지 파일에 대한 기본적인 이해가 필요합니다. 우리가 컴퓨터 모니터 상에서 사용하는 그래픽은 크게 Raster와 Vector 두 가지 타입으로 존재합니다. 많은 이미지들이 이 두가지 형태로 생성되며 때로는 매우 비슷하거나 동일하게 보일때도 있습니다.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://shlee1353.github.io/image/css-raster-vector/1.png">
-<meta property="og:updated_time" content="2019-10-18T01:33:47.345Z">
+<meta property="og:updated_time" content="2019-10-24T01:38:30.378Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="래스터(Raster) 이미지와 백터(Vector) 이미지 for CSS 속성">
 <meta name="twitter:description" content="일상속에서 휴대폰으로 찍은 사진은 어떤 이미지 타입으로 저장이 될까요? 이 물음에 답하기 위해서는 먼저 이미지 파일에 대한 기본적인 이해가 필요합니다. 우리가 컴퓨터 모니터 상에서 사용하는 그래픽은 크게 Raster와 Vector 두 가지 타입으로 존재합니다. 많은 이미지들이 이 두가지 형태로 생성되며 때로는 매우 비슷하거나 동일하게 보일때도 있습니다.">
@@ -181,6 +181,8 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
             <p><img src="/image/css-raster-vector/1.png" alt=""></p>
 <p>일상속에서 휴대폰으로 찍은 사진은 어떤 이미지 타입으로 저장이 될까요? 이 물음에 답하기 위해서는 먼저 이미지 파일에 대한 기본적인 이해가 필요합니다. 우리가 컴퓨터 모니터 상에서 사용하는 그래픽은 크게 <code>Raster</code>와 <code>Vector</code> 두 가지 타입으로 존재합니다. 많은 이미지들이 이 두가지 형태로 생성되며 때로는 매우 비슷하거나 동일하게 보일때도 있습니다. 하지만, 이 둘은 분명한 차이점이 존재하며, 용도에 맞게 사용해야할 필요가 있습니다.</p>
+<p>이번 포스팅에서는 <code>Rster</code>와 <code>Vector</code> 그래픽의 특징을 알아보고, 이 두 그래픽 타입을 기반으로하는 CSS속성인 <code>Masking</code>과 <code>Clipping</code>을 설명하고자합니다.</p>
+<hr>
 <p><img src="/image/css-raster-vector/2.png" alt=""></p>
 <p><code>Raster</code>의 또 다른 명칭은 <code>비트맵(bitmaps)</code>이며 <code>RGB(red, green, blue)</code> 색상값을 가진 하나의 픽셀(점)들이 모여 이미지를 만들어냅니다. 작은 픽셀들이 모여 이미지를 화면에 출력하기 때문에 생생하고 세밀한 표현이 가능하다는 장점을 가지고 있습니다. 그렇기 때문에, 디지털화된 사진이나 미술작품처럼 풍부한 컬러감과 자연스러운 그라데이션이 필요한 곳에 주로 사용되며, <code>PNG, JPG, GIF</code> 파일이 여기에 속합니다. 웹상에서는 간단한 아이콘, 사진 또는 반복되는 이미지를 보여줄 때 주로 사용합니다.</p>
 <p><img src="/image/css-raster-vector/3.png" alt=""></p>
@@ -197,9 +199,10 @@ ga('send', 'pageview');
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 최적화 전: 36KB</span></span><br><span class="line">&lt;svg version=<span class="string">"1.1"</span> id=<span class="string">"Layer_1"</span> xmlns=<span class="string">"http://www.w3.org/2000/svg"</span> xmlns:xlink=<span class="string">"http://www.w3.org/1999/xlink"</span> x=<span class="string">"0px"</span> y=<span class="string">"0px"</span> viewBox=<span class="string">"0 0 864 864"</span> enable-background=<span class="string">"new 0 0 864 864"</span> xml:space=<span class="string">"preserve"</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 최적화 후: 20KB</span></span><br><span class="line">&lt;svg xmlns=<span class="string">"http://www.w3.org/2000/svg"</span> viewBox=<span class="string">"0 0 864 864"</span>&gt;</span><br></pre></td></tr></table></figure>
 <p>또한, 불필요한 점과 선을 제거함으로써, 이미지 최적화를 통한 저용량 파일 생성이 가능합니다. 예로, <a href="https://jakearchibald.github.io/svgomg/" target="_blank" rel="external">SVGOMG</a>를 사용하면 SVG코드 내부에 담겨 있는 불필요한 정보를 손쉽게 제거하여 파일 용량을 줄일 수 있습니다.</p>
 <p><img src="/image/css-raster-vector/9.jpg" alt=""></p>
-<p>지금부터는 CSS 속성 중에서 <code>래스터(Raster)</code>와 <code>벡터(Vector)</code> 그래픽을 기반으로 하는 <code>masking</code>과 <code>clipping</code> 에 대해 알아보도록 하겠습니다. <code>mask</code>는 래스터 그래픽을 사용하며, <code>clip</code>은 백터 패스가 적용되는 효과입니다. <code>Mask</code>는 그라데이션이 적용된 정사각형을 생각하면 이해가 쉽습니다. <code>마스크 타입(Alpha 또는 Luminance)</code>에 따라, 검정색과 흰색 부분에 각각 투명도/불투명도가 적용됩니다. <code>Clip</code>은 벡터 패스 바깥쪽은 투명도가 적용되며 안쪽은 불투명 영역을 이루고 있습니다. 이 두 속성은 특별한 경우가 아니면 다른 속성들에 비해 실무에서 많이 사용되지는 않습니다. 하지만, 각 속성에 대한 기본적인 특징과 사용방법을 잘 숙지하여 적재적소에 활용한다면 더욱더 효과적인 인터렉션 구현이 가능합니다. 두 속성에 대해 좀 더 자세히 알아보도록 하겠습니다.</p>
+<p>지금부터는 CSS 속성 중에서 <code>래스터(Raster)</code>와 <code>벡터(Vector)</code> 그래픽을 기반으로 하는 <code>masking</code>과 <code>clipping</code> 에 대해 알아보도록 하겠습니다. <code>mask</code>는 래스터 그래픽을 사용하며, <code>clip</code>은 백터 패스가 적용되는 효과입니다. <code>Mask</code>는 그라데이션이 적용된 정사각형을 생각하면 이해가 쉽습니다. <code>마스크 타입(Alpha 또는 Luminance)</code>에 따라, 검정색과 흰색 부분에 각각 투명도/불투명도가 적용됩니다. <code>Clip</code>은 벡터 패스 바깥쪽은 투명도가 적용되며 안쪽은 불투명 영역을 이루고 있습니다.</p>
 <p><img src="/image/css-raster-vector/10.png" alt=""></p>
-<h2 id="Mask-속성"><a href="#Mask-속성" class="headerlink" title="Mask 속성"></a>Mask 속성</h2><p><code>Masking</code>은 시각적으로 엘리먼트(이미지)의 일정/전체 부분을 숨기는데 사용됩니다. Mask-image속성을 기본으로 mask-mode, mask-repeat, mask-position, mask-size 등 다양한 속성값을 가지고 있습니다. mask를 사용하면 <code>mask layer</code>가 형성되며, <code>alpha</code> 또는 <code>luminance</code> 두 가지 타입중 하나를 선택할 수 있습니다. 두 속성의 차이점은 aphla는 투명도를 만들어 내기 위해 <code>알파채널(alpha channel)</code>을 사용하며, luminance는 <code>밝기값(lightness values)</code>을 사용하여 투명도를 결정합니다.</p>
+<p>이 두 속성은 특별한 경우가 아니면 다른 속성들에 비해 실무에서 많이 사용되지는 않습니다. 하지만, 각 속성에 대한 기본적인 특징과 사용방법을 잘 숙지하여 적재적소에 활용한다면 더욱더 효과적인 인터렉션 구현이 가능합니다. 두 속성에 대해 좀 더 자세히 알아보도록 하겠습니다.</p>
+<h2 id="Mask-속성"><a href="#Mask-속성" class="headerlink" title="Mask 속성"></a>Mask 속성</h2><p><code>Masking</code>은 시각적으로 엘리먼트(이미지)의 일정/전체 부분을 숨기는데 사용됩니다. Mask-image속성을 기본으로 mask-mode, mask-repeat, mask-position, mask-size 등 다양한 속성값을 가지고 있습니다. mask를 사용하면 <code>mask layer</code>가 형성되며, <code>alpha</code> 또는 <code>luminance</code> 두 가지 타입 중 하나를 선택할 수 있습니다. 두 속성의 차이점은 aphla는 투명도를 만들어 내기 위해 <code>알파채널(alpha channel)</code>을 사용하며, luminance는 <code>밝기값(lightness values)</code>을 사용한다는 점입니다.</p>
 <ul>
 <li><code>Alpha Masks</code>는 알파채널을 가지고 있으며 알파값은 mask 값으로 사용됩니다. 알파채널의 가장 간단한 예로 검정과 투명 영역이 있는 png 이미지를 예로들 수 있습니다.</li>
 </ul>
@@ -212,6 +215,11 @@ ga('send', 'pageview');
 <p><img src="/image/css-raster-vector/13.png" alt=""></p>
 <p>예를들어, object에 luminance mask를 적용하면, 흰색 부분으로 masked object가 나타나는 것을 확인할 수 있습니다.</p>
 <p><img src="/image/css-raster-vector/14.png" alt=""></p>
+<p>PNG, SVG 파일을 사용해서 mask를 구현할 수도 있지만, <code>gradient</code> 효과를 사용해서 CSS에서 직접 구현이 가능합니다. 더 나아가, CSS애니메이션과 mask를 적절히 사용하면 부드러운 화면 전환을 보여주는 간단한  애니메이션 구현도 가능합니다.</p>
+<p><img src="/image/css-raster-vector/15.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://amp.thenational.ae/image/policy:1.164632:1499296962/image/jpeg.jpg?f=16x9&amp;w=1200&amp;$p$f$w=dfa40e8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-mask-image</span>: <span class="built_in">linear-gradient</span>(to top, transparent 25%, black 75%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/image/css-raster-vector/16.gif" alt=""></p>
 <h2 id="clip-속성"><a href="#clip-속성" class="headerlink" title="clip 속성"></a>clip 속성</h2><p>백터(Vector) 기반인 clip 속성은 기본적으로 정사각형의 기본값을 가지고 있습니다. clip 속성은 현재 <code>deprecated</code> 되었으며, 새로운 속성이 추가되어 더 이상 추천하지 않습니다. 또한, clip은 쉽게 사용하기 어려운 두 가지 제약이 있습니다.</p>
 <ul>
 <li>엘리먼트에 <code>absolute</code> 속성이 적용되어야 합니다.</li>
@@ -221,9 +229,9 @@ ga('send', 'pageview');
 <p><strong>clip-path</strong></p>
 <p><code>clip-path</code>는 새롭게 추가된 속성으로 여러 형태의 도형을 적용할 수 있다는 장점이 있습니다. 물론, 다양한 도형을 적용하려면 브라우저 호환성을 꼭 확인해야 합니다.</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clip-circle</span> &#123;</span><br><span class="line">  <span class="attribute">clip-path</span>: <span class="built_in">circle</span>(40px at center);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clip-ellipse</span> &#123;</span><br><span class="line">  <span class="attribute">clip-path</span>: <span class="built_in">ellipse</span>(130px 140px at 10% 20%);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clip-polygon</span> &#123;</span><br><span class="line">  <span class="attribute">clip-path</span>: <span class="built_in">polygon</span>(50% 0, 100% 50%, 50% 100%, 0 50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/image/css-raster-vector/15.png" alt=""></p>
+<p><img src="/image/css-raster-vector/17.png" alt=""></p>
 <p><code>polygon()</code> 속성을 사용하여 원하는 모양을 만들 수 있으며, 이것을 좀 더 쉽게 적용하려면 <a href="https://bennettfeely.com/clippy/" target="_blank" rel="external">Clippy</a>를 사용하는 것을 추천드립니다. Clippy을 사용하여 네이버 로고가 들어간 간단한 인터렉션을 구현해 보도록 하겠습니다.</p>
-<p><img src="/image/css-raster-vector/16.gif" alt=""></p>
+<p><img src="/image/css-raster-vector/18.gif" alt=""></p>
 
         </div>
         <footer class="article-footer">
@@ -231,7 +239,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://shlee1353.github.io/2019/09/26/css-raster-vector/" data-id="ck100u5zv0000srdyg70cikxm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://shlee1353.github.io/2019/09/26/css-raster-vector/" data-id="ck23zxoyu000b2ddyeqbfy70n" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -307,11 +315,11 @@ ga('send', 'pageview');
         "genre": "",
         "datePublished": "2019-09-26",
         "dateCreated": "2019-09-26",
-        "dateModified": "2019-10-18",
+        "dateModified": "2019-10-24",
         "url": "https://shlee1353.github.io/2019/09/26/css-raster-vector/",
         "description": "
 일상속에서 휴대폰으로 찍은 사진은 어떤 이미지 타입으로 저장이 될까요? 이 물음에 답하기 위해서는 먼저 이미지 파일에 대한 기본적인 이해가 필요합니다. 우리가 컴퓨터 모니터 상에서 사용하는 그래픽은 크게 Raster와 Vector 두 가지 타입으로 존재합니다. 많은 이미지들이 이 두가지 형태로 생성되며 때로는 매우 비슷하거나 동일하게 보일때도 있습니다. "
-        "wordCount": 891
+        "wordCount": 982
     }
 </script>
 
