@@ -3,6 +3,7 @@ title: 래스터(Raster) 이미지와 백터(Vector) 이미지 for CSS 속성
 date: 2019-09-26 10:31:11
 tags:
 ---
+![](/image/css-raster-vector/0.png)
 
 ![](/image/css-raster-vector/1.png)
 
