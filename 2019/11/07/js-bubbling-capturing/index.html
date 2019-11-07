@@ -12,17 +12,19 @@
     
         <meta name="keywords" content="" />
     
-    <meta name="description" content="자바스크립트 이벤트 버블링/캡처링은 이벤트 전달/차단과 관련해서 매우 중요합니다. 우선 간단한 예를 살펴 보도록 하겠습니다. 123&amp;lt;div onclick=&quot;alert(&apos;The handler!&apos;)&quot;&amp;gt;  &amp;lt;em&amp;gt;click&amp;lt;/em&amp;gt;&amp;lt;/div&amp;gt; 다음 코드를 실행하면 클릭 시 &amp;lt;div&amp;gt;에 있는 alert() 함수">
+    <meta name="description" content="자바스크립트 이벤트 버블링/캡처링은 이벤트 전달/차단과 관련해서 매우 중요합니다. 우선 간단한 예를 살펴 보도록 하겠습니다. 123&amp;lt;div onclick=&quot;alert(&apos;The handler!&apos;)&quot;&amp;gt;  &amp;lt;em&amp;gt;click&amp;lt;/em&amp;gt;&amp;lt;/div&amp;gt; 다음 코드를 실행하면 클릭 시 &amp;lt;div&amp;gt;에 있는 alert() 함">
 <meta property="og:type" content="article">
 <meta property="og:title" content="자바스크립트 이벤트 버블링 캡쳐링 완벽정리">
 <meta property="og:url" content="https://shlee1353.github.io/2019/11/07/js-bubbling-capturing/index.html">
 <meta property="og:site_name" content="Ryan Lee">
-<meta property="og:description" content="자바스크립트 이벤트 버블링/캡처링은 이벤트 전달/차단과 관련해서 매우 중요합니다. 우선 간단한 예를 살펴 보도록 하겠습니다. 123&amp;lt;div onclick=&quot;alert(&apos;The handler!&apos;)&quot;&amp;gt;  &amp;lt;em&amp;gt;click&amp;lt;/em&amp;gt;&amp;lt;/div&amp;gt; 다음 코드를 실행하면 클릭 시 &amp;lt;div&amp;gt;에 있는 alert() 함수">
+<meta property="og:description" content="자바스크립트 이벤트 버블링/캡처링은 이벤트 전달/차단과 관련해서 매우 중요합니다. 우선 간단한 예를 살펴 보도록 하겠습니다. 123&amp;lt;div onclick=&quot;alert(&apos;The handler!&apos;)&quot;&amp;gt;  &amp;lt;em&amp;gt;click&amp;lt;/em&amp;gt;&amp;lt;/div&amp;gt; 다음 코드를 실행하면 클릭 시 &amp;lt;div&amp;gt;에 있는 alert() 함">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-07T08:07:21.874Z">
+<meta property="og:image" content="https://shlee1353.github.io/image/js-bubbling-capturing/0.jpg">
+<meta property="og:updated_time" content="2019-11-07T08:13:18.593Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="자바스크립트 이벤트 버블링 캡쳐링 완벽정리">
-<meta name="twitter:description" content="자바스크립트 이벤트 버블링/캡처링은 이벤트 전달/차단과 관련해서 매우 중요합니다. 우선 간단한 예를 살펴 보도록 하겠습니다. 123&amp;lt;div onclick=&quot;alert(&apos;The handler!&apos;)&quot;&amp;gt;  &amp;lt;em&amp;gt;click&amp;lt;/em&amp;gt;&amp;lt;/div&amp;gt; 다음 코드를 실행하면 클릭 시 &amp;lt;div&amp;gt;에 있는 alert() 함수">
+<meta name="twitter:description" content="자바스크립트 이벤트 버블링/캡처링은 이벤트 전달/차단과 관련해서 매우 중요합니다. 우선 간단한 예를 살펴 보도록 하겠습니다. 123&amp;lt;div onclick=&quot;alert(&apos;The handler!&apos;)&quot;&amp;gt;  &amp;lt;em&amp;gt;click&amp;lt;/em&amp;gt;&amp;lt;/div&amp;gt; 다음 코드를 실행하면 클릭 시 &amp;lt;div&amp;gt;에 있는 alert() 함">
+<meta name="twitter:image" content="https://shlee1353.github.io/image/js-bubbling-capturing/0.jpg">
     
     <link rel="canonical" href="https://shlee1353.github.io/2019/11/07/js-bubbling-capturing/"/>
     
@@ -177,7 +179,8 @@ ga('send', 'pageview');
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p>자바스크립트 이벤트 버블링/캡처링은 이벤트 전달/차단과 관련해서 매우 중요합니다. 우선 간단한 예를 살펴 보도록 하겠습니다.</p>
+            <p><img src="/image/js-bubbling-capturing/0.jpg" alt=""></p>
+<p>자바스크립트 이벤트 버블링/캡처링은 이벤트 전달/차단과 관련해서 매우 중요합니다. 우선 간단한 예를 살펴 보도록 하겠습니다.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">onclick</span>=<span class="string">"alert('The handler!')"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">em</span>&gt;</span>click<span class="tag">&lt;/<span class="name">em</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>다음 코드를 실행하면 클릭 시 <code>&lt;div&gt;</code>에 있는 <code>alert()</code> 함수가 실행됩니다. 왜일까요?</p>
 <h3 id="버블링-Bubbling"><a href="#버블링-Bubbling" class="headerlink" title="버블링(Bubbling)"></a>버블링(Bubbling)</h3><p>버블링은 매우 간단합니다. 엘리먼트에서 이벤트가 감지 되었을 때, 해당 엘리먼트를 포함하고 있는 부모 엘리먼트를 통하여 최상위 까지 이벤트가 전달되는 것을 버블링이라고 합니다.</p>
@@ -268,17 +271,18 @@ ga('send', 'pageview');
             "name": "Ryan Lee"
         },
         "headline": "자바스크립트 이벤트 버블링 캡쳐링 완벽정리",
-        "image": "https://shlee1353.github.io",
+        "image": "https://shlee1353.github.io/image/js-bubbling-capturing/0.jpg",
         "keywords": "",
         "genre": "",
         "datePublished": "2019-11-07",
         "dateCreated": "2019-11-07",
         "dateModified": "2019-11-07",
         "url": "https://shlee1353.github.io/2019/11/07/js-bubbling-capturing/",
-        "description": "자바스크립트 이벤트 버블링/캡처링은 이벤트 전달/차단과 관련해서 매우 중요합니다. 우선 간단한 예를 살펴 보도록 하겠습니다.
+        "description": "
+자바스크립트 이벤트 버블링/캡처링은 이벤트 전달/차단과 관련해서 매우 중요합니다. 우선 간단한 예를 살펴 보도록 하겠습니다.
 123&lt;div onclick="alert('The handler!')"&gt;  &lt;em&gt;click&lt;/em&gt;&lt;/div&gt;
-다음 코드를 실행하면 클릭 시 &lt;div&gt;에 있는 alert() 함수"
-        "wordCount": 411
+다음 코드를 실행하면 클릭 시 &lt;div&gt;에 있는 alert() 함"
+        "wordCount": 413
     }
 </script>
 
@@ -386,7 +390,7 @@ ga('send', 'pageview');
                             <a href="/2019/11/07/js-bubbling-capturing/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/image/js-bubbling-capturing/0.jpg)" alt="자바스크립트 이벤트 버블링 캡쳐링 완벽정리" class="thumbnail-image"></span>
     
     
 </a>
