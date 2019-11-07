@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://shlee1353.github.io/2019/11/07/js-bubbling-capturing/</loc>
+        <lastmod>2019-11-07T08:07:21.874Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://shlee1353.github.io/2019/09/26/css-raster-vector/</loc>
         <lastmod>2019-11-01T10:08:04.385Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -87,7 +95,7 @@
     </url>
 
     <url>
-        <loc>https://shlee1353.github.io/2019/07/15/css-clip-mask/</loc>
+        <loc>https://shlee1353.github.io/2019/07/04/higher-order-components/</loc>
         <lastmod>2019-09-23T09:23:46.807Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -95,7 +103,7 @@
     </url>
 
     <url>
-        <loc>https://shlee1353.github.io/2019/07/04/higher-order-components/</loc>
+        <loc>https://shlee1353.github.io/2019/07/15/css-clip-mask/</loc>
         <lastmod>2019-09-23T09:23:46.807Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
