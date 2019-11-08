@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>자바스크립트 비동기 프로그래밍 (promise, async, await) 정리 | Ryan Lee</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="" />
+    
+    <meta name="description" content="자바스크립트는 웹에서 사용되는 언어이며 사용자의 요청에 맞게 DB에 저장되어 있는 데이터를 보여줘야합니다. 자바스크립트 언어는 단일 스레드 언어(위에서 아래로 단방향으로 함수가 해석 되며 실행)이기 때문에, 행여 필요한 데이터가 클라이언트 쪽으로 전달되지 않은 채로 사용자에게 보여진다면 서비스상 큰 오류가 생길 수 있습니다. 그렇기 때문에 이러한 문제점을">
+<meta property="og:type" content="article">
+<meta property="og:title" content="자바스크립트 비동기 프로그래밍 (promise, async, await) 정리">
+<meta property="og:url" content="https://shlee1353.github.io/2019/11/08/js-promise-async/index.html">
+<meta property="og:site_name" content="Ryan Lee">
+<meta property="og:description" content="자바스크립트는 웹에서 사용되는 언어이며 사용자의 요청에 맞게 DB에 저장되어 있는 데이터를 보여줘야합니다. 자바스크립트 언어는 단일 스레드 언어(위에서 아래로 단방향으로 함수가 해석 되며 실행)이기 때문에, 행여 필요한 데이터가 클라이언트 쪽으로 전달되지 않은 채로 사용자에게 보여진다면 서비스상 큰 오류가 생길 수 있습니다. 그렇기 때문에 이러한 문제점을">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://shlee1353.github.io/image/js-promise-async/0.jpg">
+<meta property="og:updated_time" content="2019-11-08T07:02:08.908Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="자바스크립트 비동기 프로그래밍 (promise, async, await) 정리">
+<meta name="twitter:description" content="자바스크립트는 웹에서 사용되는 언어이며 사용자의 요청에 맞게 DB에 저장되어 있는 데이터를 보여줘야합니다. 자바스크립트 언어는 단일 스레드 언어(위에서 아래로 단방향으로 함수가 해석 되며 실행)이기 때문에, 행여 필요한 데이터가 클라이언트 쪽으로 전달되지 않은 채로 사용자에게 보여진다면 서비스상 큰 오류가 생길 수 있습니다. 그렇기 때문에 이러한 문제점을">
+<meta name="twitter:image" content="https://shlee1353.github.io/image/js-promise-async/0.jpg">
+    
+    <link rel="canonical" href="https://shlee1353.github.io/2019/11/08/js-promise-async/"/>
+    
+        <link rel="alternate" href="/" title="Ryan Lee" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-109666025-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    uncategorized
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-js-promise-async" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        자바스크립트 비동기 프로그래밍 (promise, async, await) 정리
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/11/08/js-promise-async/" class="article-date">
+            <time datetime="2019-11-08T06:45:40.000Z" itemprop="datePublished">2019-11-08</time>
+        </a>
+    </div>
+
+		
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/image/js-promise-async/0.jpg" alt=""></p>
+<p>자바스크립트는 웹에서 사용되는 언어이며 사용자의 요청에 맞게 DB에 저장되어 있는 데이터를 보여줘야합니다. 자바스크립트 언어는 단일 스레드 언어(위에서 아래로 단방향으로 함수가 해석 되며 실행)이기 때문에, 행여 필요한 데이터가 클라이언트 쪽으로 전달되지 않은 채로 사용자에게 보여진다면 서비스상 큰 오류가 생길 수 있습니다. 그렇기 때문에 이러한 문제점을 해결하기 위해 비동기 프로그래밍이 도입되었습니다.</p>
+<h3 id="비동기란"><a href="#비동기란" class="headerlink" title="비동기란?"></a>비동기란?</h3><p>자바스크립트에서 정의한 코드가 완료되지 않아도 다음 코드를 실행하는 것을 말합니다. 예로, 제이쿼리의 ajax를 생각하시면 됩니다. 자바스크립트 내부 메소드인 setTimeout 메소드 또한 비동기 방식으로 작동합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f1 = <span class="function"><span class="keyword">function</span>(<span class="params">arg, callback</span>) </span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">            callback(data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 데이터를 성공적으로 받으면 파라미터로 넘겨준 콜백함수에 값이 넘어가 실행됨</span></span><br><span class="line">f1(arg, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123; </span><br><span class="line">           <span class="keyword">var</span> a = f2(data);</span><br><span class="line">           alert(a);</span><br><span class="line">        &#125;</span><br><span class="line"> );</span><br></pre></td></tr></table></figure>
+<p>비동기의 단점 중 하나는 바로 흔히들 말하는 콜백지옥입니다. 콜백함수를 남용해서 생긴 결과로 가독성이 떨어지며 코드 유지보수를 어렵게 만듭니다. 이러한 콜백지옥을 해결하기 위해 등장한 것이 ES6의 프로미스(Promise)입니다.</p>
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">프로미스는 하나의 객체로 미래의 특정 값을 생성하며 3가지의 상태값을 가지고 있습니다.</span><br></pre></td></tr></table></figure>
+<p>프로미스의 상태를 이해하고 있어야 사용이 가능합니다.</p>
+<ul>
+<li>Pending(대기) : 비동기 처리 로직이 아직 완료되지 않은 상태</li>
+<li>Fullfilled(이행) : 비동기 처리가 완료되어 프로미스가 결과값을 반환해준 상태</li>
+<li>Rejected(실패) : 비동기 처리가 실패하거나 오류가 발생한 상태</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">create</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">  resolve();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"step1"</span>);</span><br><span class="line"> &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">create().then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">"step3-succeed"</span>);</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">"step3-failed"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"step2"</span>);</span><br></pre></td></tr></table></figure>
+<p>Promise의 처리 순서를 알아보도록 하겠습니다. 우선, <code>function create()</code>가 생성되며 실행되지않고 다음 단계로 넘어갑니다. <code>create().then(function(){…})</code>에서 crate()함수가 실행됩니다. create()가 호출되면서 내부에 선언되었던 코드가 실행됩니다. new Promise()의 인스턴스가 리턴되며 콜백함수로 선언해 놓은 function(){}이 실행됩니다. resolve()는 선언되었지만 조건이 충족되기 전까지 실행되지 않으며 step1이 실행됩니다. 바로, return을 통해 생성된 인스턴스를 반환합니다. resolve()는 나중에 호출할 수 있는 환경이 되면 실행됩니다. create() 실행이 완료되면 이어서 then()을 호출 할 수 있지만 바로 아래 코드인 step2가 실행됩니다. Promise 비동기의 핵심은</p>
+<ol>
+<li>resolve()는 호출할 수 있는 환경이되면 호출된다.</li>
+<li>then()을 실행하지 않고 아래 코드로 이동한다.</li>
+</ol>
+<p>step2 실행이 완료되면 이제 then()내부에 작성된 function()이 실행될 차례입니다. 함수가 두 개가 있는데 첫 번째는 성공시, 두 번째는 실패시 실행됩니다. 내부에 작성된 함수는 true/false값에 따라 둘 중 하나가 실행됩니다. 지금까지 Promise의 기본 메커니즘에 대해 간단히 알아봤습니다. Promise를 사용하면 기존 콜백함수 보다 깔끔하게 코드작성이 가능하지만, 실행 절차/순서가 복잡하여 가독성이 떨어집니다. 그래서 ES8에서 async/await가 등장 하였습니다.</p>
+<h3 id="async-amp-await"><a href="#async-amp-await" class="headerlink" title="async&amp;await"></a>async&amp;await</h3><p>사용방법이 간단하고 직관적이기 때문에 활용도가 높습니다. 우선 함수 앞에 async를 붙여주고 비동기로 처리되는 곳에 await를 추가합니다. 여기서 주의할 점은 await 뒷부분은 반드시 promise를 반환해야하며, async함수 자체도 promise를 반환합니다.<br>async/await 간단한 활용 예시를 살펴보도록 하겠습니다. 아래 코드를 직접 실행하면 비동기처리의 결과값이 콘솔에 찍혀 나오는 것을 확인 할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doubleAfter2Seconds</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'value:'</span> + x)</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve(x * <span class="number">2</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">addAsync</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> a = <span class="keyword">await</span> doubleAfter2Seconds(<span class="number">10</span>);</span><br><span class="line">  <span class="keyword">const</span> b = <span class="keyword">await</span> doubleAfter2Seconds(<span class="number">20</span>);</span><br><span class="line">  <span class="keyword">const</span> c = <span class="keyword">await</span> doubleAfter2Seconds(<span class="number">30</span>);</span><br><span class="line">  <span class="keyword">return</span> x + a + b + c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addAsync(<span class="number">10</span>).then(<span class="function">(<span class="params">sum</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'result:'</span> + sum);</span><br><span class="line">&#125;);</span><br><span class="line">출처: https:<span class="comment">//codeburst.io/</span></span><br></pre></td></tr></table></figure>
+<p>async 함수가 호출되면 Promise를 리턴합니다. async함수에서 값을 리턴하면, promise는 그 값을 받아서 resolved됩니다. async함수는 await 표현식을 포함하고 있으며 async 함수에 Promise 값이 전달되기 전까지 실행을 지연시킵니다. 지금까지 비동기프로그래밍 promise, async, await에 대해 간단히 알아봤습니다.</p>
+<h3 id="리액트에서-Async-Await-사용하기"><a href="#리액트에서-Async-Await-사용하기" class="headerlink" title="리액트에서 Async Await 사용하기"></a>리액트에서 Async Await 사용하기</h3><p>리액트에서 <code>async/await</code> 사용은 방법만 알고 있으면 크게 어려운것은 없습니다.</p>
+<ol>
+<li><code>async</code> 키워드를 함수 앞에 추가한다.</li>
+<li><code>await</code>를 함수의 body 안에 사용한다.</li>
+<li>오류 처리를 한다.</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">"react-dom"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="keyword">this</span>.state = &#123; <span class="attr">data</span>: [] &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">async</span> componentDidMount() &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(<span class="string">`https://api.coinmarketcap.com/v1/ticker/?limit=10`</span>);</span><br><span class="line">    <span class="keyword">const</span> json = <span class="keyword">await</span> response.json();</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">data</span>: json &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">          &#123;<span class="keyword">this</span>.state.data.map(<span class="function"><span class="params">el</span> =&gt;</span> (</span><br><span class="line">            &lt;li&gt;</span><br><span class="line">              &#123;el.name&#125;: &#123;el.price_usd&#125;</span><br><span class="line">            &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">          ))&#125;</span></span><br><span class="line"><span class="regexp">        &lt;/u</span>l&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default App;</span></span><br><span class="line"><span class="regexp">ReactDOM.render(&lt;App /</span>&gt;, <span class="built_in">document</span>.getElementById(<span class="string">"app"</span>));</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://shlee1353.github.io/2019/11/08/js-promise-async/" data-id="ck2psma8j00027cdyhpel327z" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Ryan Lee"
+        },
+        "headline": "자바스크립트 비동기 프로그래밍 (promise, async, await) 정리",
+        "image": "https://shlee1353.github.io/image/js-promise-async/0.jpg",
+        "keywords": "",
+        "genre": "",
+        "datePublished": "2019-11-08",
+        "dateCreated": "2019-11-08",
+        "dateModified": "2019-11-08",
+        "url": "https://shlee1353.github.io/2019/11/08/js-promise-async/",
+        "description": "
+자바스크립트는 웹에서 사용되는 언어이며 사용자의 요청에 맞게 DB에 저장되어 있는 데이터를 보여줘야합니다. 자바스크립트 언어는 단일 스레드 언어(위에서 아래로 단방향으로 함수가 해석 되며 실행)이기 때문에, 행여 필요한 데이터가 클라이언트 쪽으로 전달되지 않은 채로 사용자에게 보여진다면 서비스상 큰 오류가 생길 수 있습니다. 그렇기 때문에 이러한 문제점을"
+        "wordCount": 1016
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/11/07/js-bubbling-capturing/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">자바스크립트 이벤트 버블링 캡쳐링 완벽정리</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/08/js-promise-async/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/js-promise-async/0.jpg)" alt="자바스크립트 비동기 프로그래밍 (promise, async, await) 정리" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/11/08/js-promise-async/" class="title">자바스크립트 비동기 프로그래밍 (promise, async, await) 정리</a></p>
+                            <p class="item-date"><time datetime="2019-11-08T06:45:40.000Z" itemprop="datePublished">2019-11-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/07/js-bubbling-capturing/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/js-bubbling-capturing/0.jpg)" alt="자바스크립트 이벤트 버블링 캡쳐링 완벽정리" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/11/07/js-bubbling-capturing/" class="title">자바스크립트 이벤트 버블링 캡쳐링 완벽정리</a></p>
+                            <p class="item-date"><time datetime="2019-11-07T07:14:11.000Z" itemprop="datePublished">2019-11-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/10/14/angular-basic-lifecycle/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/angular-basic-lifecycle/1.png)" alt="앵귤러(Angular) 라이프사이클 Hooks 이해하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/10/14/angular-basic-lifecycle/" class="title">앵귤러(Angular) 라이프사이클 Hooks 이해하기</a></p>
+                            <p class="item-date"><time datetime="2019-10-14T05:01:00.000Z" itemprop="datePublished">2019-10-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/10/14/vue-basic-start/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/vue-basic-start/1.png)" alt="뷰(Vue) 기본개념 간단히 알아보기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/10/14/vue-basic-start/" class="title">뷰(Vue) 기본개념 간단히 알아보기</a></p>
+                            <p class="item-date"><time datetime="2019-10-14T04:58:25.000Z" itemprop="datePublished">2019-10-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/09/26/css-raster-vector/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/css-raster-vector/0.png)" alt="래스터(Raster) 이미지와 백터(Vector) 이미지 for CSS 속성" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/09/26/css-raster-vector/" class="title">래스터(Raster) 이미지와 백터(Vector) 이미지 for CSS 속성</a></p>
+                            <p class="item-date"><time datetime="2019-09-26T01:31:11.000Z" itemprop="datePublished">2019-09-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Ryan Lee</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://shlee1353.github.io/2019/11/08/js-promise-async/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
