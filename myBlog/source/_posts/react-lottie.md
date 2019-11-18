@@ -1,6 +1,8 @@
 ---
 title: 리액트(React) Lottie 애니메이션 적용
 date: 2019-09-23 17:52:26
+categories:
+- React
 tags:
 ---
 

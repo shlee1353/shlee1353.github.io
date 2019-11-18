@@ -1,6 +1,8 @@
 ---
 title: 자바스크립트 비동기 프로그래밍 (promise, async, await) 정리
 date: 2019-11-08 15:45:40
+categories:
+- JavaScript
 tags:
 ---
 

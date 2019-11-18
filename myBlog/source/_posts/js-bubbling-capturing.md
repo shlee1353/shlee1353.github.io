@@ -1,6 +1,8 @@
 ---
 title: 자바스크립트 이벤트 버블링 캡쳐링 완벽정리
 date: 2019-11-07 16:14:11
+categories:
+- JavaScript
 tags:
 ---
 

@@ -1,6 +1,8 @@
 ---
 title: 타입스크립트(TypeScript) 기본개념 및 사용방법 정리
 date: 2019-07-05 14:32:20
+categories:
+- JavaScript
 tags:
 ---
 

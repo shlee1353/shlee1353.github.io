@@ -1,6 +1,8 @@
 ---
 title: 자바스크립트(JavaScript) 상속과 프로토타입 개념정리
 date: 2019-07-05 10:46:04
+categories:
+- JavaScript
 tags:
 ---
 

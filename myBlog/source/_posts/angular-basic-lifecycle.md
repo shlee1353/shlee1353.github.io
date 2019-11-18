@@ -1,6 +1,8 @@
 ---
 title: 앵귤러(Angular) 라이프사이클 Hooks 이해하기
 date: 2019-10-14 14:01:00
+categories:
+- etc
 tags:
 ---
 

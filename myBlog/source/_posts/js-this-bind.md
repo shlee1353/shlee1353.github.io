@@ -1,6 +1,8 @@
 ---
 title: 자바스크립트(JavaScript) this 바인딩 기본개념
 date: 2019-07-04 16:54:24
+categories:
+- JavaScript
 tags:
 ---
 

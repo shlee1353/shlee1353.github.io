@@ -1,6 +1,8 @@
 ---
 title: CSS속성 Clipping과 Masking 차이점과 특징
 date: 2019-07-15 14:24:06
+categories:
+- HTML/CSS
 tags:
 ---
 

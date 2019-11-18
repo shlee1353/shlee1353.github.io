@@ -1,6 +1,8 @@
 ---
 title: CSS 애니메이션(Animation) 실제로 어떻게 쓰나?
 date: 2019-07-11 14:18:12
+categories:
+- HTML/CSS
 tags:
 ---
 

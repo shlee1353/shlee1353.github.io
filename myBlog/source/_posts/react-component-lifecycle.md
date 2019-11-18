@@ -1,6 +1,8 @@
 ---
 title: 리액트(React) 라이프사이클 v16.3 간단정리
 date: 2019-07-04 19:11:50
+categories:
+- React
 tags:
 ---
 

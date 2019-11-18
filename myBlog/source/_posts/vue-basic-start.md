@@ -1,6 +1,8 @@
 ---
 title: 뷰(Vue) 기본개념 간단히 알아보기
 date: 2019-10-14 13:58:25
+categories:
+- etc
 tags:
 ---
 

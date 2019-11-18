@@ -1,6 +1,8 @@
 ---
 title: PhantomJS 웹 스크린 캡쳐기능 사용
 date: 2019-07-11 11:47:10
+categories:
+- etc
 tags:
 ---
 

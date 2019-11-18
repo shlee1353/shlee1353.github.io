@@ -1,6 +1,8 @@
 ---
 title: 리액트(React) 순수함수 (HOC 개념정리)
 date: 2019-07-04 19:45:02
+categories:
+- React
 tags:
 ---
 
