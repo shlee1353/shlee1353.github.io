@@ -7,40 +7,8 @@
     </url>
 
     <url>
-        <loc>https://shlee1353.github.io/2019/11/15/ux-engineer/</loc>
-        <lastmod>2019-11-18T04:59:28.382Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2019/11/08/js-promise-async/</loc>
-        <lastmod>2019-11-08T07:02:08.908Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2019/11/07/js-bubbling-capturing/</loc>
-        <lastmod>2019-11-07T08:13:18.593Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2019/09/26/css-raster-vector/</loc>
-        <lastmod>2019-11-01T10:08:04.385Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2019/10/14/angular-basic-lifecycle/</loc>
-        <lastmod>2019-10-14T05:02:21.767Z</lastmod>
+        <loc>https://shlee1353.github.io/2019/07/11/phantom-web-screen/</loc>
+        <lastmod>2019-11-18T07:06:45.135Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -48,7 +16,15 @@
 
     <url>
         <loc>https://shlee1353.github.io/2019/10/14/vue-basic-start/</loc>
-        <lastmod>2019-10-14T05:00:04.595Z</lastmod>
+        <lastmod>2019-11-18T07:06:37.249Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2019/10/14/angular-basic-lifecycle/</loc>
+        <lastmod>2019-11-18T07:06:31.521Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -56,15 +32,7 @@
 
     <url>
         <loc>https://shlee1353.github.io/2019/07/10/react-ui-components/</loc>
-        <lastmod>2019-09-23T09:23:46.811Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2019/07/05/typescript-basic-concepts/</loc>
-        <lastmod>2019-09-23T09:23:46.811Z</lastmod>
+        <lastmod>2019-11-18T07:06:21.756Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -72,7 +40,7 @@
 
     <url>
         <loc>https://shlee1353.github.io/2019/09/23/react-lottie/</loc>
-        <lastmod>2019-09-23T09:23:46.810Z</lastmod>
+        <lastmod>2019-11-18T07:06:18.347Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -80,31 +48,7 @@
 
     <url>
         <loc>https://shlee1353.github.io/2019/07/04/react-component-lifecycle/</loc>
-        <lastmod>2019-09-23T09:23:46.810Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2019/07/11/phantom-web-screen/</loc>
-        <lastmod>2019-09-23T09:23:46.809Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2019/07/04/js-this-bind/</loc>
-        <lastmod>2019-09-23T09:23:46.808Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2019/07/05/js-prototype-inheritance/</loc>
-        <lastmod>2019-09-23T09:23:46.808Z</lastmod>
+        <lastmod>2019-11-18T07:06:14.803Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -112,7 +56,23 @@
 
     <url>
         <loc>https://shlee1353.github.io/2019/07/04/higher-order-components/</loc>
-        <lastmod>2019-09-23T09:23:46.807Z</lastmod>
+        <lastmod>2019-11-18T07:05:52.021Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2019/11/15/ux-engineer/</loc>
+        <lastmod>2019-11-18T07:05:22.018Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2019/09/26/css-raster-vector/</loc>
+        <lastmod>2019-11-18T07:04:07.227Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -120,7 +80,7 @@
 
     <url>
         <loc>https://shlee1353.github.io/2019/07/15/css-clip-mask/</loc>
-        <lastmod>2019-09-23T09:23:46.807Z</lastmod>
+        <lastmod>2019-11-18T07:04:04.346Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -128,7 +88,47 @@
 
     <url>
         <loc>https://shlee1353.github.io/2019/07/11/css-animation/</loc>
-        <lastmod>2019-09-23T09:23:46.806Z</lastmod>
+        <lastmod>2019-11-18T07:03:57.092Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2019/07/05/typescript-basic-concepts/</loc>
+        <lastmod>2019-11-18T07:03:20.797Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2019/07/04/js-this-bind/</loc>
+        <lastmod>2019-11-18T07:03:11.786Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2019/07/05/js-prototype-inheritance/</loc>
+        <lastmod>2019-11-18T07:03:07.760Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2019/11/08/js-promise-async/</loc>
+        <lastmod>2019-11-18T07:03:04.181Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2019/11/07/js-bubbling-capturing/</loc>
+        <lastmod>2019-11-18T07:02:21.881Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

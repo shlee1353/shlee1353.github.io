@@ -3,12 +3,17 @@
 
     <sitemap>
         <loc>https://shlee1353.github.io/post-sitemap.xml</loc>
-        <lastmod>2019-11-18T04:59:28.382Z</lastmod>
+        <lastmod>2019-11-18T07:06:45.135Z</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>https://shlee1353.github.io/page-sitemap.xml</loc>
         <lastmod>2019-11-15T04:07:48.767Z</lastmod>
+    </sitemap>
+
+    <sitemap>
+        <loc>https://shlee1353.github.io/category-sitemap.xml</loc>
+        <lastmod>2019-11-18T07:03:20.797Z</lastmod>
     </sitemap>
 
 </sitemapindex>
