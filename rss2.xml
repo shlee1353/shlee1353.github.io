@@ -8,29 +8,8 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Mon, 18 Nov 2019 07:24:09 GMT</pubDate>
+    <pubDate>Mon, 18 Nov 2019 07:05:22 GMT</pubDate>
     <generator>http://hexo.io/</generator>
-    
-    <item>
-      <title>머신러닝 파이썬 기본개념 정리</title>
-      <link>https://shlee1353.github.io/2019/11/18/python-basic/</link>
-      <guid>https://shlee1353.github.io/2019/11/18/python-basic/</guid>
-      <pubDate>Mon, 18 Nov 2019 07:12:40 GMT</pubDate>
-      <description>
-      
-        
-        
-          &lt;p&gt;머신러닝을 학습할 때 가장 많이 사용하는 프로그래밍언어는 파이썬입니다. 웹 개발, 일반 애플리케이션은 물론 머신러닝 언어로도 주목받는 이유를 간단히 알아보면 다음과 같습니다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;파이썬을 사용하면 프로그래밍이 단순해집니다. 언
-        
-      
-      </description>
-      
-      <content:encoded><![CDATA[<p>머신러닝을 학습할 때 가장 많이 사용하는 프로그래밍언어는 파이썬입니다. 웹 개발, 일반 애플리케이션은 물론 머신러닝 언어로도 주목받는 이유를 간단히 알아보면 다음과 같습니다.</p><ol><li>파이썬을 사용하면 프로그래밍이 단순해집니다. 언어 자체가 읽고 쓰기 쉬운 언어를 목표로 하였기 때문에, 방대한 사용자 비즈니스 로직이 들어가는 머신러닝에 적합합니다.</li><li>풍부한 머신러닝 라이브러리와 프레임워크를 사용할 수 있습니다. 유명한 머신러닝/딥 러닝 프레임워크 대부분을 파이썬 API로 지원하고 있습니다.</li><li>메모리 관리를 대신 해주며, 실제로 연산 집약적인 작업은 대부분 C, C++, 자바 등으로 작성합니다.</li></ol>]]></content:encoded>
-      
-      <comments>https://shlee1353.github.io/2019/11/18/python-basic/#disqus_thread</comments>
-    </item>
     
     <item>
       <title>웹퍼블리셔, UI개발자 그리고 UX Engineer</title>
