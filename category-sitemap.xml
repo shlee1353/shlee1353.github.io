@@ -14,13 +14,6 @@
     </url>
 
     <url>
-        <loc>https://shlee1353.github.io/categories/HTML-CSS/</loc>
-        <lastmod>2019-11-18T07:04:07.227Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://shlee1353.github.io/categories/React/</loc>
         <lastmod>2019-11-18T07:06:21.756Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -30,6 +23,13 @@
     <url>
         <loc>https://shlee1353.github.io/categories/etc/</loc>
         <lastmod>2019-11-18T07:06:45.135Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/categories/HTML-CSS/</loc>
+        <lastmod>2020-01-02T05:26:26.868Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
