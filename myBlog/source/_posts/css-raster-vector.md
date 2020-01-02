@@ -1,5 +1,5 @@
 ---
-title: 래스터(Raster) 이미지와 백터(Vector) 이미지 for CSS 속성
+title: 래스터(Raster) 이미지와 벡터(Vector) 이미지 for CSS 속성
 date: 2019-09-26 10:31:11
 categories:
 - HTML/CSS
