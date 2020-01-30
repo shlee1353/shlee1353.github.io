@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>https://shlee1353.github.io/2020/01/30/react-redux-basic/</loc>
+        <lastmod>2020-01-30T08:43:52.270Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://shlee1353.github.io/2019/11/08/js-promise-async/</loc>
+        <lastmod>2020-01-30T08:43:11.837Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://shlee1353.github.io/2019/09/26/css-raster-vector/</loc>
         <lastmod>2020-01-02T05:26:26.868Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -113,14 +129,6 @@
     <url>
         <loc>https://shlee1353.github.io/2019/07/05/js-prototype-inheritance/</loc>
         <lastmod>2019-11-18T07:03:07.760Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://shlee1353.github.io/2019/11/08/js-promise-async/</loc>
-        <lastmod>2019-11-18T07:03:04.181Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

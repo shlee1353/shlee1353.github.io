@@ -7,27 +7,27 @@
     
 
     
-    <title>웹퍼블리셔, UI개발자 그리고 UX Engineer | Ryan Lee</title>
+    <title>리액트 리덕스(Redux)기본 개념 및 사용방법 | Ryan Lee</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="" />
     
-    <meta name="description" content="IT계열 구직 사이트를 보면, 웹퍼블리셔, 마크업 개발자 등 혼용되어 사용될 때가 종종있습니다. 제가 처음 UI개발자로 일을 시작할 때는, 단순히 HTML, CSS로 페이지를 화면에 만들어내는 일이 대부분이였습니다. 지금 생각해보면 단순 퍼블리싱을 했던 것 같습니다. 성능 및 스타일 최적화, 컴포넌트화 등에 중점을 두기는 했지만, 그 정도가 프론트앤드 전">
+    <meta name="description" content="액션은 스토어에서 상태 변화를 일으킬 때 참조하는 객체입니다. 이 객체는 type 값을 반드시 가지고 있어야 합니다. 아래와 같은 액션은 상태값에 존재하는 수치를 증가 시키는데 사용되며 이 값을 어떻게 업데이트 할지는 리듀서 함수에서 정의합니다. 123&amp;#123; type: &quot;INCREMENT&quot;&amp;#125; 액션을 좀 더 편하게 사용하기 위해서 액션 생성함">
 <meta property="og:type" content="article">
-<meta property="og:title" content="웹퍼블리셔, UI개발자 그리고 UX Engineer">
-<meta property="og:url" content="https://shlee1353.github.io/2019/11/15/ux-engineer/index.html">
+<meta property="og:title" content="리액트 리덕스(Redux)기본 개념 및 사용방법">
+<meta property="og:url" content="https://shlee1353.github.io/2020/01/30/react-redux-basic/index.html">
 <meta property="og:site_name" content="Ryan Lee">
-<meta property="og:description" content="IT계열 구직 사이트를 보면, 웹퍼블리셔, 마크업 개발자 등 혼용되어 사용될 때가 종종있습니다. 제가 처음 UI개발자로 일을 시작할 때는, 단순히 HTML, CSS로 페이지를 화면에 만들어내는 일이 대부분이였습니다. 지금 생각해보면 단순 퍼블리싱을 했던 것 같습니다. 성능 및 스타일 최적화, 컴포넌트화 등에 중점을 두기는 했지만, 그 정도가 프론트앤드 전">
+<meta property="og:description" content="액션은 스토어에서 상태 변화를 일으킬 때 참조하는 객체입니다. 이 객체는 type 값을 반드시 가지고 있어야 합니다. 아래와 같은 액션은 상태값에 존재하는 수치를 증가 시키는데 사용되며 이 값을 어떻게 업데이트 할지는 리듀서 함수에서 정의합니다. 123&amp;#123; type: &quot;INCREMENT&quot;&amp;#125; 액션을 좀 더 편하게 사용하기 위해서 액션 생성함">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://shlee1353.github.io/image/ux-engineer/0.jpg">
-<meta property="og:updated_time" content="2019-11-18T07:05:22.018Z">
+<meta property="og:image" content="https://shlee1353.github.io/image/react-redux-basic/1.png">
+<meta property="og:updated_time" content="2020-01-30T08:43:52.270Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="웹퍼블리셔, UI개발자 그리고 UX Engineer">
-<meta name="twitter:description" content="IT계열 구직 사이트를 보면, 웹퍼블리셔, 마크업 개발자 등 혼용되어 사용될 때가 종종있습니다. 제가 처음 UI개발자로 일을 시작할 때는, 단순히 HTML, CSS로 페이지를 화면에 만들어내는 일이 대부분이였습니다. 지금 생각해보면 단순 퍼블리싱을 했던 것 같습니다. 성능 및 스타일 최적화, 컴포넌트화 등에 중점을 두기는 했지만, 그 정도가 프론트앤드 전">
-<meta name="twitter:image" content="https://shlee1353.github.io/image/ux-engineer/0.jpg">
+<meta name="twitter:title" content="리액트 리덕스(Redux)기본 개념 및 사용방법">
+<meta name="twitter:description" content="액션은 스토어에서 상태 변화를 일으킬 때 참조하는 객체입니다. 이 객체는 type 값을 반드시 가지고 있어야 합니다. 아래와 같은 액션은 상태값에 존재하는 수치를 증가 시키는데 사용되며 이 값을 어떻게 업데이트 할지는 리듀서 함수에서 정의합니다. 123&amp;#123; type: &quot;INCREMENT&quot;&amp;#125; 액션을 좀 더 편하게 사용하기 위해서 액션 생성함">
+<meta name="twitter:image" content="https://shlee1353.github.io/image/react-redux-basic/1.png">
     
-    <link rel="canonical" href="https://shlee1353.github.io/2019/11/15/ux-engineer/"/>
+    <link rel="canonical" href="https://shlee1353.github.io/2020/01/30/react-redux-basic/"/>
     
         <link rel="alternate" href="/" title="Ryan Lee" type="application/atom+xml" />
     
@@ -146,7 +146,7 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/etc/">etc</a>
+    <a class="page-title-link" href="/categories/React/">React</a>
     </h1>
 </div>
 
@@ -156,14 +156,14 @@ ga('send', 'pageview');
  data-ad-width   = "300" 
  data-ad-height  = "250"></ins> 
 <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-                            <article id="post-ux-engineer" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-react-redux-basic" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        웹퍼블리셔, UI개발자 그리고 UX Engineer
+        리액트 리덕스(Redux)기본 개념 및 사용방법
         </h1>
     
 
@@ -173,8 +173,8 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/11/15/ux-engineer/" class="article-date">
-            <time datetime="2019-11-15T04:09:05.000Z" itemprop="datePublished">2019-11-15</time>
+        <a href="/2020/01/30/react-redux-basic/" class="article-date">
+            <time datetime="2020-01-30T02:26:19.000Z" itemprop="datePublished">2020-01-30</time>
         </a>
     </div>
 
@@ -185,24 +185,33 @@ ga('send', 'pageview');
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><img src="/image/ux-engineer/0.jpg" alt=""></p>
-<p>IT계열 구직 사이트를 보면, 웹퍼블리셔, 마크업 개발자 등 혼용되어 사용될 때가 종종있습니다. 제가 처음 UI개발자로 일을 시작할 때는, 단순히 HTML, CSS로 페이지를 화면에 만들어내는 일이 대부분이였습니다. 지금 생각해보면 단순 퍼블리싱을 했던 것 같습니다. 성능 및 스타일 최적화, 컴포넌트화 등에 중점을 두기는 했지만, 그 정도가 프론트앤드 전반으로 보면 아주 미미한 정도였던 것 같습니다.</p>
-<p>최근들어, 구글, 페이스북, 아마존, 마이크로소프트 같은 기업에서는 UX Engineer라는 직업을 채용하고 있습니다. UX Engineer 생소하신가요? </p>
-<blockquote>
-<p>A UX Engineer (UXE) is a Front-End Engineer who sits on a cross-functional design team and helps facilitate collaboration between design and engineering.</p>
-</blockquote>
-<p><img src="/image/ux-engineer/1.png" alt=""></p>
-<p>현재, UI개발자 또는 마크업 개발자가 진행하는 업무를 지칭하는 용어입니다. 프론트앤드 영역에서도 디자이너와 개발자 사이에서 프로젝트를 진행 및 조율하는 업무를 담당하고 있습니다. 디자인 영역 뿐만 아니라, 개발적 지식까지 고루 겸비해야 하며, 중개자 역할로서 프로젝트 일정 조율은 물론 성능 최적화까지 생각해야합니다.</p>
-<p><img src="/image/ux-engineer/2.png" alt=""><br>몇 년전까지만 해도, 웹퍼블리셔 또는 마크업 개발자는 단순히 디자인을 코드로 구현하는데 집중했다면, 지금은 빠르게 변해가는 웹 프론트앤드 생태계로 인하여 많은 케이스들(최적화, 랜더링, 접근성, 컴포넌트화, 데이터)을 고려해야 합니다. </p>
-<p>특히, 리액트, 앵귤러, 뷰와 같은 자바스크립트 라이브러리/프레임워크 등장으로 기존 웹퍼블리셔/마크업 개발자가 개발쪽 영역에 한걸음 더 들어갔습니다. 같은 개발환경과 코드를 공유하기 때문에 이전보다 더욱더 많은 웹개발 지식을 요구하게 되었습니다. 클라이언트에서 전체적인 데이터 흐름을 관리하는 아키텍쳐 구성을 제외하고는 자바스크립에 익숙하다면 이제 UI개발은 물론, 복잡한 인터렉션까지 구현하여 실 서비스에 배포할 수 있게 되었습니다. 이미 해외에서는 이러한 변화를 감지하고 UX Engineer라는 직업이 최근 몇년전 부터 생기기 시작했고, 세계적인 IT기업들은 이미 이 분야의 전문 인력을 채용하기 시작했습니다.</p>
-
+            <p><img src="/image/react-redux-basic/1.png" alt=""></p>
+<p>액션은 스토어에서 상태 변화를 일으킬 때 참조하는 객체입니다. 이 객체는 type 값을 반드시 가지고 있어야 합니다. 아래와 같은 액션은 상태값에 존재하는 수치를 증가 시키는데 사용되며 이 값을 어떻게 업데이트 할지는 리듀서 함수에서 정의합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> type: <span class="string">"INCREMENT"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>액션을 좀 더 편하게 사용하기 위해서 액션 생성함수(action creator)를 사용합니다. 이 함수는 액션 타입을 상수 값으로 정해 주면 됩니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> INCREMENT = <span class="string">'INCREMENT'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> increment = <span class="function">(<span class="params">diff</span>) =&gt;</span> (&#123;</span><br><span class="line">  type: INCREMENT,</span><br><span class="line">  diff: diff</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>태에 변화를 일으키려면 리듀서 함수가 필요합니다. 두개의 파라미터를 받으며 첫 번째는 현재 상태이며, 두 번째는 액션 객체입니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> initialState = &#123;</span><br><span class="line"> number: <span class="number">1</span>,</span><br><span class="line"> foo: <span class="string">'bar'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params">state = initialState, action</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">switch</span>(action.type) &#123;</span><br><span class="line">  <span class="keyword">case</span> INCREMENT:</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;, state, &#123;</span><br><span class="line">   number: state.number + action.diff</span><br><span class="line">  &#125;)</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>상태값을 업데이트 할때 <code>Object.assign(target, …sources)</code>를 사용하면 기존의 값을 보존한 체 원하는 값만 업데이트 할 수 있습니다. 전개 연산자를 사용하면, 더욱더 깔끔하게 작성이 가능합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> &#123;</span><br><span class="line">   ...state,</span><br><span class="line">   number: state.number + action.diff</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>액션과 리듀서가 준비되면 리덕스 스토어 생성을 합니다. 스토어를 생성할 때는 createStore 함수를 사용하며 파라미터로 리듀서 함수가 들어갑니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; createStore &#125; = Redux;</span><br><span class="line"><span class="keyword">const</span> store = createStore(counter);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> unsubscribe = store.subscribe(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(store.getState())</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">store.dispatch(increment(<span class="number">3</span>))</span><br><span class="line">store.dispatch(increment(<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+<p>스토어를 구독할 때는 subscribe를 사용하며 미리 만들어 놓은 액션들은 dispatch를 통해 스토어에 추가할 수 있습니다. 실무에서는 react-redux 라이브러리에 내장된 Provider를 통해서 손쉽게 스토어로 연결이 가능합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</span><br><span class="line"><span class="keyword">import</span> reducers <span class="keyword">from</span> <span class="string">'./reducers'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = createStore(reducers);</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line"> &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">  &lt;App/ &gt;</span><br><span class="line"> &lt;<span class="regexp">/Provider&gt;,document.getElementById('root')</span></span><br><span class="line"><span class="regexp">)</span></span><br></pre></td></tr></table></figure>
+<p>그 다음으로 react-redux 라이브러리의 connect 함수를 사용하여 컴포넌트와 연결을 합니다. 각각의 파리미터의 용도를 살펴보도록 하겠습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect([mapStateToProps], [mapDispatchToProps], [mergeProps])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>mapStateToProps: store.getState() 결과 값인 state를 파라미터로 받아 컴포넌트의 props로 사용할 객체를 반환합니다.</li>
+<li>mapDispatchToProps: dispatch를 파라미터로 받아 액션을 디스패치하는 함수들을 객체 안에 넣어서 반환합니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mapStateToProps = <span class="function">(<span class="params">state, ownProps</span>) =&gt;</span> &#123;</span><br><span class="line"> color: state.color,</span><br><span class="line"> number: state.number,</span><br><span class="line"> todo: state.todos[ownProps.id]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> mapDispatchToProps = <span class="function">(<span class="params">dispatch</span>) =&gt;</span> &#123;</span><br><span class="line"> onIncrement: <span class="function"><span class="params">action</span> =&gt;</span> dispatch(increment(action))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://shlee1353.github.io/2019/11/15/ux-engineer/" data-id="ck5qj6yqe000mqfdycrqnjt1k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://shlee1353.github.io/2020/01/30/react-redux-basic/" data-id="ck604aegu0000vudye4ondn8t" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -272,21 +281,23 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Ryan Lee"
         },
-        "headline": "웹퍼블리셔, UI개발자 그리고 UX Engineer",
-        "image": "https://shlee1353.github.io/image/ux-engineer/0.jpg",
+        "headline": "리액트 리덕스(Redux)기본 개념 및 사용방법",
+        "image": "https://shlee1353.github.io/image/react-redux-basic/1.png",
         "keywords": "",
-        "genre": "etc",
-        "datePublished": "2019-11-15",
-        "dateCreated": "2019-11-15",
-        "dateModified": "2019-11-18",
-        "url": "https://shlee1353.github.io/2019/11/15/ux-engineer/",
+        "genre": "React",
+        "datePublished": "2020-01-30",
+        "dateCreated": "2020-01-30",
+        "dateModified": "2020-01-30",
+        "url": "https://shlee1353.github.io/2020/01/30/react-redux-basic/",
         "description": "
-IT계열 구직 사이트를 보면, 웹퍼블리셔, 마크업 개발자 등 혼용되어 사용될 때가 종종있습니다. 제가 처음 UI개발자로 일을 시작할 때는, 단순히 HTML, CSS로 페이지를 화면에 만들어내는 일이 대부분이였습니다. 지금 생각해보면 단순 퍼블리싱을 했던 것 같습니다. 성능 및 스타일 최적화, 컴포넌트화 등에 중점을 두기는 했지만, 그 정도가 프론트앤드 전",
-        "wordCount": 231,
+액션은 스토어에서 상태 변화를 일으킬 때 참조하는 객체입니다. 이 객체는 type 값을 반드시 가지고 있어야 합니다. 아래와 같은 액션은 상태값에 존재하는 수치를 증가 시키는데 사용되며 이 값을 어떻게 업데이트 할지는 리듀서 함수에서 정의합니다.
+123&#123; type: "INCREMENT"&#125;
+액션을 좀 더 편하게 사용하기 위해서 액션 생성함",
+        "wordCount": 473,
         "publisher": "Ryan Lee",
         "mainEntityOfPage": {
             "@type": "Webpage",
-            "@id": "https://shlee1353.github.io/2019/11/15/ux-engineer/"
+            "@id": "https://shlee1353.github.io/2020/01/30/react-redux-basic/"
         }
     }
 </script>
@@ -367,20 +378,10 @@ IT계열 구직 사이트를 보면, 웹퍼블리셔, 마크업 개발자 등 �
         
 <nav id="article-nav">
     
-        <a href="/2020/01/30/react-redux-basic/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            리액트 리덕스(Redux)기본 개념 및 사용방법
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2019/11/08/js-promise-async/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/11/15/ux-engineer/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">자바스크립트 비동기 프로그래밍 (promise, async, await) 정리</p>
+        <p class="article-nav-title">웹퍼블리셔, UI개발자 그리고 UX Engineer</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -580,7 +581,7 @@ IT계열 구직 사이트를 보면, 웹퍼블리셔, 마크업 개발자 등 �
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://shlee1353.github.io/2019/11/15/ux-engineer/';
+    var disqus_url = 'https://shlee1353.github.io/2020/01/30/react-redux-basic/';
     
     (function() {
     var dsq = document.createElement('script');
