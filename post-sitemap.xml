@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://shlee1353.github.io/2020/02/04/react-immutable-redux/</loc>
+        <lastmod>2020-02-04T01:49:05.329Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://shlee1353.github.io/2020/01/30/react-redux-basic/</loc>
         <lastmod>2020-01-30T08:43:52.270Z</lastmod>
         <changefreq>weekly</changefreq>
